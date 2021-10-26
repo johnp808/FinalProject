@@ -30,13 +30,6 @@ public class Weather {
 	@Column(name="wave_size")
 	private String waveSize;
 	
-	@Column(name="user_id")
-	private int userId;
-	
-	@Column(name="beach_id")
-	private int beachId;
-	
-	
 
 	public Weather() {
 		super();
@@ -90,23 +83,6 @@ public class Weather {
 	public void setWaveSize(String waveSize) {
 		this.waveSize = waveSize;
 	}
-
-	public int getUserId() {
-		return userId;
-	}
-
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
-
-	public int getBeachId() {
-		return beachId;
-	}
-
-	public void setBeachId(int beachId) {
-		this.beachId = beachId;
-	}
-
 	
 	@Override
 	public int hashCode() {
@@ -125,18 +101,13 @@ public class Weather {
 		return id == other.id;
 	}
 
+
 	@Override
 	public String toString() {
 		return "Weather [id=" + id + ", weatherType=" + weatherType + ", description=" + description
 				+ ", temperatureCelsius=" + temperatureCelsius + ", created=" + created + ", waveSize=" + waveSize
-				+ ", userId=" + userId + ", beachId=" + beachId + "]";
-	}
-	
-	
+				+ "]";
+	}	
 
-	
-	
-
-	
 
 }
