@@ -14,7 +14,7 @@ class ReportCommentTest {
 	
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private Report report;
+	private ReportComment reportComment;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -29,20 +29,20 @@ class ReportCommentTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		report = em.find(Report.class, 1);
+		reportComment = em.find(ReportComment.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		report = null;
+		reportComment = null;
 	}
 
 	@Test
 	void test() {
-		assertNotNull(report);
-		assertEquals("A good family beach", report.getComment());
-		assertEquals(3, report.getRating());
+		assertNotNull(reportComment);
+		assertEquals("lovely day!", reportComment.getComment());
+		assertEquals(10, reportComment.getCommentDate().getMonthValue());
 	}
 
 }
