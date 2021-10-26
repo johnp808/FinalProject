@@ -384,3 +384,23 @@ INSERT INTO `inclement_condition` (`name`, `id`, `description`) VALUES ('hurrica
 
 COMMIT;
 
+
+-- -----------------------------------------------------
+-- Data for table `report_comment`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `wavesdb`;
+INSERT INTO `report_comment` (`id`, `comment`, `comment_date`, `report_id`, `user_id`, `comment_reply_to_id`) VALUES (1, 'lovely day!', '2021-10-03 10:59:52 ', 1, 1, 1);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `weather_comment`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `wavesdb`;
+INSERT INTO `weather_comment` (`id`, `comment`, `comment_date`, `weather_id`, `user_id`, `weather_comment_id`) VALUES (1, 'sunny and breezy', '2021-10-03 10:59:52 ', 1, 1, 1);
+
+COMMIT;
+
