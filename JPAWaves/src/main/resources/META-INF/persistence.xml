@@ -9,6 +9,7 @@
     </provider>
 
 		<class>com.skilldistillery.waves.entities.User</class>
+		<class>com.skilldistillery.waves.entities.Beach</class>
 
 		<properties>
 			<property name="javax.persistence.jdbc.url"
