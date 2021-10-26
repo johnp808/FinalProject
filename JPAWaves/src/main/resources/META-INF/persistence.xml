@@ -9,6 +9,10 @@
     </provider>
 
 		<class>com.skilldistillery.waves.entities.User</class>
+
+		<class>com.skilldistillery.waves.entities.Beach</class>
+
+
 		<class>com.skilldistillery.waves.entities.Report</class>
 		<class>com.skilldistillery.waves.entities.Weather</class>
 		<class>com.skilldistillery.waves.entities.WeatherComment</class>
