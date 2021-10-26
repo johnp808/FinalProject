@@ -2,6 +2,7 @@ package com.skilldistillery.waves.entities;
 
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,6 +19,9 @@ public class User {
 	private String password;
 	private Boolean enabled;
 	private String role;
+	@Column (name ="profile_image")
+	private String profileImage;
+	
 
 	public User() {
 		super();
