@@ -43,7 +43,7 @@ class WeatherCommentTest {
 	@Test
 	void test() {
 		assertNotNull(weatherComment);
-		assertEquals("cindy", weatherComment.getComment());
+		assertEquals("sunny and breezy", weatherComment.getComment());
 	}
 
 
