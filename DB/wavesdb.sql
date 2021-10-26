@@ -330,7 +330,13 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `wavesdb`;
-INSERT INTO `user` (`id`, `username`, `password`, `profile_image`, `role`, `enabled`, `location_id`) VALUES (DEFAULT, 'cindy', 'cindy', NULL, 'admin', 1, 1);
+INSERT INTO `user` (`id`, `username`, `password`, `profile_image`, `role`, `enabled`, `location_id`) VALUES (1, 'cindy', 'cindy', 'https://www.serebii.net/pokemon/art/248.png', 'admin', 1, 1);
+INSERT INTO `user` (`id`, `username`, `password`, `profile_image`, `role`, `enabled`, `location_id`) VALUES (2, 'john', 'john', 'https://i.pinimg.com/550x/55/53/3a/55533ab148194fed637737e48d24c731.jpg', 'admin', 1, 1);
+INSERT INTO `user` (`id`, `username`, `password`, `profile_image`, `role`, `enabled`, `location_id`) VALUES (3, 'yanyan', 'yanyan', 'https://media-exp1.licdn.com/dms/image/D4E35AQH7Knjs6afHSA/profile-framedphoto-shrink_400_400/0/1634669537317?e=1635379200&v=beta&t=GVt7On3ZMHjgndjeIjLnCG1aOkxDA7aNGp0iZDAPVp0', 'admin', 1, 1);
+INSERT INTO `user` (`id`, `username`, `password`, `profile_image`, `role`, `enabled`, `location_id`) VALUES (4, 'kristin', 'kristin', 'https://3.bp.blogspot.com/-8FOB8-elTOE/WyOg7Y5hjVI/AAAAAAAAJyE/mYUG9TgTLZEbUC2yVsBOMtBRu_27-PT0wCLcBGAs/s1600/Photo%2B1_Parrotfiswh%2Bbeak.jpg', 'admin', 1, 1);
+INSERT INTO `user` (`id`, `username`, `password`, `profile_image`, `role`, `enabled`, `location_id`) VALUES (5, 'fred', '123', 'https://bloximages.newyork1.vip.townnews.com/dothaneagle.com/content/tncms/assets/v3/editorial/8/d4/8d4ed5ee-9429-11eb-9009-6f890de4cad2/6067dbb505f6a.image.jpg?resize=1200%2C800', 'user', 1, 1);
+INSERT INTO `user` (`id`, `username`, `password`, `profile_image`, `role`, `enabled`, `location_id`) VALUES (6, 'alicia', '123', 'https://www.edenbrothers.com/store/media/Bulbs-Flowers/resized/Calla-Captain-Ventura-2_medium.jpg', 'user', 1, 1);
+INSERT INTO `user` (`id`, `username`, `password`, `profile_image`, `role`, `enabled`, `location_id`) VALUES (7, 'stormy', '123', 'https://www.thelabradorsite.com/wp-content/uploads/2021/09/Black-Lab-Chow-Mix-LS-tall.jpg', 'user', 1, 1);
 
 COMMIT;
 
