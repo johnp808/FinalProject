@@ -14,6 +14,9 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 public class User {
 
@@ -52,6 +55,7 @@ public class User {
 	 @JoinTable(name="favorites",
 	 joinColumns = @JoinColumn(name="user_id"),
 	 inverseJoinColumns = @JoinColumn(name="beach_id"))
+	@JsonIgnoreProperties({"favoritedUsers"})
 	 private List<Beach> beachFavorites;
 
 	
