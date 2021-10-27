@@ -1,11 +1,17 @@
 package com.skilldistillery.waves.entities;
 
+import java.util.List;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="beach_setting")
@@ -17,6 +23,14 @@ public class BeachSetting {
 	
 	private String name;
 	private String description;
+	
+	@JsonIgnore
+	@ManyToMany(cascade=CascadeType.PERSIST)
+	@JoinTable(name="beach_has_beach_setting",
+			joinColumns=@JoinColumn(name="beach_setting_id"),
+			inverseJoinColumns=@JoinColumn(name="beach_id")
+			)
+	private List<Beach> beaches;
 	
 	public BeachSetting() {
 		super();
@@ -41,6 +55,13 @@ public class BeachSetting {
 	}
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public List<Beach> getBeaches() {
+		return beaches;
+	}
+	public void setBeaches(List<Beach> beaches) {
+		this.beaches = beaches;
 	}
 
 	@Override

@@ -1,5 +1,6 @@
 package com.skilldistillery.waves.entities;
 
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -7,6 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Beach {
@@ -19,10 +23,9 @@ public class Beach {
 	@Column(name = "default_image")
 	private String defaultImage;
 
-	@Column(name = "location_id")
-	private int locationId;
-
 	private boolean operational;
+	
+	private String hours;
 
 	@Column(name = "pet_friendly")
 	private String petFriendly;
@@ -32,28 +35,18 @@ public class Beach {
 
 	@Column(name = "price_of_admission")
 	private String priceOfAdmission;
-	@Override
-	public int hashCode() {
-		return Objects.hash(id);
-	}
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Beach other = (Beach) obj;
-		return id == other.id;
-	}
-	@Override
-	public String toString() {
-		return "Beach [id=" + id + ", name=" + name + ", description=" + description + ", defaultImage=" + defaultImage
-				+ ", locationId=" + locationId + ", operational=" + operational + ", petFriendly=" + petFriendly
-				+ ", parkingAvailable=" + parkingAvailable + ", priceOfAdmission=" + priceOfAdmission + ", hours="
-				+ hours + "]";
-	}
+	
+	@ManyToMany(mappedBy="beaches")
+	private List<BeachSetting> beachSettings;
+	
+	@ManyToMany(mappedBy="beaches")
+	private List<InclementCondition> inclementConditions;
+	
+	@OneToOne
+    @JoinColumn(name="location_id")
+    private Location location;
+	
+	
 	public Beach() {
 		super();
 	}
@@ -80,12 +73,6 @@ public class Beach {
 	}
 	public void setDefaultImage(String defaultImage) {
 		this.defaultImage = defaultImage;
-	}
-	public int getLocationId() {
-		return locationId;
-	}
-	public void setLocationId(int locationId) {
-		this.locationId = locationId;
 	}
 	public boolean isOperational() {
 		return operational;
@@ -117,6 +104,45 @@ public class Beach {
 	public void setHours(String hours) {
 		this.hours = hours;
 	}
-	private String hours;
-	
+	public List<BeachSetting> getBeachSettings() {
+		return beachSettings;
+	}
+	public void setBeachSettings(List<BeachSetting> beachSettings) {
+		this.beachSettings = beachSettings;
+	}
+	public List<InclementCondition> getInclementConditions() {
+		return inclementConditions;
+	}
+	public void setInclementConditions(List<InclementCondition> inclementConditions) {
+		this.inclementConditions = inclementConditions;
+	}
+
+	public Location getLocation() {
+		return location;
+	}
+	public void setLocation(Location location) {
+		this.location = location;
+	}
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Beach other = (Beach) obj;
+		return id == other.id;
+	}
+	@Override
+	public String toString() {
+		return "Beach [id=" + id + ", name=" + name + ", description=" + description + ", defaultImage=" + defaultImage
+				+ ", operational=" + operational + ", petFriendly=" + petFriendly
+				+ ", parkingAvailable=" + parkingAvailable + ", priceOfAdmission=" + priceOfAdmission + ", hours="
+				+ hours + "]";
+	}
 }

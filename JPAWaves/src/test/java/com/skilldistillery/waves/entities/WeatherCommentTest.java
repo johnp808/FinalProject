@@ -45,6 +45,14 @@ class WeatherCommentTest {
 		assertNotNull(weatherComment);
 		assertEquals("sunny and breezy", weatherComment.getComment());
 	}
+	@Test
+	void test_oneTomany_comments() {
+		assertNotNull(weatherComment);
+		assertNotNull(weatherComment.getWeatherComments());
+		assertTrue(weatherComment.getWeatherComments().size() > 0);
+		assertEquals(1, weatherComment.getWeatherComments().size());
+
+	}
 
 
 }
