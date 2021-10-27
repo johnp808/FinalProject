@@ -1,8 +1,6 @@
 package com.skilldistillery.waves.entities;
 
-import java.time.LocalDateTime;
 import java.util.Objects;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,51 +8,45 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "weather_comment")
-public class WeatherComment {
+@Table(name="beach_setting")
+public class BeachSetting {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	private String comment;
+	private String name;
+	private String description;
 	
-	@Column(name="comment_date")
-	private LocalDateTime commentDate;
-
-	public WeatherComment() {
+	public BeachSetting() {
 		super();
 	}
 
 	public int getId() {
 		return id;
 	}
-
 	public void setId(int id) {
 		this.id = id;
 	}
 
-	public String getComment() {
-		return comment;
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public void setComment(String comment) {
-		this.comment = comment;
+	public String getDescription() {
+		return description;
 	}
-
-	public LocalDateTime getCommentDate() {
-		return commentDate;
-	}
-
-	public void setCommentDate(LocalDateTime commentDate) {
-		this.commentDate = commentDate;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
 	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -63,13 +55,13 @@ public class WeatherComment {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		WeatherComment other = (WeatherComment) obj;
+		BeachSetting other = (BeachSetting) obj;
 		return id == other.id;
 	}
 
 	@Override
 	public String toString() {
-		return "WeatherComment [id=" + id + ", comment=" + comment + ", commentDate=" + commentDate + "]";
+		return "BeachSetting [id=" + id + ", name=" + name + ", description=" + description + "]";
 	}
-
+	
 }

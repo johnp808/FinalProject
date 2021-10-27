@@ -13,6 +13,7 @@
 		<class>com.skilldistillery.waves.entities.Weather</class>
 		<class>com.skilldistillery.waves.entities.WeatherComment</class>
 		<class>com.skilldistillery.waves.entities.Location</class>
+		<class>com.skilldistillery.waves.entities.BeachSetting</class>
 		<class>com.skilldistillery.waves.entities.InclementCondition</class>
 		
 		<properties>
