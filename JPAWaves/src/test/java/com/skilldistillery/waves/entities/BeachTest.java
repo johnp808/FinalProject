@@ -48,6 +48,13 @@ class BeachTest {
 		assertNotNull(beach);
 		assertEquals("Lake Worth Municipal Beach", beach.getName());
 	}
+	@Test
+	@DisplayName("Test One To One Location to Beach")
+	void test2() {
+		assertNotNull(beach);
+		assertEquals("10 S Ocean Blvd", beach.getLocation().getStreet());
+		assertEquals("33460", beach.getLocation().getZip());
+	}
 
 	@Test
 	@DisplayName("testing mapping beach to beachSetting")
