@@ -1,12 +1,19 @@
 package com.skilldistillery.waves.entities;
 
+import java.util.List;
 import java.util.Objects;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "inclement_condition")
@@ -21,7 +28,13 @@ public class InclementCondition {
 	
 	private String description;
 	
-	
+	@JsonIgnore
+	@ManyToMany(cascade=CascadeType.PERSIST)
+	@JoinTable(name="inclement_condition_has_beach",
+			joinColumns=@JoinColumn(name="inclement_condition_id"),
+			inverseJoinColumns=@JoinColumn(name="beach_id")
+			)
+	private List<Beach> beaches;
 
 	public InclementCondition() {
 		super();
@@ -49,6 +62,14 @@ public class InclementCondition {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	
+	public List<Beach> getBeaches() {
+		return beaches;
+	}
+
+	public void setBeaches(List<Beach> beaches) {
+		this.beaches = beaches;
 	}
 
 	@Override

@@ -1,5 +1,6 @@
 package com.skilldistillery.waves.entities;
 
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -7,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Beach {
@@ -32,6 +34,13 @@ public class Beach {
 
 	@Column(name = "price_of_admission")
 	private String priceOfAdmission;
+	
+	@ManyToMany(mappedBy="beaches")
+	private List<BeachSetting> beachSettings;
+	
+	@ManyToMany(mappedBy="beaches")
+	private List<InclementCondition> inclementConditions;
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
@@ -117,6 +126,20 @@ public class Beach {
 	public void setHours(String hours) {
 		this.hours = hours;
 	}
+	public List<BeachSetting> getBeachSettings() {
+		return beachSettings;
+	}
+	public void setBeachSettings(List<BeachSetting> beachSettings) {
+		this.beachSettings = beachSettings;
+	}
+	public List<InclementCondition> getInclementConditions() {
+		return inclementConditions;
+	}
+	public void setInclementConditions(List<InclementCondition> inclementConditions) {
+		this.inclementConditions = inclementConditions;
+	}
+
+
 	private String hours;
 	
 }
