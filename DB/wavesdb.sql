@@ -321,6 +321,13 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 START TRANSACTION;
 USE `wavesdb`;
 INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip`) VALUES (1, '8751 sand lake ct', 'lake worth', 'fl', '33467');
+INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip`) VALUES (2, '6620 North Ocean Boulevard', 'Ocean Ridge', 'fl', '33435');
+INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip`) VALUES (3, '6990 N. Ocean Boulevard', 'Ocean Ridge', 'fl', '33435');
+INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip`) VALUES (4, '4489 N. Ocean Boulevard', 'Gulfstream', 'fl', '33483');
+INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip`) VALUES (5, '10 S Ocean Blvd', 'Lake Worth', 'fl', '33460');
+INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip`) VALUES (6, '2010 N Federal Hwy', 'Boynton Beach', 'fl', '33435');
+INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip`) VALUES (7, '700 NE 4th Ave', 'Boyton Beach', 'fl', '33435');
+INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip`) VALUES (8, '300 Boynton Lakes Boulevard', 'Boynton Beach', 'fl', '33435');
 
 COMMIT;
 
@@ -332,7 +339,7 @@ START TRANSACTION;
 USE `wavesdb`;
 INSERT INTO `user` (`id`, `username`, `password`, `profile_image`, `role`, `enabled`, `location_id`) VALUES (1, 'cindy', 'cindy', 'https://www.serebii.net/pokemon/art/248.png', 'admin', 1, 1);
 INSERT INTO `user` (`id`, `username`, `password`, `profile_image`, `role`, `enabled`, `location_id`) VALUES (2, 'john', 'john', 'https://i.pinimg.com/550x/55/53/3a/55533ab148194fed637737e48d24c731.jpg', 'admin', 1, 1);
-INSERT INTO `user` (`id`, `username`, `password`, `profile_image`, `role`, `enabled`, `location_id`) VALUES (3, 'yanyan', 'yanyan', 'https://media-exp1.licdn.com/dms/image/D4E35AQH7Knjs6afHSA/profile-framedphoto-shrink_400_400/0/1634669537317?e=1635379200&v=beta&t=GVt7On3ZMHjgndjeIjLnCG1aOkxDA7aNGp0iZDAPVp0', 'admin', 1, 1);
+INSERT INTO `user` (`id`, `username`, `password`, `profile_image`, `role`, `enabled`, `location_id`) VALUES (3, 'yanyan', 'yanyan', 'https://cdn1.vectorstock.com/i/1000x1000/03/45/cute-fish-cartoon-vector-1430345.jpg', 'admin', 1, 1);
 INSERT INTO `user` (`id`, `username`, `password`, `profile_image`, `role`, `enabled`, `location_id`) VALUES (4, 'kristin', 'kristin', 'https://3.bp.blogspot.com/-8FOB8-elTOE/WyOg7Y5hjVI/AAAAAAAAJyE/mYUG9TgTLZEbUC2yVsBOMtBRu_27-PT0wCLcBGAs/s1600/Photo%2B1_Parrotfiswh%2Bbeak.jpg', 'admin', 1, 1);
 INSERT INTO `user` (`id`, `username`, `password`, `profile_image`, `role`, `enabled`, `location_id`) VALUES (5, 'fred', '123', 'https://bloximages.newyork1.vip.townnews.com/dothaneagle.com/content/tncms/assets/v3/editorial/8/d4/8d4ed5ee-9429-11eb-9009-6f890de4cad2/6067dbb505f6a.image.jpg?resize=1200%2C800', 'user', 1, 1);
 INSERT INTO `user` (`id`, `username`, `password`, `profile_image`, `role`, `enabled`, `location_id`) VALUES (6, 'alicia', '123', 'https://www.edenbrothers.com/store/media/Bulbs-Flowers/resized/Calla-Captain-Ventura-2_medium.jpg', 'user', 1, 1);
@@ -346,7 +353,13 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `wavesdb`;
-INSERT INTO `beach` (`id`, `name`, `description`, `default_image`, `location_id`, `operational`, `pet_friendly`, `parking_available`, `price_of_admission`, `hours`) VALUES (1, 'Lake Worth Municipal Beach', 'Stand on the famous pier to watch a new sunrise. If you are an early riser, enjoy breakfast at Bennie’s and watch the surfers or beachgoers. There is a Casino building close by with shops and restaurants for all day fun. Then, go over the bridge to Bohemian, a bit-off-kilter downtown Lake Worth.', 'https://www.thepalmbeaches.com/sites/default/files/styles/profile_slideshow_xl/public/mmg_lfef_images/lake-worth-municipal-beach-41312-24c96632d6965d0332d2d615771cac27.jpg?itok=h7RMpqDH', 1, 1, 'no', 'yes', '5', '9 am-7 pm');
+INSERT INTO `beach` (`id`, `name`, `description`, `default_image`, `location_id`, `operational`, `pet_friendly`, `parking_available`, `price_of_admission`, `hours`) VALUES (1, 'Lake Worth Municipal Beach', 'Stand on the famous pier to watch a new sunrise. If you are an early riser, enjoy breakfast at Bennie’s and watch the surfers or beachgoers. There is a Casino building close by with shops and restaurants for all day fun. Then, go over the bridge to Bohemian, a bit-off-kilter downtown Lake Worth.', 'https://www.thepalmbeaches.com/sites/default/files/styles/profile_slideshow_xl/public/mmg_lfef_images/lake-worth-municipal-beach-41312-24c96632d6965d0332d2d615771cac27.jpg?itok=h7RMpqDH', 5, 1, 'no', 'yes', '5', '9 am-7 pm');
+INSERT INTO `beach` (`id`, `name`, `description`, `default_image`, `location_id`, `operational`, `pet_friendly`, `parking_available`, `price_of_admission`, `hours`) VALUES (2, 'Ocean Ridge Hammock Park', 'Accessed by a wooded trail, this secluded area offers an unguarded beach area, swimming & fishing.', 'https://discover.pbcgov.org/parks/SiteImages/Parks/OceanRidgeHammock/01.jpg', 2, 1, 'yes', 'yes', '0', 'Sunrise-Sunset');
+INSERT INTO `beach` (`id`, `name`, `description`, `default_image`, `location_id`, `operational`, `pet_friendly`, `parking_available`, `price_of_admission`, `hours`) VALUES (3, 'Ocean Inlet Park', 'TBD', 'https://discover.pbcgov.org/parks/SiteImages/Parks/OceanInlet/01.jpg', 3, 1, 'yes', 'yes', '0', 'Sunrise-Sunset');
+INSERT INTO `beach` (`id`, `name`, `description`, `default_image`, `location_id`, `operational`, `pet_friendly`, `parking_available`, `price_of_admission`, `hours`) VALUES (4, 'Gulfstream Park', 'TBD', 'https://discover.pbcgov.org/parks/SiteImages/Parks/Gulfstream/01.jpg', 4, 1, 'yes', 'yes', '0', 'Sunrise-Sunset');
+INSERT INTO `beach` (`id`, `name`, `description`, `default_image`, `location_id`, `operational`, `pet_friendly`, `parking_available`, `price_of_admission`, `hours`) VALUES (5, 'Harvey E. Oye Jr. Park', 'Oceanfront park beach is open 365 days a year from sunrise to 9:00 p.m; Lifeguards are on duty every day from 9 am – 5 pm. The staff is certified or licensed as First Responders or EMT’s.  Designated surfing and skim board areas are located at the north and south end of the beach. ', 'https://www.boynton-beach.org/sites/default/files/styles/hero_image_style/public/images/Landing%20Pages/Beach/beach%201597%20x%20498.jpg?itok=GoWc7SBf', 6, 1, 'yes', 'yes', '0', '9 am – 5 pm');
+INSERT INTO `beach` (`id`, `name`, `description`, `default_image`, `location_id`, `operational`, `pet_friendly`, `parking_available`, `price_of_admission`, `hours`) VALUES (6, 'Mangrove Park', 'This nature area with wildlife features a suspended walkway over water & interpretive signs.', 'https://www.thepalmbeaches.com/sites/default/files/styles/profile_slideshow_xl/public/mmg_lfef_images/mangrove-park-42313-9dd47b5ae978f8301586c029381e4db4.jpg?itok=MfMPafRf', 7, 0, 'yes', 'yes', '0', 'Sunrise-Sunset');
+INSERT INTO `beach` (`id`, `name`, `description`, `default_image`, `location_id`, `operational`, `pet_friendly`, `parking_available`, `price_of_admission`, `hours`) VALUES (7, 'Boynton Lakes Park', 'This is a neighborhood park that is maintained by the city of Boynton Beach. There is approximately 8 parking spaces and no restrooms. Mainly used by neighborhood families it can be a nice quiet place to play or take bike rides. There is a large open field adjacent to the playground that\'s great for frisbee, football, or soccer games. The playground equipment is mostly for younger kids and the pavilion is very small so not for party use. Swings are both infant and normal so older kids and adults may also swing. ', 'https://www.boynton-beach.org/sites/default/files/styles/hero_image_style/public/images/Landing%20Pages/Parks%20and%20Rec/boynton%20lakes%201567%20x%20498%20.jpg?itok=68eyKJiC', 8, 1, 'yes', 'yes', '0', 'Sunrise-Sunset');
 
 COMMIT;
 
@@ -376,7 +389,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `wavesdb`;
-INSERT INTO `beach_setting` (`name`, `id`, `description`) VALUES ('sandy', DEFAULT, 'sandy with clear water');
+INSERT INTO `beach_setting` (`name`, `id`, `description`) VALUES ('sandy', 1, 'sandy with clear water');
 
 COMMIT;
 
@@ -386,7 +399,27 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `wavesdb`;
-INSERT INTO `inclement_condition` (`name`, `id`, `description`) VALUES ('hurrican season', DEFAULT, 'crazy wind');
+INSERT INTO `inclement_condition` (`name`, `id`, `description`) VALUES ('hurrican season', 1, 'crazy wind');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `beach_has_beach_setting`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `wavesdb`;
+INSERT INTO `beach_has_beach_setting` (`beach_id`, `beach_setting_id`) VALUES (1, 1);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `inclement_condition_has_beach`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `wavesdb`;
+INSERT INTO `inclement_condition_has_beach` (`inclement_condition_id`, `beach_id`) VALUES (1, 2);
 
 COMMIT;
 
