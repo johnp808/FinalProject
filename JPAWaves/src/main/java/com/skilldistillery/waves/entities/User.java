@@ -1,5 +1,6 @@
 package com.skilldistillery.waves.entities;
 
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -8,7 +9,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class User {
@@ -31,6 +35,26 @@ public class User {
 	@ManyToOne
     @JoinColumn(name="location_id")
     private Location location;
+	
+	@OneToMany(mappedBy="user")
+	private List<Weather> weather;
+	
+	@OneToMany(mappedBy="user")
+	private List<WeatherComment> weatherComments;
+	@OneToMany(mappedBy="user")
+	private List<ReportComment> reportComments;
+	@OneToMany(mappedBy="user")
+	private List<Report> reports;
+	
+	
+	
+	@ManyToMany
+	 @JoinTable(name="favorites",
+	 joinColumns = @JoinColumn(name="user_id"),
+	 inverseJoinColumns = @JoinColumn(name="beach_id"))
+	 private List<Beach> beachFavorites;
+
+	
 	
 
 	public User() {
@@ -92,6 +116,46 @@ public class User {
 
 	public void setLocation(Location location) {
 		this.location = location;
+	}
+
+	public List<Weather> getWeather() {
+		return weather;
+	}
+
+	public void setWeather(List<Weather> weather) {
+		this.weather = weather;
+	}
+
+	public List<WeatherComment> getWeatherComments() {
+		return weatherComments;
+	}
+
+	public void setWeatherComments(List<WeatherComment> weatherComments) {
+		this.weatherComments = weatherComments;
+	}
+
+	public List<ReportComment> getReportComments() {
+		return reportComments;
+	}
+
+	public void setReportComments(List<ReportComment> reportComments) {
+		this.reportComments = reportComments;
+	}
+
+	public List<Report> getReports() {
+		return reports;
+	}
+
+	public void setReports(List<Report> reports) {
+		this.reports = reports;
+	}
+
+	public List<Beach> getBeachFavorites() {
+		return beachFavorites;
+	}
+
+	public void setBeachFavorites(List<Beach> beachFavorites) {
+		this.beachFavorites = beachFavorites;
 	}
 
 	@Override
