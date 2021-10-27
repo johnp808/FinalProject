@@ -48,8 +48,19 @@ class ReportTest {
 	@Test
 	void test_report_ManyToOne_beach_mapping() {
 		assertNotNull(report);
-		assertEquals("A good family beach", report.getComment());
-		assertEquals(3, report.getRating());
+		assertEquals("Lake Worth Municipal Beach", report.getBeach().getName());
+	}
+	
+	@Test
+	void test_report_ManyToOne_user_mapping() {
+		assertNotNull(report);
+		assertEquals("cindy", report.getUser().getUsername());
+	}
+	
+	@Test
+	void test_report_OneToMany_reportComment_mapping() {
+		assertNotNull(report);
+		assertTrue(report.getComments().size() > 0);
 	}
 
 }
