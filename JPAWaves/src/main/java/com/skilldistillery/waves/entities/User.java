@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class User {
@@ -16,11 +18,19 @@ public class User {
 	private int id;
 
 	private String username;
+	
 	private String password;
+	
 	private Boolean enabled;
+	
 	private String role;
+	
 	@Column (name ="profile_image")
 	private String profileImage;
+	
+	@ManyToOne
+    @JoinColumn(name="location_id")
+    private Location location;
 	
 
 	public User() {
@@ -65,6 +75,23 @@ public class User {
 
 	public void setRole(String role) {
 		this.role = role;
+	}
+	
+
+	public String getProfileImage() {
+		return profileImage;
+	}
+
+	public void setProfileImage(String profileImage) {
+		this.profileImage = profileImage;
+	}
+
+	public Location getLocation() {
+		return location;
+	}
+
+	public void setLocation(Location location) {
+		this.location = location;
 	}
 
 	@Override
