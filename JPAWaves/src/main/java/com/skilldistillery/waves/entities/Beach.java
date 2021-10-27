@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Beach {
 
@@ -46,6 +48,9 @@ public class Beach {
     @JoinColumn(name="location_id")
     private Location location;
 	
+	@JsonIgnore
+	@ManyToMany(mappedBy="beachFavorites")
+	private List<User> favoritedUsers;
 	
 	public Beach() {
 		super();
@@ -122,6 +127,13 @@ public class Beach {
 	}
 	public void setLocation(Location location) {
 		this.location = location;
+	}
+	
+	public List<User> getFavoritedUsers() {
+		return favoritedUsers;
+	}
+	public void setFavoritedUsers(List<User> favoritedUsers) {
+		this.favoritedUsers = favoritedUsers;
 	}
 	@Override
 	public int hashCode() {
