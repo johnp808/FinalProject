@@ -1,6 +1,7 @@
 package com.skilldistillery.waves.entities;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -8,6 +9,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Weather {
@@ -29,6 +33,16 @@ public class Weather {
 	
 	@Column(name="wave_size")
 	private String waveSize;
+	
+	@OneToMany(mappedBy="weather")
+	private List<WeatherComment> weatherComments;
+	
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	private User user;
+	@ManyToOne
+	@JoinColumn(name="beach_id")
+	private Beach beach;
 	
 
 	public Weather() {
