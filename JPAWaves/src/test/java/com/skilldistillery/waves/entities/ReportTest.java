@@ -44,5 +44,12 @@ class ReportTest {
 		assertEquals("A good family beach", report.getComment());
 		assertEquals(3, report.getRating());
 	}
+	
+	@Test
+	void test_report_ManyToOne_beach_mapping() {
+		assertNotNull(report);
+		assertEquals("A good family beach", report.getComment());
+		assertEquals(3, report.getRating());
+	}
 
 }

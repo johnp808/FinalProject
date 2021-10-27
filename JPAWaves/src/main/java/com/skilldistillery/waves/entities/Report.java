@@ -1,12 +1,16 @@
 package com.skilldistillery.waves.entities;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Report {
@@ -20,8 +24,44 @@ public class Report {
 	private Integer rating;
 	private LocalDateTime created;
 	
+	@ManyToOne
+	@JoinColumn(name = "beach_id")
+	private Beach beach;
+	
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private User user;
+	
+	@OneToMany(mappedBy="report")
+	private List<ReportComment> comments;
+	
+	
 	public Report() {
 		super();
+	}
+
+	public Beach getBeach() {
+		return beach;
+	}
+
+	public void setBeach(Beach beach) {
+		this.beach = beach;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public List<ReportComment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<ReportComment> comments) {
+		this.comments = comments;
 	}
 
 	public int getId() {

@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -20,6 +22,14 @@ public class ReportComment {
 	private String comment;
 	@Column(name="comment_date")
 	private LocalDateTime commentDate;
+	
+	@ManyToOne
+	@JoinColumn(name = "report_id")
+	private Report report;
+	
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private User user;
 	
 	public ReportComment() {
 		super();
