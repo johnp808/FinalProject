@@ -33,15 +33,15 @@ public class BeachController {
 		return beachSvc.index();
 	}
 	
-	@GetMapping("beaches/{name}")
+	@GetMapping("beaches/name/{name}")
 	public Beach showByName(HttpServletRequest req, HttpServletResponse res, @PathVariable String name, Principal principal) {
 		return beachSvc.getBeachByName(name);
 	}
 	
-//	@GetMapping("beaches/{bid}")
-//	public Beach showById(HttpServletRequest req, HttpServletResponse res, @PathVariable int bid, Principal principal) {
-//		return beachSvc.getBeachById(bid);
-//	}
+	@GetMapping("beaches/{bid}")
+	public Beach showById(HttpServletRequest req, HttpServletResponse res, @PathVariable int bid, Principal principal) {
+		return beachSvc.getBeachById(bid);
+	}
 	
 	@PostMapping("beaches")
 	public Beach create(HttpServletRequest req, HttpServletResponse res, @RequestBody Beach beach, Principal principal) {
