@@ -51,5 +51,13 @@ class UserTest {
 		assertEquals("cindy", user.getUsername());
 		assertEquals("lake worth", user.getLocation().getCity());
 	}
+	@Test
+	void test3() {
+		assertNotNull(user);
+		assertNotNull( user.getBeachFavorites());
+		assertTrue(user.getBeachFavorites().size()>0);
+		assertEquals(1, user.getBeachFavorites().size());
+	}
+	}
 
-}
+
