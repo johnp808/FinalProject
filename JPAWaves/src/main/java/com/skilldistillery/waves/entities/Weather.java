@@ -98,6 +98,36 @@ public class Weather {
 		this.waveSize = waveSize;
 	}
 	
+	public List<WeatherComment> getWeatherComments() {
+		return weatherComments;
+	}
+
+
+	public void setWeatherComments(List<WeatherComment> weatherComments) {
+		this.weatherComments = weatherComments;
+	}
+
+
+	public User getUser() {
+		return user;
+	}
+
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+
+	public Beach getBeach() {
+		return beach;
+	}
+
+
+	public void setBeach(Beach beach) {
+		this.beach = beach;
+	}
+
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);

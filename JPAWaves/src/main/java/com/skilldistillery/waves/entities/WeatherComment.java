@@ -42,6 +42,30 @@ public class WeatherComment {
 		super();
 	}
 
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Weather getWeather() {
+		return weather;
+	}
+
+	public void setWeather(Weather weather) {
+		this.weather = weather;
+	}
+
+	public List<WeatherComment> getWeatherComments() {
+		return weatherComments;
+	}
+
+	public void setWeatherComments(List<WeatherComment> weatherComments) {
+		this.weatherComments = weatherComments;
+	}
+
 	public int getId() {
 		return id;
 	}

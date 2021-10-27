@@ -45,5 +45,24 @@ class WeatherTest {
 		assertNotNull(weather);
 		assertEquals("sunny", weather.getWeatherType());
 	}
+	@Test
+	void test_Weather_onetomany_weatherComments() {
+		assertNotNull(weather);
+		assertNotNull( weather.getWeatherComments());
+		assertTrue(weather.getWeatherComments().size()>0);
+		assertEquals(1, weather.getWeatherComments().size());
+	}
+	@Test
+	void test_weather_manyToOne_User() {
+		assertNotNull(weather);
+		assertNotNull(weather.getUser());
+		assertEquals(1, weather.getUser().getId());
+	}
+	@Test
+	void test_weather_manyToOne_beach() {
+		assertNotNull(weather);
+		assertNotNull(weather.getBeach());
+		assertEquals(1, weather.getBeach().getId());
+	}
 
 }
