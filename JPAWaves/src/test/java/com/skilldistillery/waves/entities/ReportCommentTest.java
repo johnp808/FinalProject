@@ -44,5 +44,17 @@ class ReportCommentTest {
 		assertEquals("lovely day!", reportComment.getComment());
 		assertEquals(10, reportComment.getCommentDate().getMonthValue());
 	}
+	
+	@Test
+	void test_report_ManyToOne_reportComment_mapping() {
+		assertNotNull(reportComment);
+		assertEquals("A good family beach", reportComment.getReport().getComment());
+	}
+	
+	@Test
+	void test_report_ManyToOne_user_mapping() {
+		assertNotNull(reportComment);
+		assertEquals("cindy", reportComment.getUser().getUsername());
+	}
 
 }

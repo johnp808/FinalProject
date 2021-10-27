@@ -33,7 +33,7 @@ public class Report {
 	private User user;
 	
 	@OneToMany(mappedBy="report")
-	private List<ReportComment> comments;
+	private List<ReportComment> reportComments;
 	
 	
 	public Report() {
@@ -57,11 +57,11 @@ public class Report {
 	}
 
 	public List<ReportComment> getComments() {
-		return comments;
+		return reportComments;
 	}
 
 	public void setComments(List<ReportComment> comments) {
-		this.comments = comments;
+		this.reportComments = comments;
 	}
 
 	public int getId() {

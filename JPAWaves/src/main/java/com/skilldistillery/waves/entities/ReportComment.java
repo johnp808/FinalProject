@@ -42,6 +42,22 @@ public class ReportComment {
 		this.id = id;
 	}
 
+	public Report getReport() {
+		return report;
+	}
+
+	public void setReport(Report report) {
+		this.report = report;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 	public String getComment() {
 		return comment;
 	}

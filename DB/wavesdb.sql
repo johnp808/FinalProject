@@ -375,6 +375,16 @@ COMMIT;
 
 
 -- -----------------------------------------------------
+-- Data for table `favorites`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `wavesdb`;
+INSERT INTO `favorites` (`user_id`, `beach_id`) VALUES (1, 1);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
 -- Data for table `weather`
 -- -----------------------------------------------------
 START TRANSACTION;
