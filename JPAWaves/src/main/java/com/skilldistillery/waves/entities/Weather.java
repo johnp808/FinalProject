@@ -30,7 +30,18 @@ public class Weather {
 	private int temperatureCelsius;
 	
 	private LocalDateTime created;
+	private Boolean enabled;
 	
+	public Boolean getEnabled() {
+		return enabled;
+	}
+
+
+	public void setEnabled(Boolean enabled) {
+		this.enabled = enabled;
+	}
+
+
 	@Column(name="wave_size")
 	private String waveSize;
 	
