@@ -36,7 +36,7 @@ public class WeatherComment {
 	@OneToMany
 	@JoinColumn(name="weather_comment_id")
 	private List<WeatherComment> weatherComments;
-
+	
 	
 	public WeatherComment() {
 		super();

@@ -15,7 +15,7 @@ import com.skilldistillery.waves.entities.User;
 import com.skilldistillery.waves.services.AuthService;
 
 @RestController
-@CrossOrigin({ "*", "http://localhost:4201" })
+@CrossOrigin({ "*", "http://localhost:4301" })
 public class AuthController {
 
 	@Autowired
