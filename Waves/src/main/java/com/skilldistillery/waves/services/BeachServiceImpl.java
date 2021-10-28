@@ -1,10 +1,12 @@
 package com.skilldistillery.waves.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.waves.entities.Beach;
 import com.skilldistillery.waves.entities.Beach;
 import com.skilldistillery.waves.repositories.BeachRepository;
 
@@ -74,6 +76,18 @@ public class BeachServiceImpl implements BeachService {
 			deleted = true;
 		}
 		return deleted;
+	}
+
+	@Override
+	public boolean enabledDisabledBeach(int bid) {
+		Beach beach = beachRepo.findById(bid);
+		// if the users enabled is false, enable it, otherwise return false
+			if(beach != null) {
+				beach.setEnabled(!beach.getEnabled());
+				beachRepo.save(beach);
+				return true;
+			}
+			return false;
 	}
 
 

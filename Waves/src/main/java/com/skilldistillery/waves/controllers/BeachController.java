@@ -67,7 +67,7 @@ public class BeachController {
 		return beach;
 	}
 
-	@DeleteMapping("beaches/{bid}")
+	@DeleteMapping("auth/beaches/{bid}")
 	public void destroy(HttpServletRequest req, HttpServletResponse res, @PathVariable int bid, Principal principal) {
 		if(beachSvc.destroy(principal.getName(), bid)) {
 			res.setStatus(204);
@@ -75,6 +75,11 @@ public class BeachController {
 		else {
 			res.setStatus(404);
 		}
+	}
+	
+	@PutMapping("auth/beaches/enabled/{bid}")
+	public boolean enabledDisabledUser(HttpServletRequest req, HttpServletResponse res,@PathVariable int bid, Principal principal) {
+		return beachSvc.enabledDisabledBeach(bid);
 	}
 
 	
