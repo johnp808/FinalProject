@@ -67,7 +67,7 @@ public class BeachController {
 		return beach;
 	}
 
-	@DeleteMapping("beaches/{bid}")
+	@DeleteMapping("auth/beaches/{bid}")
 	public void destroy(HttpServletRequest req, HttpServletResponse res, @PathVariable int bid, Principal principal) {
 		if(beachSvc.destroy(principal.getName(), bid)) {
 			res.setStatus(204);
