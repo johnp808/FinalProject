@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.skilldistillery.waves.entities.Beach;
+import com.skilldistillery.waves.entities.Location;
 import com.skilldistillery.waves.services.BeachService;
 
 @RestController
@@ -44,6 +45,24 @@ public class BeachController {
 	@GetMapping("beaches/{bid}")
 	public Beach showById(HttpServletRequest req, HttpServletResponse res, @PathVariable int bid, Principal principal) {
 		return beachSvc.getBeachById(bid);
+	}
+	
+	//GET beaches/rating/{rating}
+	@GetMapping("beaches/rating/{rating}")
+	public List<Beach> showByRating(HttpServletRequest req, HttpServletResponse res, @PathVariable double rating, Principal principal) {
+		return beachSvc.getBeachByRating(rating);
+	}
+	
+	//GET beaches/location/{location}
+	@GetMapping("beaches/location/{location}")
+	public List<Beach> showByLocation(HttpServletRequest req, HttpServletResponse res, @PathVariable Location location, Principal principal) {
+		return beachSvc.getBeachByLocation(location);
+	}
+	
+	//GET beaches/keyword/{keyword}
+	@GetMapping("beaches/keyword/{keyword}")
+	public List<Beach> showByKeyword(HttpServletRequest req, HttpServletResponse res, @PathVariable String keyword, Principal principal) {
+		return beachSvc.getBeachByKeyword(keyword);
 	}
 	
 	
