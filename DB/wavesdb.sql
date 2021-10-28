@@ -22,7 +22,7 @@ DROP TABLE IF EXISTS `location` ;
 
 CREATE TABLE IF NOT EXISTS `location` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `street` VARCHAR(45) NULL,
+  `street` VARCHAR(100) NULL,
   `city` VARCHAR(45) NULL,
   `state` VARCHAR(45) NULL,
   `zip` VARCHAR(45) NULL,
