@@ -26,7 +26,7 @@ public class Beach {
 	private String defaultImage;
 	private Boolean enabled;
 	private boolean operational;
-	
+	private Double rating;
 	private String hours;
 
 	@Column(name = "pet_friendly")
@@ -60,6 +60,12 @@ public class Beach {
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	public Double getRating() {
+		return rating;
+	}
+	public void setRating(Double rating) {
+		this.rating = rating;
 	}
 	public String getName() {
 		return name;

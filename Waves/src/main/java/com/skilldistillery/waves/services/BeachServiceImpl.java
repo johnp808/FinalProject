@@ -1,11 +1,12 @@
 package com.skilldistillery.waves.services;
 
+import java.util.ArrayList;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.waves.entities.Beach;
+import com.skilldistillery.waves.entities.Location;
 import com.skilldistillery.waves.repositories.BeachRepository;
 
 @Service
@@ -58,6 +59,7 @@ public class BeachServiceImpl implements BeachService {
 			existingBeach.setFavoritedUsers(beach.getFavoritedUsers());
 			existingBeach.setInclementConditions(beach.getInclementConditions());
 			existingBeach.setBeachSettings(beach.getBeachSettings());
+			existingBeach.setRating(beach.getRating());
 			
 			beachRepo.saveAndFlush(existingBeach);
 			return existingBeach;
@@ -75,6 +77,59 @@ public class BeachServiceImpl implements BeachService {
 		}
 		return deleted;
 	}
+
+	@Override
+	public boolean enabledDisabledBeach(int bid) {
+		Beach beach = beachRepo.findById(bid);
+		// if the users enabled is false, enable it, otherwise return false
+			if(beach != null) {
+				beach.setEnabled(!beach.getEnabled());
+				beachRepo.save(beach);
+				return true;
+			}
+			return false;
+	}
+
+	//Get list of beaches by rating
+	@Override
+	public List<Beach> getBeachByRating(double rating) {
+		List<Beach> allBeaches = beachRepo.findAll();
+		List<Beach> matches = new ArrayList<>();
+		double high = Math.ceil(rating);
+		double low = Math.floor(rating);
+		for(int i = 0; i < allBeaches.size(); i++) {
+			if(allBeaches.get(i).getRating() <= high && 
+					allBeaches.get(i).getRating() >= low ) 
+			{
+				matches.add(allBeaches.get(i));	
+			}
+		}
+		if(matches.size() > 0) {
+			return matches;
+		}
+		else {
+			return allBeaches;
+		}
+	}
+
+	//Get list of beaches by location
+	@Override
+	public List<Beach> getBeachByLocation(Location location) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	//Get list of beaches by keywords matching desc.
+	@Override
+	public List<Beach> getBeachByKeyword(String keyword) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
+	
+	
+
 
 
 	

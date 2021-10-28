@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.skilldistillery.waves.entities.Beach;
+import com.skilldistillery.waves.entities.Location;
 import com.skilldistillery.waves.services.BeachService;
 
 @RestController
@@ -46,6 +47,24 @@ public class BeachController {
 		return beachSvc.getBeachById(bid);
 	}
 	
+	//GET beaches/rating/{rating}
+	@GetMapping("beaches/rating/{rating}")
+	public List<Beach> showByRating(HttpServletRequest req, HttpServletResponse res, @PathVariable double rating, Principal principal) {
+		return beachSvc.getBeachByRating(rating);
+	}
+	
+	//GET beaches/location/{location}
+	@GetMapping("beaches/location/{location}")
+	public List<Beach> showByLocation(HttpServletRequest req, HttpServletResponse res, @PathVariable Location location, Principal principal) {
+		return beachSvc.getBeachByLocation(location);
+	}
+	
+	//GET beaches/keyword/{keyword}
+	@GetMapping("beaches/keyword/{keyword}")
+	public List<Beach> showByKeyword(HttpServletRequest req, HttpServletResponse res, @PathVariable String keyword, Principal principal) {
+		return beachSvc.getBeachByKeyword(keyword);
+	}
+	
 	
 	// Authorized user or admin requests ************************************************************************************
 	
@@ -67,7 +86,7 @@ public class BeachController {
 		return beach;
 	}
 
-	@DeleteMapping("beaches/{bid}")
+	@DeleteMapping("auth/beaches/{bid}")
 	public void destroy(HttpServletRequest req, HttpServletResponse res, @PathVariable int bid, Principal principal) {
 		if(beachSvc.destroy(principal.getName(), bid)) {
 			res.setStatus(204);
@@ -75,6 +94,11 @@ public class BeachController {
 		else {
 			res.setStatus(404);
 		}
+	}
+	
+	@PutMapping("auth/beaches/enabled/{bid}")
+	public boolean enabledDisabledUser(HttpServletRequest req, HttpServletResponse res,@PathVariable int bid, Principal principal) {
+		return beachSvc.enabledDisabledBeach(bid);
 	}
 
 	
