@@ -1,6 +1,7 @@
 package com.skilldistillery.waves.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,5 +30,20 @@ public class UserServiceImpl implements UserService {
 		return beachRepo.findByFavoritedUsers_Username(username);
 	}
 
-
+	@Override
+	public boolean enabledDisabledUser(int userId) {
+		Optional<User> user = userRepo.findById(userId);
+	// if the users enabled is false, enable it, otherwise return false
+		if(user.isPresent()) {
+			User u = user.get();
+			u.setEnabled(!u.getEnabled());
+			userRepo.save(u);
+			return true;
+		}
+		return false;
+	}
 }
+
+/*
+ *make sure when creating user to set enabled to true.
+ */
