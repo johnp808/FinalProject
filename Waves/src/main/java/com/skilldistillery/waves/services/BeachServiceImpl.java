@@ -42,14 +42,38 @@ public class BeachServiceImpl implements BeachService {
 
 	@Override
 	public Beach update(String name, int bid, Beach beach) {
-		// TODO Auto-generated method stub
+		Beach existingBeach = beachRepo.findById(bid);
+		
+		if(existingBeach != null) {
+			existingBeach.setName(beach.getName());
+			existingBeach.setDescription(beach.getDescription());
+			existingBeach.setDefaultImage(beach.getDefaultImage());
+			existingBeach.setParkingAvailable(beach.getParkingAvailable());
+			existingBeach.setEnabled(beach.getEnabled());
+			existingBeach.setHours(beach.getHours());
+			existingBeach.setOperational(beach.isOperational());
+			existingBeach.setPetFriendly(beach.getPetFriendly());
+			existingBeach.setPriceOfAdmission(beach.getPriceOfAdmission());
+			existingBeach.setLocation(beach.getLocation());
+			existingBeach.setFavoritedUsers(beach.getFavoritedUsers());
+			existingBeach.setInclementConditions(beach.getInclementConditions());
+			existingBeach.setBeachSettings(beach.getBeachSettings());
+			
+			beachRepo.saveAndFlush(existingBeach);
+			return existingBeach;
+		}
 		return null;
 	}
 
 	@Override
 	public boolean destroy(String name, int bid) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean deleted = false;
+		Beach beach = beachRepo.findById(bid);
+		if (beach != null) {
+			beachRepo.delete(beach);
+			deleted = true;
+		}
+		return deleted;
 	}
 
 

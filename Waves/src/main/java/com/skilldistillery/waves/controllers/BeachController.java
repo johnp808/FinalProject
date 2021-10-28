@@ -28,6 +28,9 @@ public class BeachController {
 	@Autowired
 	private BeachService beachSvc;
 	
+	
+	// No authorization needed requests ************************************************************************************
+	
 	@GetMapping("beaches")
 	public List<Beach> index(HttpServletRequest req, HttpServletResponse res, Principal principal) {
 		return beachSvc.index();
@@ -43,7 +46,10 @@ public class BeachController {
 		return beachSvc.getBeachById(bid);
 	}
 	
-	@PostMapping("beaches")
+	
+	// Authorized user or admin requests ************************************************************************************
+	
+	@PostMapping("auth/beaches")
 	public Beach create(HttpServletRequest req, HttpServletResponse res, @RequestBody Beach beach, Principal principal) {
 		beach = beachSvc.create(beach);
 		if( beach == null) {
@@ -51,8 +57,8 @@ public class BeachController {
 		}
 		return beach;
 	}
-
-	@PutMapping("beaches/{bid}")	
+	
+	@PutMapping("auth/beaches/{bid}")	
 	public Beach update(HttpServletRequest req, HttpServletResponse res, @PathVariable int bid, @RequestBody Beach beach, Principal principal) {
 		beach = beachSvc.update(principal.getName(), bid, beach);
 		if (beach == null) {
@@ -70,6 +76,7 @@ public class BeachController {
 			res.setStatus(404);
 		}
 	}
+
 	
 
 }

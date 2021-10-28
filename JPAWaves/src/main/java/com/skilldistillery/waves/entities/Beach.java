@@ -24,7 +24,7 @@ public class Beach {
 	private String description;
 	@Column(name = "default_image")
 	private String defaultImage;
-
+	private Boolean enabled;
 	private boolean operational;
 	
 	private String hours;
@@ -78,6 +78,12 @@ public class Beach {
 	}
 	public void setDefaultImage(String defaultImage) {
 		this.defaultImage = defaultImage;
+	}
+	public Boolean getEnabled() {
+		return enabled;
+	}
+	public void setEnabled(Boolean enabled) {
+		this.enabled = enabled;
 	}
 	public boolean isOperational() {
 		return operational;
