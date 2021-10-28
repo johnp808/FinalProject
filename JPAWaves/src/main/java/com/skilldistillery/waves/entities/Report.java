@@ -23,7 +23,24 @@ public class Report {
 	private String image;
 	private Integer rating;
 	private LocalDateTime created;
+	private Boolean enabled;
 	
+	public Boolean getEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(Boolean enabled) {
+		this.enabled = enabled;
+	}
+
+	public List<ReportComment> getReportComments() {
+		return reportComments;
+	}
+
+	public void setReportComments(List<ReportComment> reportComments) {
+		this.reportComments = reportComments;
+	}
+
 	@ManyToOne
 	@JoinColumn(name = "beach_id")
 	private Beach beach;
