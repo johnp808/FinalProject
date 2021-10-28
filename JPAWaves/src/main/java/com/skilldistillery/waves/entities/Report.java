@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Report {
 
@@ -32,7 +34,7 @@ public class Report {
 	public void setEnabled(Boolean enabled) {
 		this.enabled = enabled;
 	}
-
+	
 	public List<ReportComment> getReportComments() {
 		return reportComments;
 	}
@@ -41,17 +43,19 @@ public class Report {
 		this.reportComments = reportComments;
 	}
 
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "beach_id")
 	private Beach beach;
 	
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User user;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy="report")
 	private List<ReportComment> reportComments;
-	
 	
 	public Report() {
 		super();

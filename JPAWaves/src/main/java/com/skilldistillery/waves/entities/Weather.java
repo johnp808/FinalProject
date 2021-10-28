@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Weather {
@@ -45,12 +46,16 @@ public class Weather {
 	@Column(name="wave_size")
 	private String waveSize;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy="weather")
 	private List<WeatherComment> weatherComments;
 	
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="user_id")
 	private User user;
+	
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="beach_id")
 	private Beach beach;
