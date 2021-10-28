@@ -15,6 +15,7 @@ public interface UserService {
 	List<Beach> showFavorites(String username);
 	Beach addFavorite(String username,int beachId);
 	boolean deleteFavorite(String username, int beachId);
+	boolean destroy(String username);
 	
 	
 	

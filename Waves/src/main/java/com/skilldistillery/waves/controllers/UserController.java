@@ -69,5 +69,17 @@ public List<Beach> favorites(HttpServletRequest req, HttpServletResponse res, Pr
 		
 	}
 
-	
+	@DeleteMapping("auth/delete")
+	public void destroy(
+			HttpServletRequest req,
+			HttpServletResponse res,
+			Principal principal
+			) {
+		if(userSvc.destroy(principal.getName())) {
+			res.setStatus(204);
+		}
+		else {
+			res.setStatus(404);
+		}
+	}
 }
