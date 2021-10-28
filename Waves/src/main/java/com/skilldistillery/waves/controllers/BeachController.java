@@ -76,6 +76,11 @@ public class BeachController {
 			res.setStatus(404);
 		}
 	}
+	
+	@PutMapping("auth/beaches/enabled/{bid}")
+	public boolean enabledDisabledUser(HttpServletRequest req, HttpServletResponse res,@PathVariable int bid, Principal principal) {
+		return beachSvc.enabledDisabledBeach(bid);
+	}
 
 	
 

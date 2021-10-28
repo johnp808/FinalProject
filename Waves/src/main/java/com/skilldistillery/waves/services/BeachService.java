@@ -12,5 +12,6 @@ public interface BeachService {
 	Beach update(String name, int bid, Beach beach);
 	boolean destroy(String name, int bid);
 	Beach getBeachById(int id);
+	boolean enabledDisabledBeach(int bid);
 
 }
