@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -35,20 +37,11 @@ public List<Beach> favorites(HttpServletRequest req, HttpServletResponse res, Pr
 	
 		return userSvc.showFavorites(principal.getName());
 }
-	
-	
-//	@GetMapping("user/{userId}/favorites")
-//	public List<Beach> favorites(HttpServletRequest req,
-//			HttpServletResponse res,
-//			@PathVariable int userId, @RequestBody List<Beach> favBeaches, Principal principal
-//			) { 
-//		
-//		favBeaches = userSvc.showFavorites(principal.getName());
-//		if(favBeaches == null) {
-//			res.setStatus(404);
-//		}
-//		return favBeaches;
-//	}
 
+	@PutMapping("enabled/{userId}")
+	public boolean enabledDisabledUser(HttpServletRequest req, HttpServletResponse res,@PathVariable int userId, Principal principal) {
+	
+		return userSvc.enabledDisabledUser(userId);
+	}
 	
 }

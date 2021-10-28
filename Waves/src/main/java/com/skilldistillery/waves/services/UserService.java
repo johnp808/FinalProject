@@ -8,5 +8,7 @@ import com.skilldistillery.waves.entities.User;
 public interface UserService {
 
 	User getUserByName(String username);
+	boolean enabledDisabledUser(int userId);
 	List<Beach> showFavorites(String username);
+	
 }
