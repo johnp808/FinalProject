@@ -7,5 +7,8 @@ public interface ReportService {
 
 	List<Report> getReportsByUsername(String username);
 	
+	Report updateReportById(Integer reportId, Integer beachId, String username, Report report);
+	
+	Report AddReport(int beachId, String username, Report report);
 	
 }

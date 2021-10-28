@@ -6,5 +6,9 @@ import com.skilldistillery.waves.entities.Weather;
 public interface WeatherService {
 
 	List<Weather> getWeatherListByUsername(String username);
+
+	Weather updateWeatherById(int weatherId, int beachId, String username, Weather weather);
+
+	Weather AddWeather(int beachId, String username, Weather weather);
 	
 }
