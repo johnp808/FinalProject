@@ -94,6 +94,7 @@ CREATE TABLE IF NOT EXISTS `report` (
   `user_id` INT NOT NULL,
   `rating` INT NULL,
   `created` DATETIME NULL,
+  `enabled` TINYINT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_Comment_beach_idx` (`beach_id` ASC),
   INDEX `fk_Comment_User1_idx` (`user_id` ASC),
@@ -148,6 +149,7 @@ CREATE TABLE IF NOT EXISTS `weather` (
   `wave_size` VARCHAR(45) NULL,
   `user_id` INT NOT NULL,
   `beach_id` INT NOT NULL,
+  `enabled` TINYINT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_weather_user1_idx` (`user_id` ASC),
   INDEX `fk_weather_beach1_idx` (`beach_id` ASC),
@@ -370,7 +372,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `wavesdb`;
-INSERT INTO `report` (`id`, `comment`, `image`, `beach_id`, `user_id`, `rating`, `created`) VALUES (DEFAULT, 'A good family beach', 'https://www.thepalmbeaches.com/sites/default/files/styles/profile_slideshow_xl/public/mmg_lfef_images/lake-worth-municipal-beach-41312-24c96632d6965d0332d2d615771cac27.jpg?itok=h7RMpqDH', 1, 1, 3, NULL);
+INSERT INTO `report` (`id`, `comment`, `image`, `beach_id`, `user_id`, `rating`, `created`, `enabled`) VALUES (1, 'A good family beach', 'https://www.thepalmbeaches.com/sites/default/files/styles/profile_slideshow_xl/public/mmg_lfef_images/lake-worth-municipal-beach-41312-24c96632d6965d0332d2d615771cac27.jpg?itok=h7RMpqDH', 1, 1, 3, NULL, 1);
 
 COMMIT;
 
@@ -390,7 +392,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `wavesdb`;
-INSERT INTO `weather` (`id`, `weather_type`, `description`, `temperature_celsius`, `created`, `wave_size`, `user_id`, `beach_id`) VALUES (1, 'sunny', 'no clouds', 40, NULL, NULL, 1, 1);
+INSERT INTO `weather` (`id`, `weather_type`, `description`, `temperature_celsius`, `created`, `wave_size`, `user_id`, `beach_id`, `enabled`) VALUES (1, 'sunny', 'no clouds', 40, NULL, NULL, 1, 1, 1);
 
 COMMIT;
 
@@ -410,7 +412,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `wavesdb`;
-INSERT INTO `inclement_condition` (`name`, `id`, `description`) VALUES ('hurrican season', 1, 'crazy wind');
+INSERT INTO `inclement_condition` (`name`, `id`, `description`) VALUES ('hurricane season', 1, 'crazy wind');
 
 COMMIT;
 
