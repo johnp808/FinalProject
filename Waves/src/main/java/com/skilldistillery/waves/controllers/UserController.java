@@ -1,7 +1,5 @@
 package com.skilldistillery.waves.controllers;
 
-
-
 import java.security.Principal;
 import java.util.List;
 
@@ -26,60 +24,72 @@ import com.skilldistillery.waves.services.UserService;
 
 @RestController
 @RequestMapping("api")
-@CrossOrigin({"*", "http://localhost:4301"})
+@CrossOrigin({ "*", "http://localhost:4301" })
 public class UserController {
 
 	@Autowired
 	private UserService userSvc;
-	
+
 	@Autowired
 	private BeachService beachSvc;
-	
+
 	@GetMapping("ping")
 	public String ping() {
 		return "pong";
 	}
-	
+
 	@GetMapping("auth/favorites")
-public List<Beach> favorites(HttpServletRequest req, HttpServletResponse res, Principal principal) {
-	
+	public List<Beach> favorites(HttpServletRequest req, HttpServletResponse res, Principal principal) {
+
 		return userSvc.showFavorites(principal.getName());
-}
+	}
 
 	@PutMapping("auth/enabled/{userId}")
-	public boolean enabledDisabledUser(HttpServletRequest req, HttpServletResponse res,@PathVariable int userId, Principal principal) {
-	
+	public boolean enabledDisabledUser(HttpServletRequest req, HttpServletResponse res, @PathVariable int userId,
+			Principal principal) {
+
 		return userSvc.enabledDisabledUser(userId);
 	}
+
 	@PostMapping("auth/favorites/{beachId}")
-	public Beach createFavorite(HttpServletRequest req, HttpServletResponse res, Principal principal, @PathVariable int beachId) {
-		Beach beach =userSvc.addFavorite(principal.getName(), beachId);
+	public Beach createFavorite(HttpServletRequest req, HttpServletResponse res, Principal principal,
+			@PathVariable int beachId) {
+		Beach beach = userSvc.addFavorite(principal.getName(), beachId);
 		if (beach == null) {
 			res.setStatus(400);
 		}
 		return beach;
 	}
+
 	@DeleteMapping("auth/favorites/{beachId}")
-	public void destroy(HttpServletRequest req, HttpServletResponse res, Principal principal, @PathVariable int beachId) {
-		if(userSvc.deleteFavorite(principal.getName(), beachId)) {
+	public void destroy(HttpServletRequest req, HttpServletResponse res, Principal principal,
+			@PathVariable int beachId) {
+		if (userSvc.deleteFavorite(principal.getName(), beachId)) {
 			res.setStatus(204);
 		} else {
 			res.setStatus(404);
 		}
-		
+
 	}
 
 	@DeleteMapping("auth/delete")
-	public void destroy(
-			HttpServletRequest req,
-			HttpServletResponse res,
-			Principal principal
-			) {
-		if(userSvc.destroy(principal.getName())) {
+	public void destroy(HttpServletRequest req, HttpServletResponse res, Principal principal) {
+		if (userSvc.destroy(principal.getName())) {
 			res.setStatus(204);
-		}
-		else {
+		} else {
 			res.setStatus(404);
 		}
+	}
+	
+	@GetMapping("auth/users/{id}")
+	public User show(HttpServletRequest req, HttpServletResponse res, @PathVariable int id, Principal principal) {
+		return userSvc.show(id);
+	}
+	
+	@PutMapping("auth/update/{userId}")
+	public User updateUser(HttpServletRequest req, HttpServletResponse res,@PathVariable int userId, @RequestBody User user, Principal principal) {
+	
+		return userSvc.update(userId, user);
+		
 	}
 }

@@ -92,6 +92,40 @@ public class UserServiceImpl implements UserService {
 		return deleted;
 	}
 	
+	@Override
+	public User update(int id, User user) {
+		Optional<User> existingUser = userRepo.findById(id);
+		
+		if(existingUser.isPresent()) {
+			User u = existingUser.get();
+			u.setUsername(user.getUsername());
+			u.setPassword(user.getPassword());
+			u.setEmail(user.getEmail());
+			u.setEnabled(user.getEnabled());
+			u.setLocation(user.getLocation());
+			u.setProfileImage(user.getProfileImage());
+			u.setRole(user.getRole());
+			u.setBeachFavorites(user.getBeachFavorites());
+			u.setReportComments(user.getReportComments());
+			u.setReports(user.getReports());
+			u.setLocation(user.getLocation());
+			
+			userRepo.saveAndFlush(u);
+			return u;
+		}
+		return null;
+	}
+
+	@Override
+	public User show(int id) {
+		Optional<User> existingUser = userRepo.findById(id);
+		if(existingUser.isPresent()) {
+			User u = existingUser.get();
+			return u;
+		}
+		return null;
+	}
+	
 }
 
 /*

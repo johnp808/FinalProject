@@ -43,6 +43,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `role` VARCHAR(45) NULL,
   `enabled` TINYINT NULL,
   `location_id` INT NOT NULL,
+  `email` VARCHAR(100) NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_User_location1_idx` (`location_id` ASC),
   UNIQUE INDEX `username_UNIQUE` (`username` ASC),
@@ -341,13 +342,13 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `wavesdb`;
-INSERT INTO `user` (`id`, `username`, `password`, `profile_image`, `role`, `enabled`, `location_id`) VALUES (1, 'cindy', '$2a$12$nlMOo29ODu6FIQbR.87Gze635XyMCMvMJAh54a0Y24yhGohCCqrG.', 'https://www.serebii.net/pokemon/art/248.png', 'admin', 1, 1);
-INSERT INTO `user` (`id`, `username`, `password`, `profile_image`, `role`, `enabled`, `location_id`) VALUES (2, 'john', '$2a$12$6H17xNDdJ7M7WbUEWePG/exhG600bkpgFaMiSW2AcWVTKawDCb89m', 'https://i.pinimg.com/550x/55/53/3a/55533ab148194fed637737e48d24c731.jpg', 'admin', 1, 1);
-INSERT INTO `user` (`id`, `username`, `password`, `profile_image`, `role`, `enabled`, `location_id`) VALUES (3, 'yanyan', '$2a$12$43MiQKGc0qLTfh46cA1ca.4d0X0lHVSb/bXyI.HABQGe21Vo/PRh.', 'https://cdn1.vectorstock.com/i/1000x1000/03/45/cute-fish-cartoon-vector-1430345.jpg', 'admin', 1, 1);
-INSERT INTO `user` (`id`, `username`, `password`, `profile_image`, `role`, `enabled`, `location_id`) VALUES (4, 'kristin', '$2a$12$SCAJxyMAFAkVom80go/pSuUTWhBtlEo2ykt59Dgg5T0Oqhqo7NtGy', 'https://3.bp.blogspot.com/-8FOB8-elTOE/WyOg7Y5hjVI/AAAAAAAAJyE/mYUG9TgTLZEbUC2yVsBOMtBRu_27-PT0wCLcBGAs/s1600/Photo%2B1_Parrotfiswh%2Bbeak.jpg', 'admin', 1, 1);
-INSERT INTO `user` (`id`, `username`, `password`, `profile_image`, `role`, `enabled`, `location_id`) VALUES (5, 'fred', '$2a$12$JDV6Fe05DJih54XqSIx.7eKYeBHfXc5zvO49Gtqu4vpJ6fG8OwRjq', 'https://bloximages.newyork1.vip.townnews.com/dothaneagle.com/content/tncms/assets/v3/editorial/8/d4/8d4ed5ee-9429-11eb-9009-6f890de4cad2/6067dbb505f6a.image.jpg?resize=1200%2C800', 'user', 1, 1);
-INSERT INTO `user` (`id`, `username`, `password`, `profile_image`, `role`, `enabled`, `location_id`) VALUES (6, 'alicia', '$2a$12$JDV6Fe05DJih54XqSIx.7eKYeBHfXc5zvO49Gtqu4vpJ6fG8OwRjq', 'https://www.edenbrothers.com/store/media/Bulbs-Flowers/resized/Calla-Captain-Ventura-2_medium.jpg', 'user', 1, 1);
-INSERT INTO `user` (`id`, `username`, `password`, `profile_image`, `role`, `enabled`, `location_id`) VALUES (7, 'stormy', '$2a$12$JDV6Fe05DJih54XqSIx.7eKYeBHfXc5zvO49Gtqu4vpJ6fG8OwRjq', 'https://www.thelabradorsite.com/wp-content/uploads/2021/09/Black-Lab-Chow-Mix-LS-tall.jpg', 'user', 1, 1);
+INSERT INTO `user` (`id`, `username`, `password`, `profile_image`, `role`, `enabled`, `location_id`, `email`) VALUES (1, 'cindy', '$2a$12$nlMOo29ODu6FIQbR.87Gze635XyMCMvMJAh54a0Y24yhGohCCqrG.', 'https://www.serebii.net/pokemon/art/248.png', 'admin', 1, 1, 'cindy@waves.com');
+INSERT INTO `user` (`id`, `username`, `password`, `profile_image`, `role`, `enabled`, `location_id`, `email`) VALUES (2, 'john', '$2a$12$6H17xNDdJ7M7WbUEWePG/exhG600bkpgFaMiSW2AcWVTKawDCb89m', 'https://i.pinimg.com/550x/55/53/3a/55533ab148194fed637737e48d24c731.jpg', 'admin', 1, 1, 'john@waves.com');
+INSERT INTO `user` (`id`, `username`, `password`, `profile_image`, `role`, `enabled`, `location_id`, `email`) VALUES (3, 'yanyan', '$2a$12$43MiQKGc0qLTfh46cA1ca.4d0X0lHVSb/bXyI.HABQGe21Vo/PRh.', 'https://cdn1.vectorstock.com/i/1000x1000/03/45/cute-fish-cartoon-vector-1430345.jpg', 'admin', 1, 1, 'yanyan@waves.com');
+INSERT INTO `user` (`id`, `username`, `password`, `profile_image`, `role`, `enabled`, `location_id`, `email`) VALUES (4, 'kristin', '$2a$12$SCAJxyMAFAkVom80go/pSuUTWhBtlEo2ykt59Dgg5T0Oqhqo7NtGy', 'https://3.bp.blogspot.com/-8FOB8-elTOE/WyOg7Y5hjVI/AAAAAAAAJyE/mYUG9TgTLZEbUC2yVsBOMtBRu_27-PT0wCLcBGAs/s1600/Photo%2B1_Parrotfiswh%2Bbeak.jpg', 'admin', 1, 1, 'kristin@waves.com');
+INSERT INTO `user` (`id`, `username`, `password`, `profile_image`, `role`, `enabled`, `location_id`, `email`) VALUES (5, 'fred', '$2a$12$JDV6Fe05DJih54XqSIx.7eKYeBHfXc5zvO49Gtqu4vpJ6fG8OwRjq', 'https://bloximages.newyork1.vip.townnews.com/dothaneagle.com/content/tncms/assets/v3/editorial/8/d4/8d4ed5ee-9429-11eb-9009-6f890de4cad2/6067dbb505f6a.image.jpg?resize=1200%2C800', 'user', 1, 1, 'fred@waves.com');
+INSERT INTO `user` (`id`, `username`, `password`, `profile_image`, `role`, `enabled`, `location_id`, `email`) VALUES (6, 'alicia', '$2a$12$JDV6Fe05DJih54XqSIx.7eKYeBHfXc5zvO49Gtqu4vpJ6fG8OwRjq', 'https://www.edenbrothers.com/store/media/Bulbs-Flowers/resized/Calla-Captain-Ventura-2_medium.jpg', 'user', 1, 1, 'alicia@waves.com');
+INSERT INTO `user` (`id`, `username`, `password`, `profile_image`, `role`, `enabled`, `location_id`, `email`) VALUES (7, 'stormy', '$2a$12$JDV6Fe05DJih54XqSIx.7eKYeBHfXc5zvO49Gtqu4vpJ6fG8OwRjq', 'https://www.thelabradorsite.com/wp-content/uploads/2021/09/Black-Lab-Chow-Mix-LS-tall.jpg', 'user', 1, 1, 'stormy@waves.com');
 
 COMMIT;
 
