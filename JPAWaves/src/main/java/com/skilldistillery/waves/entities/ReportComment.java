@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="report_comment")
 public class ReportComment {
@@ -22,11 +24,12 @@ public class ReportComment {
 	private String comment;
 	@Column(name="comment_date")
 	private LocalDateTime commentDate;
-	
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "report_id")
 	private Report report;
 	
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User user;

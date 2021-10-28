@@ -26,7 +26,6 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public List<Beach> showFavorites(String username) {
-
 		return beachRepo.findByFavoritedUsers_Username(username);
 	}
 
