@@ -1,5 +1,6 @@
 package com.skilldistillery.waves.services;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
@@ -43,6 +44,45 @@ public class UserServiceImpl implements UserService {
 		}
 		return false;
 	}
+
+	
+	@Override
+	public boolean deleteFavorite(String username, int beachId) {
+		boolean deleted = false;
+		Beach beach =beachRepo.findById(beachId);
+		User user = userRepo.findByUsername(username);
+		List<Beach> favorites = user.getBeachFavorites();
+		if(beach != null) {	
+			for (int i = 0; i < favorites.size(); i++){
+					if(favorites.get(i).equals(beach)) {
+						//remove from favorites;
+						favorites.remove(i);
+						break;
+					}
+	
+			}
+			user.setBeachFavorites(favorites);
+			userRepo.saveAndFlush(user);
+			deleted = true;
+		}
+		return deleted;
+		
+	}
+
+	@Override
+	public Beach addFavorite(String username, int beachId) {
+		User user = userRepo.findByUsername(username);
+		Beach beach = beachRepo.findById(beachId);
+		if(beach != null) {
+		user.getBeachFavorites().add(beach);
+		userRepo.saveAndFlush(user);
+		return beach;
+		}else {
+			return null;
+		}
+	}
+
+	
 }
 
 /*
