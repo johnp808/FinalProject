@@ -54,6 +54,11 @@ public class WeatherServiceImpl implements WeatherService {
 		}
 		return null;
 	}
+
+	@Override
+	public List<Weather> getAllWeather() {
+		return weatherRepo.findAll();
+	}
 	
 
 }

@@ -8,6 +8,12 @@ import { LogoutComponent } from './components/logout/logout.component';
 import { RegisterComponent } from './components/register/register.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { BeachHomeComponent } from './components/beach-home/beach-home.component';
+import { HomeComponent } from './components/home/home.component';
+import { ShowBeachComponent } from './components/home/show-beach/show-beach.component';
+import { ShowReportsComponent } from './components/home/show-reports/show-reports.component';
+import { CreateComponent } from './components/create/create.component';
+import { CreateReportComponent } from './components/create/create-report/create-report.component';
+import { CreateWeatherComponent } from './components/create/create-weather/create-weather.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +22,13 @@ import { BeachHomeComponent } from './components/beach-home/beach-home.component
     LogoutComponent,
     RegisterComponent,
     NavigationComponent,
-    BeachHomeComponent
+    BeachHomeComponent,
+    HomeComponent,
+    ShowBeachComponent,
+    ShowReportsComponent,
+    CreateComponent,
+    CreateReportComponent,
+    CreateWeatherComponent
   ],
   imports: [
     BrowserModule,

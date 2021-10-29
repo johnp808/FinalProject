@@ -26,6 +26,15 @@ public class ReportController {
 	@Autowired
 	private ReportService reportSvc;
 	
+	@GetMapping("reports")
+	public List<Report> getAllReports(HttpServletResponse res){
+		List<Report> reports = reportSvc.getAllReports();
+		if(reports == null) {
+			res.setStatus(404);
+		}
+		return reports;
+	}
+	
 	@GetMapping("reports/user")
 	public List<Report> getReportByUsername(
 			HttpServletResponse res,
