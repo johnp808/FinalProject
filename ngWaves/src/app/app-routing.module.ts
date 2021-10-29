@@ -8,10 +8,17 @@ import { CreateReportComponent } from './components/create/create-report/create-
 import { CreateWeatherComponent } from './components/create/create-weather/create-weather.component';
 import { LoginComponent } from './components/login/login.component';
 import { LogoutComponent } from './components/logout/logout.component';
+import { FilloutComponent } from './components/login/fillout/fillout.component';
 
 const routes: Routes = [
-  {path:'login', component:LoginComponent},
+  {path:'login', component:LoginComponent,
+   children: [
+     {path:'fillout', component:FilloutComponent}
+    ]
+  },
+
   {path:'logout', component:LogoutComponent},
+
   {path:'home', component:HomeComponent,
    children:[
     {path:'showbeach', component:ShowBeachComponent},
@@ -19,6 +26,7 @@ const routes: Routes = [
     {path:'**', component:ShowBeachComponent},
    ]
   },
+
   {
    path:'create', component:CreateComponent,
    children:[
