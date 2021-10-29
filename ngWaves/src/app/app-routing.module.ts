@@ -6,8 +6,12 @@ import { ShowReportsComponent } from './components/home/show-reports/show-report
 import { CreateComponent } from './components/create/create.component';
 import { CreateReportComponent } from './components/create/create-report/create-report.component';
 import { CreateWeatherComponent } from './components/create/create-weather/create-weather.component';
+import { LoginComponent } from './components/login/login.component';
+import { LogoutComponent } from './components/logout/logout.component';
 
 const routes: Routes = [
+  {path:'login', component:LoginComponent},
+  {path:'logout', component:LogoutComponent},
   {path:'home', component:HomeComponent,
    children:[
     {path:'showbeach', component:ShowBeachComponent},
