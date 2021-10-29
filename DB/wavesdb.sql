@@ -287,7 +287,7 @@ CREATE TABLE IF NOT EXISTS `weather_comment` (
   `comment_date` DATETIME NULL,
   `weather_id` INT NOT NULL,
   `user_id` INT NOT NULL,
-  `weather_comment_id` INT NOT NULL,
+  `weather_comment_id` INT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_weather_comment_weather1_idx` (`weather_id` ASC),
   INDEX `fk_weather_comment_user1_idx` (`user_id` ASC),
