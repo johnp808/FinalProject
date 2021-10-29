@@ -1,0 +1,15 @@
+.content{
+  width: 100%;
+  height: 800px;
+  display: flex;
+}
+
+.left{
+  width: 200px;
+  border-right: 1px solid gray;
+  height: 800px;
+}
+
+.right{
+  flex: 1px;
+}

@@ -25,6 +25,15 @@ public class WeatherController {
 	@Autowired
 	private WeatherService weatherSvc;
 	
+	@GetMapping("weather")
+	public List<Weather> getAllWeather(HttpServletResponse res){
+		List<Weather> weather = weatherSvc.getAllWeather();
+		if(weather == null) {
+			res.setStatus(404);
+		}
+		return weather;
+	}
+	
 	@GetMapping("weather/user")
 	public List<Weather> getReportByUsername(
 			HttpServletResponse res,
