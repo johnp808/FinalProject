@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.skilldistillery.waves.entities.ReportComment;
 import com.skilldistillery.waves.entities.WeatherComment;
 import com.skilldistillery.waves.services.CommentService;
 
@@ -26,24 +27,26 @@ import com.skilldistillery.waves.services.CommentService;
 public class CommentController {
 
 	@Autowired
-	private CommentService wComSvc;
-// 					*** 				Weather comments									***
-	@GetMapping("comment")
+	private CommentService comSvc;
+	
+// 			*** 									Weather comments									***
+	
+	
+	@GetMapping("weather/comment")
 	public List<WeatherComment> showComments(
 			HttpServletResponse res,
 			Principal principal
 			) {
-//		List<WeatherComment> commentList = wComSvc.showComment(principal.getName()); this shows the first comment only
-		List<WeatherComment> commentList = wComSvc.indexComment(principal.getName()); // this shows all the comments for the user
+		List<WeatherComment> commentList = comSvc.indexComment(principal.getName()); // this shows all the comments for the user
 		if(commentList == null) {
 			res.setStatus(404);
 		}
 		return commentList;
 	}
 	
-	@GetMapping("comment/{wComId}")
-	public WeatherComment show(HttpServletRequest req, HttpServletResponse res, Principal principal, @PathVariable int wComId) {
-		WeatherComment wCom = wComSvc.showComment( wComId);
+	@GetMapping("weather/comment/{wComId}")
+	public WeatherComment showCommentById(HttpServletRequest req, HttpServletResponse res, Principal principal, @PathVariable int wComId) {
+		WeatherComment wCom = comSvc.showComment( wComId);
 		if (wCom == null) {
 
 			res.setStatus(404);
@@ -51,9 +54,9 @@ public class CommentController {
 		return wCom;
 	}
 	
-	@PutMapping("auth/comment/{wComId}")
+	@PutMapping("auth/weather/comment/{wComId}")
 	public WeatherComment update(HttpServletRequest req, HttpServletResponse res, Principal principal, @PathVariable int wComId, @RequestBody WeatherComment wc) {
-		wc = wComSvc.updateComment(principal.getName(), wComId, wc);
+		wc = comSvc.updateComment(principal.getName(), wComId, wc);
 		if (wc == null) {
 			res.setStatus(404);
 		}
@@ -62,7 +65,7 @@ public class CommentController {
 	
 	@DeleteMapping("auth/comment/{wComId}")
 	public boolean destroy(HttpServletRequest req, HttpServletResponse res, Principal principal, @PathVariable int wComId) {
-		boolean deleted = wComSvc.destroyComment(principal.getName(), wComId);
+		boolean deleted = comSvc.destroyComment(principal.getName(), wComId);
 		if (deleted) {
 			res.setStatus(204);
 		}
@@ -77,7 +80,7 @@ public class CommentController {
 			HttpServletResponse res,
 			Principal principal
 			) {
-		WeatherComment newWeatherComment = wComSvc.create( weatherId, principal.getName(), weatherComment);
+		WeatherComment newWeatherComment = comSvc.create( weatherId, principal.getName(), weatherComment);
 		if(newWeatherComment != null) {
 			res.setStatus(201);
 			return newWeatherComment;
@@ -86,6 +89,22 @@ public class CommentController {
 			return null;
 		}
 	}
-//			*** 				Report Comments											***
+	
+//			*** 										Report Comments											***
+	
+	
+	@GetMapping("report/comment")
+	public List<ReportComment> showReportComments(
+			HttpServletResponse res,
+			Principal principal
+			) {
+		List<ReportComment> commentList = comSvc.indexReport(principal.getName()); // this shows all the comments for the user
+		if(commentList == null) {
+			res.setStatus(404);
+		}
+		return commentList;
+	}
+	
+	
 	
 }
