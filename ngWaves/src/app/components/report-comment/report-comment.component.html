@@ -1,0 +1,16 @@
+<h1> Help</h1>
+
+
+<div id="newReportCommentForm">
+  <form>
+    <!-- This is if We select A Comment, Might not need it <form *ngIf="!selected"> -->
+   <input type="text" placeholder="Comment" name="comment"><br><br>
+   <input type="text" name="commentDate" value="$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE
+   $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND"><br><br>
+   <button style="margin-left: 16px" (click)="addReportComment(newReportComment)">Create Report Comment</button><br><br>
+ </form>
+</div>
+<!-- <div *ngIf="!selected"> -->
+<hr>
+<hr>
+<!-- </div> -->

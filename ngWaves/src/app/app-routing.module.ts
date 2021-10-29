@@ -8,6 +8,7 @@ import { CreateReportComponent } from './components/create/create-report/create-
 import { CreateWeatherComponent } from './components/create/create-weather/create-weather.component';
 import { LoginComponent } from './components/login/login.component';
 import { LogoutComponent } from './components/logout/logout.component';
+import { ReportCommentComponent } from './components/report-comment/report-comment.component';
 
 const routes: Routes = [
   {path:'login', component:LoginComponent},
@@ -23,7 +24,7 @@ const routes: Routes = [
    path:'create', component:CreateComponent,
    children:[
     {path:'createweather', component:CreateWeatherComponent},
-    {path:'createreport', component:CreateReportComponent},
+    {path:'createreport', component:ReportCommentComponent},
     {path:'**', component:CreateReportComponent},
    ]
   }
