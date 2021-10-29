@@ -35,10 +35,15 @@ public class CommentServiceImpl implements CommentService {
 		return wComRepo.findAll();
 	}
 
-	@Override
-	public List<WeatherComment> showComment( String username, int wid) {
 	
-		return wComRepo.findByUser_UsernameAndId(username, wid);
+	@Override
+	public WeatherComment showComment(int wComId) {
+	
+	Optional<WeatherComment> wComm= wComRepo.findById(wComId);
+	if(wComm.isPresent()) {
+		return wComm.get();
+	}
+	return null;
 	}
 
 	@Override
@@ -55,16 +60,19 @@ public class CommentServiceImpl implements CommentService {
 		}
 	}
 	
-	
-	@Override
-	public List<WeatherComment> showComment(String username) {
-		
-		return wComRepo.findByUser_Username(username);
-	}
 
 	@Override
 	public WeatherComment updateComment(String username, int wid, WeatherComment wComment) {
-		// TODO Auto-generated method stub
+		Optional<WeatherComment> managedComment =wComRepo.findById(wid);
+		User user = userRepo.findByUsername(username);
+		if(managedComment.isPresent() && user!= null && wComment!=null) {
+			WeatherComment wc = managedComment.get();
+			wc.setCommentDate(wComment.getCommentDate());
+			wc.setComment(wComment.getComment());
+			wc.setWeather(wComment.getWeather());
+			
+			return wc;
+		}
 		return null;
 	}
 
@@ -103,5 +111,7 @@ public class CommentServiceImpl implements CommentService {
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+
 
 }
