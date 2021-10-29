@@ -15,6 +15,8 @@ import { ShowReportsComponent } from './components/home/show-reports/show-report
 import { CreateComponent } from './components/create/create.component';
 import { CreateReportComponent } from './components/create/create-report/create-report.component';
 import { CreateWeatherComponent } from './components/create/create-weather/create-weather.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -35,9 +37,11 @@ import { CreateWeatherComponent } from './components/create/create-weather/creat
     BrowserModule,
     AppRoutingModule,
     //MatSliderModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
