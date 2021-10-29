@@ -11,7 +11,7 @@ public interface CommentService {
 
     public List<WeatherComment> show(String username, int wid);
 
-    public WeatherComment create(String username, WeatherComment wComment);
+    public WeatherComment create(int weatherId, String username, WeatherComment wComment);
 
     public WeatherComment update(String username, int wid, WeatherComment wComment);
 
@@ -26,5 +26,8 @@ public interface CommentService {
     public ReportComment updateReport(String username, int rid, ReportComment rComment);
     
     public boolean destroyReport(String username, int rid);
+
+	List<WeatherComment> show(String username);
+
 
 }

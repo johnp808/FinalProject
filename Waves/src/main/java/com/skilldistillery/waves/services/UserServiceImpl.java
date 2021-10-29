@@ -1,6 +1,5 @@
 package com.skilldistillery.waves.services;
 
-import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
@@ -9,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.skilldistillery.waves.entities.Beach;
 import com.skilldistillery.waves.entities.User;
+import com.skilldistillery.waves.entities.WeatherComment;
 import com.skilldistillery.waves.repositories.BeachRepository;
 import com.skilldistillery.waves.repositories.UserRepository;
 
@@ -80,6 +80,7 @@ public class UserServiceImpl implements UserService {
 			return null;
 		}
 	}
+
 
 	@Override
 	public boolean destroy(String username) {
