@@ -1,3 +1,6 @@
+import { Beach } from "./beach";
+import { User } from "./user";
+
 export class Report {
   id: number;
   comment: string;
@@ -5,8 +8,8 @@ export class Report {
   rating: number;
   created: string;
   enabled: boolean;
-  // user: User;
-  // beach: Beach;
+  user: User;
+  beach: Beach;
 
   constructor(
     id: number = 0,
@@ -15,8 +18,8 @@ export class Report {
     rating: number = 0,
     created: string = '',
     enabled: boolean = false,
-    // user: User = new user(),
-    // beach: Beach = new beach()
+    user: User = new User(),
+    beach: Beach = new Beach()
   ){
     this.id = id;
     this.comment = comment;
@@ -24,7 +27,7 @@ export class Report {
     this.rating = rating;
     this.created = created;
     this.enabled = enabled;
-    // this.user = user;
-    // this.beach = beach;
+    this.user = user;
+    this.beach = beach;
   }
 }

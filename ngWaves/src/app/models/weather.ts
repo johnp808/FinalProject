@@ -1,3 +1,6 @@
+import { Beach } from "./beach";
+import { User } from "./user";
+
 export class Weather {
   id: number;
   weatherType: string;
@@ -6,8 +9,8 @@ export class Weather {
   created: string;
   enabled: boolean;
   waveSize: string;
-  // user: User;
-  // beach: Beach;
+  user: User;
+  beach: Beach;
 
   constructor(
     id: number = 0,
@@ -16,9 +19,9 @@ export class Weather {
     temperatureCelsius: number = 0,
     created: string = '',
     enabled: boolean = false,
-    waveSize: string = ''
-    // user: User = new user(),
-    // beach: Beach = new beach()
+    waveSize: string = '',
+    user: User = new User(),
+    beach: Beach = new Beach()
   ){
     this.id = id;
     this.weatherType = weatherType;
@@ -27,8 +30,8 @@ export class Weather {
     this.created = created;
     this.enabled = enabled;
     this.waveSize = waveSize;
-    // this.user = user;
-    // this.beach = beach;
+    this.user = user;
+    this.beach = beach;
   }
 
 }

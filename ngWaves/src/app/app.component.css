@@ -1,0 +1,15 @@
+.header{
+  height: 44px;
+  line-height: 44px;
+  background-color: gainsboro;
+  color: green;
+}
+
+.header a{
+  color: green;
+  padding: 10px 40px;
+}
+
+.header .active{
+  color: blue;
+}
