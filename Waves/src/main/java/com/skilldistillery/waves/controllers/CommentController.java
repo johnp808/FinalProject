@@ -30,7 +30,8 @@ public class CommentController {
 			HttpServletResponse res,
 			Principal principal
 			) {
-		List<WeatherComment> commentList = wComSvc.show(principal.getName());
+//		List<WeatherComment> commentList = wComSvc.showComment(principal.getName()); this shows the first comment only
+		List<WeatherComment> commentList = wComSvc.indexComment(principal.getName()); // this shows all the comments for the user
 		if(commentList == null) {
 			res.setStatus(404);
 		}

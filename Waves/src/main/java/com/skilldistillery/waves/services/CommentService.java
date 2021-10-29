@@ -7,15 +7,17 @@ import com.skilldistillery.waves.entities.WeatherComment;
 
 public interface CommentService {
 	
-	public List<WeatherComment> index(String username);
+	public List<WeatherComment> indexComment(String username);
 
-    public List<WeatherComment> show(String username, int wid);
+    public List<WeatherComment> showComment(String username, int wid);
+    
+    List<WeatherComment> showComment(String username);
 
     public WeatherComment create(int weatherId, String username, WeatherComment wComment);
 
-    public WeatherComment update(String username, int wid, WeatherComment wComment);
+    WeatherComment updateComment(String username, int wid, WeatherComment wComment);
 
-    public boolean destroy(String username, int wid);
+    boolean destroyComment(String username, int wid);
     
     public List<ReportComment> indexReport(String username);
     
@@ -27,7 +29,8 @@ public interface CommentService {
     
     public boolean destroyReport(String username, int rid);
 
-	List<WeatherComment> show(String username);
+
+
 
 
 }

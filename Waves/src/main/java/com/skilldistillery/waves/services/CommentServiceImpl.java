@@ -30,13 +30,13 @@ public class CommentServiceImpl implements CommentService {
 	private WeatherRepository weatherRepo;
 
 	@Override
-	public List<WeatherComment> index(String username) {
+	public List<WeatherComment> indexComment(String username) {
 		
 		return wComRepo.findAll();
 	}
 
 	@Override
-	public List<WeatherComment> show( String username, int wid) {
+	public List<WeatherComment> showComment( String username, int wid) {
 	
 		return wComRepo.findByUser_UsernameAndId(username, wid);
 	}
@@ -57,20 +57,20 @@ public class CommentServiceImpl implements CommentService {
 	
 	
 	@Override
-	public List<WeatherComment> show(String username) {
+	public List<WeatherComment> showComment(String username) {
 		
 		return wComRepo.findByUser_Username(username);
 	}
 
 	@Override
-	public WeatherComment update(String username, int wid, WeatherComment wComment) {
+	public WeatherComment updateComment(String username, int wid, WeatherComment wComment) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public boolean destroy(String username, int wid) {
-		// TODO Auto-generated method stub
+	public boolean destroyComment(String username, int wid) {
+
 		return false;
 	}
 
