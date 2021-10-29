@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.waves.entities.Beach;
 import com.skilldistillery.waves.entities.ReportComment;
 import com.skilldistillery.waves.entities.User;
 import com.skilldistillery.waves.entities.Weather;
@@ -35,10 +36,15 @@ public class CommentServiceImpl implements CommentService {
 		return wComRepo.findAll();
 	}
 
-	@Override
-	public List<WeatherComment> showComment( String username, int wid) {
 	
-		return wComRepo.findByUser_UsernameAndId(username, wid);
+	@Override
+	public WeatherComment showComment(int wComId) {
+	
+	Optional<WeatherComment> wComm= wComRepo.findById(wComId);
+	if(wComm.isPresent()) {
+		return wComm.get();
+	}
+	return null;
 	}
 
 	@Override
@@ -55,29 +61,37 @@ public class CommentServiceImpl implements CommentService {
 		}
 	}
 	
-	
-	@Override
-	public List<WeatherComment> showComment(String username) {
-		
-		return wComRepo.findByUser_Username(username);
-	}
 
 	@Override
 	public WeatherComment updateComment(String username, int wid, WeatherComment wComment) {
-		// TODO Auto-generated method stub
+		Optional<WeatherComment> managedComment =wComRepo.findById(wid);
+		User user = userRepo.findByUsername(username);
+		if(managedComment.isPresent() && user!= null && wComment!=null) {
+			WeatherComment wC = managedComment.get();
+			wC.setCommentDate(wComment.getCommentDate());
+			wC.setComment(wComment.getComment());
+			wC.setWeather(wComment.getWeather());
+			
+			return wC;
+		}
 		return null;
 	}
 
 	@Override
 	public boolean destroyComment(String username, int wid) {
-
-		return false;
-	}
+			boolean deleted = false;
+			Optional<WeatherComment> wC = wComRepo.findById(wid);
+			if (wC.isPresent()) {
+				WeatherComment wComm = wC.get();
+				wComRepo.delete(wComm);
+				deleted = true;
+			}
+			return deleted;
+		}
 
 	@Override
 	public List<ReportComment> indexReport(String username) {
-		// TODO Auto-generated method stub
-		return null;
+		return rComRepo.findAll();
 	}
 
 	@Override
@@ -103,5 +117,7 @@ public class CommentServiceImpl implements CommentService {
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+
 
 }

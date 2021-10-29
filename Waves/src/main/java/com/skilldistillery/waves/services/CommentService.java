@@ -9,9 +9,8 @@ public interface CommentService {
 	
 	public List<WeatherComment> indexComment(String username);
 
-    public List<WeatherComment> showComment(String username, int wid);
+	WeatherComment showComment(int wComId);
     
-    List<WeatherComment> showComment(String username);
 
     public WeatherComment create(int weatherId, String username, WeatherComment wComment);
 
@@ -28,6 +27,7 @@ public interface CommentService {
     public ReportComment updateReport(String username, int rid, ReportComment rComment);
     
     public boolean destroyReport(String username, int rid);
+
 
 
 

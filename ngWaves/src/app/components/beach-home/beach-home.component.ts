@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Beach } from 'src/app/models/beach';
 
 @Component({
   selector: 'app-beach-home',
@@ -6,6 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./beach-home.component.css']
 })
 export class BeachHomeComponent implements OnInit {
+
+  title = 'Waves';
+
+  beaches: Beach[] = [];
+
+  selected: Beach | null = null;
+  newBeach: Beach | null = new Beach();
+  editBeach: Beach | null = null;
 
   constructor() { }
 

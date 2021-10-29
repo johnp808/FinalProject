@@ -34,7 +34,7 @@ public class WeatherComment {
 	@JoinColumn(name="user_id")
 	private User user;
 	
-	@JsonIgnore
+	
 	@ManyToOne
 	@JoinColumn(name="weather_id")
 	private Weather weather;
