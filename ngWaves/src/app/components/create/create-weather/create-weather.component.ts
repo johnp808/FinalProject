@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { WeatherService } from 'src/app/services/weather.service';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-create-weather',
@@ -7,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateWeatherComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private weatherService: WeatherService,
+    private formBuilder: FormBuilder,
+    ) { }
 
   ngOnInit(): void {
   }
