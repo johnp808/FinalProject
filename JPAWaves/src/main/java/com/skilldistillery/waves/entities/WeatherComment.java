@@ -29,14 +29,17 @@ public class WeatherComment {
 	@Column(name="comment_date")
 	private LocalDateTime commentDate;
 	
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="user_id")
 	private User user;
 	
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="weather_id")
 	private Weather weather;
 	
+	@JsonIgnore
 	@OneToMany
 	@JoinColumn(name="weather_comment_id")
 	private List<WeatherComment> weatherComments;

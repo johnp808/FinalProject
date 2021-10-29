@@ -122,8 +122,48 @@ public class BeachServiceImpl implements BeachService {
 	//Get list of beaches by keywords matching desc.
 	@Override
 	public List<Beach> getBeachByKeyword(String keyword) {
-		// TODO Auto-generated method stub
-		return null;
+		List<Beach> allBeaches = beachRepo.findAll();
+		List<Beach> matches = new ArrayList<>();
+		Beach b = null;
+		keyword = keyword.toLowerCase();
+		String search = null;
+		for(int i = 0; i < allBeaches.size(); i++) {
+			b = allBeaches.get(i);
+			search = b.getLocation().getStreet();
+			search = search.toLowerCase();
+			if(search.contains(keyword)) {
+				matches.add(b);
+			}
+			search = b.getLocation().getCity();
+			search = search.toLowerCase();
+			if(search.contains(keyword)) {
+				matches.add(b);
+			}
+			search = b.getLocation().getState();
+			search = search.toLowerCase();
+			if(search.contains(keyword)) {
+				matches.add(b);
+			}
+			search = b.getLocation().getZip();
+			search = search.toLowerCase();
+			if(search.contains(keyword)) {
+				matches.add(b);
+			}
+			search = b.getName();
+			search = search.toLowerCase();
+			if(search.contains(keyword)) {
+				matches.add(b);
+			}
+			search = b.getDescription();
+			search = search.toLowerCase();
+			if(search.contains(keyword)) {
+				matches.add(b);
+			}
+			
+
+		}
+		
+		return matches;
 	}
 	
 	

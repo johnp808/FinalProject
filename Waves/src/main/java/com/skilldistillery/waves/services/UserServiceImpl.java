@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.skilldistillery.waves.entities.Beach;
 import com.skilldistillery.waves.entities.User;
+import com.skilldistillery.waves.entities.WeatherComment;
 import com.skilldistillery.waves.repositories.BeachRepository;
 import com.skilldistillery.waves.repositories.UserRepository;
 
@@ -80,6 +81,7 @@ public class UserServiceImpl implements UserService {
 		}
 	}
 
+
 	@Override
 	public boolean destroy(String username) {
 		boolean deleted = false;
@@ -89,6 +91,40 @@ public class UserServiceImpl implements UserService {
 			deleted = true;
 		}
 		return deleted;
+	}
+	
+	@Override
+	public User update(int id, User user) {
+		Optional<User> existingUser = userRepo.findById(id);
+		
+		if(existingUser.isPresent()) {
+			User u = existingUser.get();
+			u.setUsername(user.getUsername());
+			u.setPassword(user.getPassword());
+			u.setEmail(user.getEmail());
+			u.setEnabled(user.getEnabled());
+			u.setLocation(user.getLocation());
+			u.setProfileImage(user.getProfileImage());
+			u.setRole(user.getRole());
+			u.setBeachFavorites(user.getBeachFavorites());
+			u.setReportComments(user.getReportComments());
+			u.setReports(user.getReports());
+			u.setLocation(user.getLocation());
+			
+			userRepo.saveAndFlush(u);
+			return u;
+		}
+		return null;
+	}
+
+	@Override
+	public User show(int id) {
+		Optional<User> existingUser = userRepo.findById(id);
+		if(existingUser.isPresent()) {
+			User u = existingUser.get();
+			return u;
+		}
+		return null;
 	}
 	
 }

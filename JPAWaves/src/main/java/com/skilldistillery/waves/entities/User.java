@@ -32,6 +32,8 @@ public class User {
 	
 	private String role;
 	
+	private String email;
+	
 	@Column (name ="profile_image")
 	private String profileImage;
 	
@@ -44,12 +46,12 @@ public class User {
 	
 	@OneToMany(mappedBy="user")
 	private List<WeatherComment> weatherComments;
+	
 	@OneToMany(mappedBy="user")
 	private List<ReportComment> reportComments;
+	
 	@OneToMany(mappedBy="user")
 	private List<Report> reports;
-	
-	
 	
 	@ManyToMany
 	 @JoinTable(name="favorites",
@@ -58,8 +60,6 @@ public class User {
 	@JsonIgnoreProperties({"favoritedUsers"})
 	 private List<Beach> beachFavorites;
 
-	
-	
 
 	public User() {
 		super();
@@ -120,6 +120,14 @@ public class User {
 
 	public void setLocation(Location location) {
 		this.location = location;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public List<Weather> getWeather() {
