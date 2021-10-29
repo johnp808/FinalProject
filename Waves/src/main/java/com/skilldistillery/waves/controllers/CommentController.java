@@ -46,12 +46,29 @@ public class CommentController {
 	
 	@GetMapping("weather/comment/{wComId}")
 	public WeatherComment showCommentById(HttpServletRequest req, HttpServletResponse res, Principal principal, @PathVariable int wComId) {
-		WeatherComment wCom = comSvc.showComment( wComId);
+		WeatherComment wCom = comSvc.showCommentById( wComId);
 		if (wCom == null) {
 
 			res.setStatus(404);
 		}
 		return wCom;
+	}
+	
+	@PostMapping("auth/weather/comment/{weatherId}")
+	public WeatherComment createWeatherCommentByUsername(
+			@PathVariable int weatherId,
+			@RequestBody WeatherComment weatherComment,
+			HttpServletResponse res,
+			Principal principal
+			) {
+		WeatherComment newWeatherComment = comSvc.createComment( weatherId, principal.getName(), weatherComment);
+		if(newWeatherComment != null) {
+			res.setStatus(201);
+			return newWeatherComment;
+		}else {
+			res.setStatus(404);
+			return null;
+		}
 	}
 	
 	@PutMapping("auth/weather/comment/{wComId}")
@@ -63,7 +80,7 @@ public class CommentController {
 		return wc;
 	}
 	
-	@DeleteMapping("auth/comment/{wComId}")
+	@DeleteMapping("auth/weather/comment/{wComId}")
 	public boolean destroy(HttpServletRequest req, HttpServletResponse res, Principal principal, @PathVariable int wComId) {
 		boolean deleted = comSvc.destroyComment(principal.getName(), wComId);
 		if (deleted) {
@@ -72,23 +89,6 @@ public class CommentController {
 		return deleted;
 	}
 
-
-	@PostMapping("auth/comment/{weatherId}")
-	public WeatherComment createWeatherCommentByUsername(
-			@PathVariable int weatherId,
-			@RequestBody WeatherComment weatherComment,
-			HttpServletResponse res,
-			Principal principal
-			) {
-		WeatherComment newWeatherComment = comSvc.create( weatherId, principal.getName(), weatherComment);
-		if(newWeatherComment != null) {
-			res.setStatus(201);
-			return newWeatherComment;
-		}else {
-			res.setStatus(404);
-			return null;
-		}
-	}
 	
 //			*** 										Report Comments											***
 	
@@ -105,6 +105,48 @@ public class CommentController {
 		return commentList;
 	}
 	
+	@GetMapping("report/comment/{rComId}")
+	public ReportComment showReportCommentById(HttpServletRequest req, HttpServletResponse res, Principal principal, @PathVariable int rComId) {
+		ReportComment rCom = comSvc.showReportCommentById( rComId);
+		if (rCom == null) {
+
+			res.setStatus(404);
+		}
+		return rCom;
+	}
 	
+	@PostMapping("auth/report/comment/{reportId}")
+	public ReportComment createReportCommentByUsername(
+			@PathVariable int reportId,
+			@RequestBody ReportComment reportComment,
+			HttpServletResponse res,
+			Principal principal
+			) {
+		ReportComment newReportComment = comSvc.createReport( reportId, principal.getName(), reportComment);
+		if(newReportComment != null) {
+			res.setStatus(201);
+			return newReportComment;
+		}else {
+			res.setStatus(404);
+			return null;
+		}
+	}
 	
+	@PutMapping("auth/report/comment/{rComId}")
+	public ReportComment updateReportComment(HttpServletRequest req, HttpServletResponse res, Principal principal, @PathVariable int rComId, @RequestBody ReportComment rC) {
+		rC = comSvc.updateReportComment(principal.getName(), rComId, rC);
+		if (rC == null) {
+			res.setStatus(404);
+		}
+		return rC;
+	}
+	
+	@DeleteMapping("auth/report/comment/{rComId}")
+	public boolean destroyReportComment(HttpServletRequest req, HttpServletResponse res, Principal principal, @PathVariable int rComId) {
+		boolean deleted = comSvc.destroyReportComment(principal.getName(), rComId);
+		if (deleted) {
+			res.setStatus(204);
+		}
+		return deleted;
+	}
 }

@@ -26,23 +26,6 @@ public class Report {
 	private Integer rating;
 	private LocalDateTime created;
 	private Boolean enabled;
-	
-	public Boolean getEnabled() {
-		return enabled;
-	}
-
-	public void setEnabled(Boolean enabled) {
-		this.enabled = enabled;
-	}
-	
-	public List<ReportComment> getReportComments() {
-		return reportComments;
-	}
-
-	public void setReportComments(List<ReportComment> reportComments) {
-		this.reportComments = reportComments;
-	}
-
 	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "beach_id")
@@ -57,69 +40,61 @@ public class Report {
 	@OneToMany(mappedBy="report")
 	private List<ReportComment> reportComments;
 	
-	public Report() {
-		super();
-	}
-
-	public Beach getBeach() {
-		return beach;
-	}
-
-	public void setBeach(Beach beach) {
-		this.beach = beach;
-	}
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-
-	public List<ReportComment> getComments() {
-		return reportComments;
-	}
-
-	public void setComments(List<ReportComment> comments) {
-		this.reportComments = comments;
-	}
-
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
-
 	public String getComment() {
 		return comment;
 	}
 	public void setComment(String comment) {
 		this.comment = comment;
 	}
-
 	public String getImage() {
 		return image;
 	}
 	public void setImage(String image) {
 		this.image = image;
 	}
-
 	public Integer getRating() {
 		return rating;
 	}
 	public void setRating(Integer rating) {
 		this.rating = rating;
 	}
-
 	public LocalDateTime getCreated() {
 		return created;
 	}
 	public void setCreated(LocalDateTime created) {
 		this.created = created;
 	}
-
+	public Boolean getEnabled() {
+		return enabled;
+	}
+	public void setEnabled(Boolean enabled) {
+		this.enabled = enabled;
+	}
+	public Beach getBeach() {
+		return beach;
+	}
+	public void setBeach(Beach beach) {
+		this.beach = beach;
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
+	public List<ReportComment> getReportComments() {
+		return reportComments;
+	}
+	public void setReportComments(List<ReportComment> reportComments) {
+		this.reportComments = reportComments;
+	}
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);

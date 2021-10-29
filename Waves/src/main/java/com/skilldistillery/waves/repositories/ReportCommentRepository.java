@@ -9,7 +9,7 @@ import com.skilldistillery.waves.entities.ReportComment;
 
 public interface ReportCommentRepository extends JpaRepository<ReportComment, Integer> {
 
-	ReportComment findById(int id);
+	ReportComment queryById(int rid);
 	List<ReportComment> findByCommentDate(LocalDateTime postedDate);
 	List<ReportComment> findByUserId(int userId);
 	List<ReportComment> findByReport_Id(int commentId);

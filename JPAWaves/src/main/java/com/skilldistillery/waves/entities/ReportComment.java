@@ -24,7 +24,7 @@ public class ReportComment {
 	private String comment;
 	@Column(name="comment_date")
 	private LocalDateTime commentDate;
-	@JsonIgnore
+	
 	@ManyToOne
 	@JoinColumn(name = "report_id")
 	private Report report;

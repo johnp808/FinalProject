@@ -60,7 +60,7 @@ class ReportTest {
 	@Test
 	void test_report_OneToMany_reportComment_mapping() {
 		assertNotNull(report);
-		assertTrue(report.getComments().size() > 0);
+		assertTrue(report.getReportComments().size() > 0);
 	}
 
 }

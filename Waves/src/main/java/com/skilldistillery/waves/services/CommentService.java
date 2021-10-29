@@ -9,24 +9,26 @@ public interface CommentService {
 	
 	public List<WeatherComment> indexComment(String username);
 
-	WeatherComment showComment(int wComId);
-    
+	public WeatherComment showCommentById(int wComId);
 
-    public WeatherComment create(int weatherId, String username, WeatherComment wComment);
+    public WeatherComment createComment(int weatherId, String username, WeatherComment wComment);
 
-    WeatherComment updateComment(String username, int wid, WeatherComment wComment);
+    public WeatherComment updateComment(String username, int wid, WeatherComment wComment);
 
-    boolean destroyComment(String username, int wid);
+    public boolean destroyComment(String username, int wid);
     
     public List<ReportComment> indexReport(String username);
     
-    public ReportComment showReport(String username, int rid);
+    public ReportComment showReportCommentById(int rComId);
     
-    public ReportComment createReport(String username, ReportComment rComment);
+    public ReportComment createReport(int reportId, String username, ReportComment rComment);
     
-    public ReportComment updateReport(String username, int rid, ReportComment rComment);
+    ReportComment updateReportComment(String username, int rid, ReportComment rComment);
     
-    public boolean destroyReport(String username, int rid);
+	public boolean destroyReportComment(String name, int rComId);
+
+
+
 
 
 
