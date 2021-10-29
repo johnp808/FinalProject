@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.waves.entities.Beach;
 import com.skilldistillery.waves.entities.ReportComment;
 import com.skilldistillery.waves.entities.User;
 import com.skilldistillery.waves.entities.Weather;
@@ -66,26 +67,31 @@ public class CommentServiceImpl implements CommentService {
 		Optional<WeatherComment> managedComment =wComRepo.findById(wid);
 		User user = userRepo.findByUsername(username);
 		if(managedComment.isPresent() && user!= null && wComment!=null) {
-			WeatherComment wc = managedComment.get();
-			wc.setCommentDate(wComment.getCommentDate());
-			wc.setComment(wComment.getComment());
-			wc.setWeather(wComment.getWeather());
+			WeatherComment wC = managedComment.get();
+			wC.setCommentDate(wComment.getCommentDate());
+			wC.setComment(wComment.getComment());
+			wC.setWeather(wComment.getWeather());
 			
-			return wc;
+			return wC;
 		}
 		return null;
 	}
 
 	@Override
 	public boolean destroyComment(String username, int wid) {
-
-		return false;
-	}
+			boolean deleted = false;
+			Optional<WeatherComment> wC = wComRepo.findById(wid);
+			if (wC.isPresent()) {
+				WeatherComment wComm = wC.get();
+				wComRepo.delete(wComm);
+				deleted = true;
+			}
+			return deleted;
+		}
 
 	@Override
 	public List<ReportComment> indexReport(String username) {
-		// TODO Auto-generated method stub
-		return null;
+		return rComRepo.findAll();
 	}
 
 	@Override

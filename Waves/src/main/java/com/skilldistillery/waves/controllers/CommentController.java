@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,7 +27,7 @@ public class CommentController {
 
 	@Autowired
 	private CommentService wComSvc;
-	
+// 					*** 				Weather comments									***
 	@GetMapping("comment")
 	public List<WeatherComment> showComments(
 			HttpServletResponse res,
@@ -58,9 +59,18 @@ public class CommentController {
 		}
 		return wc;
 	}
+	
+	@DeleteMapping("auth/comment/{wComId}")
+	public boolean destroy(HttpServletRequest req, HttpServletResponse res, Principal principal, @PathVariable int wComId) {
+		boolean deleted = wComSvc.destroyComment(principal.getName(), wComId);
+		if (deleted) {
+			res.setStatus(204);
+		}
+		return deleted;
+	}
 
 
-	@PostMapping("comment/{weatherId}")
+	@PostMapping("auth/comment/{weatherId}")
 	public WeatherComment createWeatherCommentByUsername(
 			@PathVariable int weatherId,
 			@RequestBody WeatherComment weatherComment,
@@ -76,4 +86,6 @@ public class CommentController {
 			return null;
 		}
 	}
+//			*** 				Report Comments											***
+	
 }
