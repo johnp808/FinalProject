@@ -55,6 +55,11 @@ public class ReportServiceImpl implements ReportService {
 		}
 		return null;
 	}
+
+	@Override
+	public List<Report> getAllReports() {
+		return reportRepo.findAll();
+	}
 	
 	
 
