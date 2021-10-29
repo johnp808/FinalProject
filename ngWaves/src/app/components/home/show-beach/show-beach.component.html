@@ -1,1 +1,15 @@
-<p>show-beach works!</p>
+<h1> Waves Beaches</h1>
+<table>
+  <thead>
+  <tr>
+    <th>
+      Beaches
+    </th>
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let beach of beaches">
+    <td (click)="displayBeach(beach)">{{ beach.name }}</td>
+  </tr>
+</tbody>
+</table>
