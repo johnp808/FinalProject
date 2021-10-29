@@ -1,0 +1,37 @@
+<h3>Please Login:</h3>
+
+<div *ngIf="!isLogin">
+<form >
+  <input type="text" name="username" placeholder="username" [(ngModel)]="user.username"><br>
+  <input type="text" name="password" placeholder="password" [(ngModel)]="user.password"><br>
+  <button (click)="login()">Login</button>
+</form>
+</div>
+
+<div *ngIf="isLogin">
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Enabled</th>
+        <th>Role</th>
+        <th>Email</th>
+        <th>Image</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{user.id}}</td>
+        <td>{{user.username}}</td>
+        <td>{{user.enabled}}</td>
+        <td>{{user.role}}</td>
+        <td>{{user.email}}</td>
+        <td><img height="100px" [src]="user.profileImage"></td>
+      </tr>
+    </tbody>
+
+  </table>
+
+</div>
+

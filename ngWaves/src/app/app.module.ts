@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-//import { MatSliderModule } from '@angular/material/slider';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './components/login/login.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -15,6 +15,9 @@ import { ShowReportsComponent } from './components/home/show-reports/show-report
 import { CreateComponent } from './components/create/create.component';
 import { CreateReportComponent } from './components/create/create-report/create-report.component';
 import { CreateWeatherComponent } from './components/create/create-weather/create-weather.component';
+import { FilloutComponent } from './components/login/fillout/fillout.component';
+import { AuthService } from './services/auth.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -29,15 +32,19 @@ import { CreateWeatherComponent } from './components/create/create-weather/creat
     ShowReportsComponent,
     CreateComponent,
     CreateReportComponent,
-    CreateWeatherComponent
+    CreateWeatherComponent,
+    FilloutComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    //MatSliderModule,
-    BrowserAnimationsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
