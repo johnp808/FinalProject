@@ -6,12 +6,13 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.skilldistillery.waves.entities.Beach;
+import com.skilldistillery.waves.entities.Report;
 import com.skilldistillery.waves.entities.ReportComment;
 import com.skilldistillery.waves.entities.User;
 import com.skilldistillery.waves.entities.Weather;
 import com.skilldistillery.waves.entities.WeatherComment;
 import com.skilldistillery.waves.repositories.ReportCommentRepository;
+import com.skilldistillery.waves.repositories.ReportRepository;
 import com.skilldistillery.waves.repositories.UserRepository;
 import com.skilldistillery.waves.repositories.WeatherCommentRepository;
 import com.skilldistillery.waves.repositories.WeatherRepository;
@@ -29,6 +30,9 @@ public class CommentServiceImpl implements CommentService {
 
 	@Autowired
 	private WeatherRepository weatherRepo;
+	
+	@Autowired
+	private ReportRepository reportRepo;
 
 	@Override
 	public List<WeatherComment> indexComment(String username) {
@@ -38,7 +42,7 @@ public class CommentServiceImpl implements CommentService {
 
 	
 	@Override
-	public WeatherComment showComment(int wComId) {
+	public WeatherComment showCommentById(int wComId) {
 	
 	Optional<WeatherComment> wComm= wComRepo.findById(wComId);
 	if(wComm.isPresent()) {
@@ -48,7 +52,7 @@ public class CommentServiceImpl implements CommentService {
 	}
 
 	@Override
-	public WeatherComment create(int weatherId, String username, WeatherComment wComment) {
+	public WeatherComment createComment(int weatherId, String username, WeatherComment wComment) {
 		User user = userRepo.findByUsername(username);
 		Optional<Weather> weather = weatherRepo.findById(weatherId);
 		if (user != null && weather != null) {
@@ -93,31 +97,56 @@ public class CommentServiceImpl implements CommentService {
 	public List<ReportComment> indexReport(String username) {
 		return rComRepo.findAll();
 	}
+	
+	@Override
+	public ReportComment showReportCommentById(int rComId) {
+
+		ReportComment rComm= rComRepo.queryById(rComId);
+		if(rComm != null) {
+			return rComm;
+		}
+		return null;
+		}
 
 	@Override
-	public ReportComment showReport(String username, int rid) {
-		// TODO Auto-generated method stub
+	public ReportComment createReport(int reportId, String username, ReportComment rComment) {
+		User user = userRepo.findByUsername(username);
+		Optional<Report> report = reportRepo.findById(reportId);
+		if (user != null && report != null) {
+			rComment.setUser(user);
+			rComment.setComment(rComment.getComment());
+			rComment.setCommentDate(rComment.getCommentDate());
+			rComment.setReport(report.get());
+			rComRepo.saveAndFlush(rComment);
+			return rComment;
+		} else {
+			return null;
+		}
+	}
+	
+	@Override
+	public ReportComment updateReportComment(String username, int rid, ReportComment rComment) {
+		ReportComment managedReportComment = rComRepo.queryById(rid);
+		User user = userRepo.findByUsername(username);
+		if(managedReportComment != null && user!= null && rComment!=null) {
+			ReportComment rC = managedReportComment;
+			rC.setComment(rComment.getComment());
+			rC.setCommentDate(rComment.getCommentDate());
+			rComRepo.saveAndFlush(rC);
+			return rC;
+		}
 		return null;
 	}
 
 	@Override
-	public ReportComment createReport(String username, ReportComment rComment) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public ReportComment updateReport(String username, int rid, ReportComment rComment) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public boolean destroyReport(String username, int rid) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-
-
+	public boolean destroyReportComment(String username, int rid) {
+			boolean deleted = false;
+			ReportComment rC = rComRepo.queryById(rid);
+			if (rC != null) {
+				ReportComment rComm = rC;
+				rComRepo.delete(rComm);
+				deleted = true;
+			}
+			return deleted;
+		}
 }
