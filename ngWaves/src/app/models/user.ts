@@ -1,3 +1,5 @@
+import { Location } from "./location"
+
 export class User {
   id: number;
   email: string;
@@ -6,6 +8,7 @@ export class User {
   enabled: boolean;
   role: string;
   profileImage: string;
+  location: Location;
 
   constructor(
     id: number = 0,
@@ -14,7 +17,8 @@ export class User {
     password: string = '',
     enabled: boolean = true,
     role: string = '',
-    profileImage: string = ''
+    profileImage: string = '',
+    location: Location = new Location()
   ){
     this.id = id;
     this.email = email;
@@ -23,5 +27,6 @@ export class User {
     this.enabled = enabled;
     this.role = role;
     this.profileImage = profileImage;
+    this.location = location;
   }
 }
