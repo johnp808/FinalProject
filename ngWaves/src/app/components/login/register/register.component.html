@@ -1,0 +1,22 @@
+
+<h3>Register Information</h3>
+
+<div *ngIf="!registered">
+<form>
+  <input type="text" name="username" placeholder="username" [(ngModel)]="user.username"><br>
+  <input type="text" name="password" placeholder="password" [(ngModel)]="user.password"><br>
+  <input type="text" name="email" placeholder="email" [(ngModel)]="user.email"><br>
+  <input type="text" name="enabled" placeholder="enabled" [(ngModel)]="user.enabled"><br>
+  <input type="text" name="role" placeholder="role" [(ngModel)]="user.role"><br>
+  <input type="text" name="profileImage" placeholder="profileImage" [(ngModel)]="user.profileImage"><br>
+  <input type="number" name="locationId" placeholder="locationId" [(ngModel)]="user.location.id"><br>
+  <button type="button" (click)="register()" >Register</button>
+</form>
+</div>
+<br>
+
+<div *ngIf="registered">
+  <h3>You are registered, please login!</h3>
+</div>
+
+
