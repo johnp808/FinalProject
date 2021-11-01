@@ -11,6 +11,7 @@ import { User } from '../models/user';
 export class AuthService {
 
   private baseUrl = environment.baseUrl;
+  private currUser:User = new User();
 
   constructor(
     private http: HttpClient
@@ -30,6 +31,7 @@ export class AuthService {
                .pipe(
                 tap((res) => {
                   localStorage.setItem('credentials' , credentials);
+                  this.currUser = res;
                   return res;
                 }),
                 catchError((err: any) => {
@@ -40,8 +42,8 @@ export class AuthService {
 
   }
 
-  register(user: User){
-    return this.http.post(this.baseUrl + 'register', user)
+  register(user: User):Observable<User>{
+    return this.http.post<User>(this.baseUrl + 'register', user)
     .pipe(
       catchError((err: any) => {
         console.log(err);
@@ -68,4 +70,20 @@ export class AuthService {
   getCredentials() {
     return localStorage.getItem('credentials');
   }
+
+   //http://localhost:9090/api/auth/users/username/yanyan
+   //baseUrl: 'http://localhost:9090/'
+  getUserByUsername(username: string):Observable<User>{
+    return this.http.get<User>(this.baseUrl + 'api/auth/users/username/' +username)
+               .pipe(
+                tap((res) => {
+                  return res;
+                }),
+                catchError((err: any) => {
+                  console.log(err);
+                  return throwError('AuthService.getUserByUsername(): Error getting user in.');
+                })
+               );
+  }
+
 }

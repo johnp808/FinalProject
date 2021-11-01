@@ -1,1 +1,60 @@
-<p>create-weather works!</p>
+<h1>Create Weather Post</h1>
+
+
+  <form name="WeatherForm"   class="form-group"  >
+
+    <div>
+      <label for="weatherType">
+        Weather Type
+      </label>
+      <input id="weatherType" type="text" name="newWeatherType"  [(ngModel)]="newWeather.weatherType">
+      <br> //beachId
+      <input type="text" name="beachId" value="1" [(ngModel)]="newWeather.beach.id">
+    </div>
+
+    <div>
+      <label for="description">
+        Description
+      </label>
+      <input id="description" type="text" name="description" [(ngModel)]="newWeather.description">
+    </div>
+    <div>
+      <label for="temperature">
+        Temperature
+      </label>
+      <input id="temperature" type="text" name="temperature" [(ngModel)]="newWeather.temperatureCelsius">
+    </div>
+    <div>
+      <label for="waveSize">
+        Wave Size
+      </label>
+      <input id="waveSize" class="form-control" type="text" name="waveSize" [(ngModel)]="newWeather.waveSize">
+    </div>
+
+    <button class="button"  (click)="addWeather(newWeather)">Submit</button>
+
+  </form>
+  <table >
+    <thead>
+      <tr>
+        <td>id</td>
+        <td>weatherType</td>
+        <td>...</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let post of posts">
+        <td>{{post.id}}</td>
+        <td>{{post.weatherType}}</td>
+        <td>
+          {{post.waveSize}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+<p *ngIf="isLogin">create-weather works!</p>
+
+<br>
+
+<p *ngIf="!isLogin">Please login to access this!</p>

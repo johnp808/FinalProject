@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './components/login/login.component';
 import { LogoutComponent } from './components/logout/logout.component';
-import { RegisterComponent } from './components/register/register.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { BeachHomeComponent } from './components/beach-home/beach-home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -18,7 +17,12 @@ import { CreateWeatherComponent } from './components/create/create-weather/creat
 import { FilloutComponent } from './components/login/fillout/fillout.component';
 import { AuthService } from './services/auth.service';
 import { FormsModule } from '@angular/forms';
-
+import { WeatherService } from './services/weather.service';
+import { ExitComponent } from './components/logout/exit/exit.component';
+import { RegisterComponent } from './components/login/register/register.component';
+import { MaintainComponent } from './components/maintain/maintain.component';
+import { UserOpComponent } from './components/maintain/user-op/user-op.component';
+import { BeachOpComponent } from './components/maintain/beach-op/beach-op.component';
 
 @NgModule({
   declarations: [
@@ -34,18 +38,22 @@ import { FormsModule } from '@angular/forms';
     CreateComponent,
     CreateReportComponent,
     CreateWeatherComponent,
-    FilloutComponent
+    FilloutComponent,
+    ExitComponent,
+    RegisterComponent,
+    MaintainComponent,
+    UserOpComponent,
+    BeachOpComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
-  providers: [
-    AuthService
-  ],
-  bootstrap: [AppComponent]
+  providers: [AuthService, WeatherService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

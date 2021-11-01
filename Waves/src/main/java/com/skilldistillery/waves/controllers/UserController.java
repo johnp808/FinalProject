@@ -92,4 +92,16 @@ public class UserController {
 		return userSvc.update(userId, user);
 		
 	}
+	
+	@GetMapping("auth/users/username/{username}")
+	public User getUserByUsername(
+			@PathVariable String username,
+			HttpServletResponse res
+			) {
+		User user = userSvc.getUserByName(username);
+		if(user == null) {
+			res.setStatus(404);
+		}
+		return user;
+	}
 }
