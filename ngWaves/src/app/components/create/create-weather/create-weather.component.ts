@@ -5,6 +5,7 @@ import { WeatherService } from 'src/app/services/weather.service';
 import { Weather } from 'src/app/models/weather';
 import { BeachService } from 'src/app/services/beach.service';
 import { Beach } from 'src/app/models/beach';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-create-weather',
@@ -28,7 +29,9 @@ posts: Weather[] = [];
     private weatherService: WeatherService,
     private route: ActivatedRoute,
     private router: Router,
-    private beachService: BeachService
+    private beachService: BeachService,
+    private authService: AuthService
+
 
     ) { }
     displayTable() {
@@ -64,6 +67,7 @@ posts: Weather[] = [];
       //   }
       // }
       this.reloadPosts();
+      this.isLogin = this.authService.checkLogin();
     }
     reloadPosts(): void {
       this.weatherService.index().subscribe(
@@ -116,6 +120,6 @@ posts: Weather[] = [];
         }
       );
     }
+  isLogin: boolean = false;
+
   }
-
-
