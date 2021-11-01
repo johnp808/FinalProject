@@ -18,7 +18,7 @@
 
 <div id='beachDetails' *ngIf="selected">
   <h2>{{selected.name}}</h2>
-  <img src="data:image/jpeg;base64," alt= "{{ selected.name }}" style="height: 150px; width: 175px">
+  <img src="{{selected.defaultImage}}" alt= "{{ selected.name }}">
   <p>{{selected.description}}</p>
 
   <h3>Reports</h3>
