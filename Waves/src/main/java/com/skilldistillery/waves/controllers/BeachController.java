@@ -77,12 +77,12 @@ public class BeachController {
 		return beach;
 	}
 	
-	@PostMapping("auth/beaches/location/{localId}")
+	@PostMapping("auth/beaches/location")
 	public Beach create2(
 			HttpServletResponse res,
 			@PathVariable int localId,
 			@RequestBody Beach beach) {
-		Beach newBeach = beachSvc.addBeach(localId, beach);
+		Beach newBeach = beachSvc.addBeach(beach);
 		if( newBeach == null) {
 			res.setStatus(400);
 		}

@@ -176,9 +176,17 @@ public class BeachServiceImpl implements BeachService {
 	}	
 	
 	@Override
-	public Beach addBeach(int localId, Beach beach){
-		Location local = localRepo.getById(localId);
+	public Beach addBeach(Beach beach){
+		
+		Location local = new Location();
+		
 		if(local!=null && beach!=null) {
+			local.setStreet(beach.getLocation().getStreet());
+			local.setCity(beach.getLocation().getCity());
+			local.setState(beach.getLocation().getState());
+			local.setZip(beach.getLocation().getZip());
+			localRepo.saveAndFlush(local);
+			
 			beach.setLocation(local);
 			beachRepo.saveAndFlush(beach);
 			return beach;

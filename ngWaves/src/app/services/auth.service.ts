@@ -132,10 +132,10 @@ export class AuthService {
     );
   }
 
-  //("auth/beaches/{localId}") /@PostMapping("auth/beaches/location/{localId}")
+  //("auth/beaches/location")
   createBeach(beach: Beach):  Observable<Beach>{
     console.log(beach);
-    return this.http.post<Beach>(this.baseUrl+'api/auth/beaches/location/'+beach.locationId, beach, this.getHttpOptions()).pipe(
+    return this.http.post<Beach>(this.baseUrl+'api/auth/beaches/location', beach, this.getHttpOptions()).pipe(
       catchError((err: any) => {
         console.log(err);
         return throwError('Beach create err!');

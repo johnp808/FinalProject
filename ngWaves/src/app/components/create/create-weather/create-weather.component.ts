@@ -47,25 +47,25 @@ posts: Weather[] = [];
 
     ngOnInit(): void {
 
-      // let weatherIdString = this.route.snapshot.paramMap.get('id');
-      // if (weatherIdString) {
-      //   let weatherId = Number.parseInt(weatherIdString);
-      //   if (!isNaN(weatherId)) {
-      //     this.weatherService.show(weatherId).subscribe(
-      //       (weather) => {
-      //         this.reloadPosts();
-      //         this.selected = weather;
-      //       },
-      //       (problem) => {
-      //         console.error('Invalid Todo ID ' + weatherId);
-      //         this.router.navigateByUrl('notfound');
-      //       }
-      //     );
-      //   } else {
-      //     console.error('Invalid Weather ID ' + weatherIdString);
-      //     this.router.navigateByUrl('notfound');
-      //   }
-      // }
+      let weatherIdString = this.route.snapshot.paramMap.get('id');
+      if (weatherIdString) {
+        let weatherId = Number.parseInt(weatherIdString);
+        if (!isNaN(weatherId)) {
+          this.weatherService.show(weatherId).subscribe(
+            (weather) => {
+              this.reloadPosts();
+              this.selected = weather;
+            },
+            (problem) => {
+              console.error('Invalid Todo ID ' + weatherId);
+              this.router.navigateByUrl('notfound');
+            }
+          );
+        } else {
+          console.error('Invalid Weather ID ' + weatherIdString);
+          this.router.navigateByUrl('notfound');
+        }
+      }
       this.reloadPosts();
       this.isLogin = this.authService.checkLogin();
     }
