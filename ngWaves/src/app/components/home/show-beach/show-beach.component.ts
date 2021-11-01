@@ -18,6 +18,7 @@ export class ShowBeachComponent implements OnInit {
 
   ngOnInit(): void {
     this.reloadBeaches();
+    this.reloadReports();
     this.isLogin = this.authService.checkLogin();
     // this.reloadWeatherPosts();
   }
@@ -35,6 +36,8 @@ export class ShowBeachComponent implements OnInit {
   newWeather: Weather = new Weather();
   editWeather: Weather | null = null;
   newReport: Report = new Report();
+  editReport: Report | null = null;
+  beachReports: Report | null = null;
 
   constructor(private beachService: BeachService,
     private reportService: ReportService,
@@ -124,6 +127,35 @@ export class ShowBeachComponent implements OnInit {
 
   //Report Section
 
+  setEditReport() {
+    this.editReport = Object.assign({}, this.beachReports);
+  }
+
+  displayTable() {
+    this.beachReports = null;
+  }
+
+  getReportCount(): number {
+    return this.reports.length;
+    // return this.incompletePipe.transform(this.todos).length;
+  }
+
+  displayReport(reports : Report) {
+    this.beachReports = reports;
+  }
+
+  reloadReports(): void {
+    this.ReportService.index().subscribe(
+      (reportList) => {
+        this.reports = reportList;
+      },
+      (fail) => {
+        console.error('Component.reloadReport(): error getting report posts');
+        console.error(fail);
+      }
+    );
+  }
+
   addReport(report: Report) {
     console.log('Adding Report'+this.newReport);
     console.log(JSON.stringify(this.newReport));
@@ -141,14 +173,28 @@ export class ShowBeachComponent implements OnInit {
     );
   }
 
-  reloadReports(): void {
-    this.ReportService.index().subscribe(
-      (reportList) => {
-        this.reports = reportList;
+  updateReport(report: Report, showReport = true): void {
+    this.ReportService.update(report).subscribe(
+      (updated) => {
+        this.reloadReports();
+        this.editReport = null;
+        // this.beachReports = updated;
       },
       (fail) => {
-        console.error('Component.reloadReport(): error getting report posts');
+        console.error('Error updating Report Post');
         console.error(fail);
+      }
+    );
+  }
+
+  deleteReport(id: number): void {
+    this.ReportService.destroy(id).subscribe(
+      (good) => {
+        this.reloadReports();
+      },
+      (evil) => {
+        console.error('ListComponent.deleteReport(); error deleting report');
+        console.error(evil);
       }
     );
   }
