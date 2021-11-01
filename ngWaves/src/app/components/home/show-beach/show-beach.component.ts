@@ -43,7 +43,6 @@ export class ShowBeachComponent implements OnInit {
     private reportService: ReportService,
     private authService: AuthService,
     private weatherService: WeatherService,
-    private ReportService: ReportService
     )
     {
 
@@ -145,7 +144,7 @@ export class ShowBeachComponent implements OnInit {
   }
 
   reloadReports(): void {
-    this.ReportService.index().subscribe(
+    this.reportService.index().subscribe(
       (reportList) => {
         this.reports = reportList;
       },
@@ -159,7 +158,7 @@ export class ShowBeachComponent implements OnInit {
   addReport(report: Report) {
     console.log('Adding Report'+this.newReport);
     console.log(JSON.stringify(this.newReport));
-    this.ReportService.create(this.newReport).subscribe(
+    this.reportService.create(this.newReport).subscribe(
       (newTo): void => {
 
         // this.newReport.created =
@@ -174,7 +173,7 @@ export class ShowBeachComponent implements OnInit {
   }
 
   updateReport(report: Report, showReport = true): void {
-    this.ReportService.update(report).subscribe(
+    this.reportService.update(report).subscribe(
       (updated) => {
         this.reloadReports();
         this.editReport = null;
@@ -188,7 +187,7 @@ export class ShowBeachComponent implements OnInit {
   }
 
   deleteReport(id: number): void {
-    this.ReportService.destroy(id).subscribe(
+    this.reportService.destroy(id).subscribe(
       (good) => {
         this.reloadReports();
       },

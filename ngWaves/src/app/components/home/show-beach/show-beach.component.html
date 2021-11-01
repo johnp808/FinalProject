@@ -40,13 +40,17 @@
   <table>
     <thead>
     <tr>
-      <th> username </th>
+      <th> Report Id </th>
+      <th> Comment </th>
+      <th> Created </th>
 
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let report of reports">
-      <td displayReport(beach)>{{ report.user.username }}</td>
+      <td>{{report.id}}</td>
+      <td>{{report.comment}}</td>
+      <td>{{report.created}}</td>
     </tr>
   </tbody>
   </table>
