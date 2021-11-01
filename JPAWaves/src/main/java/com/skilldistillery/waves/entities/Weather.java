@@ -12,7 +12,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+
+import org.hibernate.annotations.CreationTimestamp;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 public class Weather {
@@ -30,6 +34,7 @@ public class Weather {
 	@Column(name="temperature_celsius")
 	private int temperatureCelsius;
 	
+	@CreationTimestamp
 	private LocalDateTime created;
 	private Boolean enabled;
 	
@@ -55,7 +60,7 @@ public class Weather {
 	@JoinColumn(name="user_id")
 	private User user;
 	
-	@JsonIgnore
+	@JsonIgnoreProperties({"weatherPosts"})
 	@ManyToOne
 	@JoinColumn(name="beach_id")
 	private Beach beach;

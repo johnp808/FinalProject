@@ -21,12 +21,13 @@
   <img src="{{selected.defaultImage}}" alt= "{{ selected.name }}">
   <p>{{selected.description}}</p>
 
+  <!-- Report Section -->
   <h3>Reports</h3>
   <table>
     <thead>
     <tr>
       <th>
-        Beach Comments
+        username
       </th>
     </tr>
   </thead>
@@ -37,10 +38,61 @@
   </tbody>
   </table>
   <form action="createReport">
-
   </form>
-  <h3>Weather</h3>
-  <form action="createWeather">
 
-  </form>
+    <!-- Weather Section -->
+    <h3>Weather</h3>
+    <div name="weatherForThisBeach">
+      <table >
+        <thead>
+          <tr>
+            <td>username</td>
+            <td>weatherType</td>
+            <td>...</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let post of thisBeachPosts">
+              <td>{{post.id}}</td>
+              <td>{{post.weatherType}}</td>
+              <td>
+                {{post.waveSize}}
+              </td>
+              <td> {{post.created}} </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+    <form *ngIf="isLogin" name="WeatherForm"   class="form-group"  >
+      Add a Weather Update
+      <div>
+        <label for="weatherType">
+          Weather Type
+        </label>
+        <input id="weatherType" type="text" name="newWeatherType"  [(ngModel)]="newWeather.weatherType">
+      </div>
+
+      <div>
+        <label for="description">
+          Description
+        </label>
+        <input id="description" type="text" name="description" [(ngModel)]="newWeather.description">
+      </div>
+      <div>
+        <label for="temperature">
+          Temperature
+        </label>
+        <input id="temperature" type="text" name="temperature" [(ngModel)]="newWeather.temperatureCelsius">
+      </div>
+      <div>
+        <label for="waveSize">
+          Wave Size
+        </label>
+        <input id="waveSize" class="form-control" type="text" name="waveSize" [(ngModel)]="newWeather.waveSize">
+      </div>
+
+      <button class="button"  (click)="addWeather(newWeather)">Submit</button>
+    </form>
+    </div>
+
 </div>

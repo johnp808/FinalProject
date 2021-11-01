@@ -60,5 +60,9 @@ public class WeatherServiceImpl implements WeatherService {
 		return weatherRepo.findAll();
 	}
 	
+	@Override
+	public List<Weather> getAllWeatherForBeach(int beachId){
+		return weatherRepo.findByBeach_IdOrderByCreatedDesc(beachId);
+	}
 
 }
