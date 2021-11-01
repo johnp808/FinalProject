@@ -1,7 +1,7 @@
 <h1>Create Weather Post</h1>
 
 
-  <form name="WeatherForm"   class="form-group"  >
+  <form *ngIf="isLogin" name="WeatherForm"   class="form-group"  >
 
     <div>
       <label for="weatherType">
@@ -9,7 +9,7 @@
       </label>
       <input id="weatherType" type="text" name="newWeatherType"  [(ngModel)]="newWeather.weatherType">
       <br> //beachId
-      <input type="text" name="beachId" value="1" [(ngModel)]="newWeather.beach.id">
+      <!-- <input type="text" name="beachId" value="1" [(ngModel)]="newWeather.beach.id"> -->
     </div>
 
     <div>
@@ -53,7 +53,7 @@
     </tbody>
   </table>
 
-<p *ngIf="isLogin">create-weather works!</p>
+<!-- <p *ngIf="isLogin">create-weather works!</p> -->
 
 <br>
 

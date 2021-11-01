@@ -108,7 +108,7 @@ posts: Weather[] = [];
     addWeather(weather: Weather) {
       console.log('Adding Weather'+this.newWeather);
       console.log(JSON.stringify(this.newWeather));
-      this.weatherService.create(this.newWeather).subscribe(
+      this.weatherService.create(this.newWeather, 1).subscribe( //beachId hardcoded to one
         (newTo): void => {
 
           this.reloadPosts();

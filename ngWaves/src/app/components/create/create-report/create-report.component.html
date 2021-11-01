@@ -1,5 +1,21 @@
-<p *ngIf="isLogin">create-report works!</p>
+<h1>Create Report Post</h1>
 
+
+  <form *ngIf="isLogin" name="ReportForm"   class="form-group">
+
+    <div>
+      <textarea cols="40" rows="3" placeholder="Enter Comment Here." name="comment" [(ngModel)]="newReport.comment"></textarea>
+      <br>
+      <input type="text" name="beachId" placeholder="" [(ngModel)]="newReport.beach.id">
+    </div>
+    <div>
+      <input id="image" type="text" name="image" placeholder="Image Url" [(ngModel)]="newReport.image">
+    </div>
+    <div>
+      <input id="rating" type="text" name="rating" [(ngModel)]="newReport.rating">
+    </div>
+    <button class="button"  (click)="addReport(newReport)">Submit</button>
+  </form>
 <br>
 
 <p *ngIf="!isLogin">Please login to access this!</p>

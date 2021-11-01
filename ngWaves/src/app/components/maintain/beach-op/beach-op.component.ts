@@ -51,18 +51,18 @@ export class BeachOpComponent implements OnInit {
     );
   }
 
-  create(){
-    this.authService.createBeach(this.beach).subscribe(
-      data => {
-        console.log('BeachOpComponent.create(): Created beach');
-        console.error(data);
-        this.reloadBeaches();
-        this.beach = data;
-      },
-      fail => {
-        console.error('BeachOpComponent.create(): error creating beach');
-        console.log(fail);
-      }
-    );
-  }
+  // create(){
+  //   this.authService.createBeach(this.beach).subscribe(
+  //     data => {
+  //       console.log('BeachOpComponent.create(): Created beach');
+  //       console.error(data);
+  //       this.reloadBeaches();
+  //       this.beach = data;
+  //     },
+  //     fail => {
+  //       console.error('BeachOpComponent.create(): error creating beach');
+  //       console.log(fail);
+  //     }
+  //   );
+  // }
 }

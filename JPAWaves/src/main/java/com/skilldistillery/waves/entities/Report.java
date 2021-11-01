@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
@@ -24,6 +26,7 @@ public class Report {
 	private String comment;
 	private String image;
 	private Integer rating;
+	@CreationTimestamp
 	private LocalDateTime created;
 	private Boolean enabled;
 	@JsonIgnore

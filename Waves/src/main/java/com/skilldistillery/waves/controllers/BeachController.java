@@ -34,35 +34,35 @@ public class BeachController {
 	// No authorization needed requests ************************************************************************************
 	
 	@GetMapping("beaches")
-	public List<Beach> index(HttpServletRequest req, HttpServletResponse res, Principal principal) {
+	public List<Beach> index(HttpServletRequest req, HttpServletResponse res) {
 		return beachSvc.index();
 	}
 	
 	@GetMapping("beaches/name/{name}")
-	public Beach showByName(HttpServletRequest req, HttpServletResponse res, @PathVariable String name, Principal principal) {
+	public Beach showByName(HttpServletRequest req, HttpServletResponse res, @PathVariable String name) {
 		return beachSvc.getBeachByName(name);
 	}
 	
 	@GetMapping("beaches/{bid}")
-	public Beach showById(HttpServletRequest req, HttpServletResponse res, @PathVariable int bid, Principal principal) {
+	public Beach showById(HttpServletRequest req, HttpServletResponse res, @PathVariable int bid) {
 		return beachSvc.getBeachById(bid);
 	}
 	
 	//GET beaches/rating/{rating}
 	@GetMapping("beaches/rating/{rating}")
-	public List<Beach> showByRating(HttpServletRequest req, HttpServletResponse res, @PathVariable double rating, Principal principal) {
+	public List<Beach> showByRating(HttpServletRequest req, HttpServletResponse res, @PathVariable double rating) {
 		return beachSvc.getBeachByRating(rating);
 	}
 	
 	//GET beaches/location/{location}
 	@GetMapping("beaches/location/{location}")
-	public List<Beach> showByLocation(HttpServletRequest req, HttpServletResponse res, @PathVariable Location location, Principal principal) {
+	public List<Beach> showByLocation(HttpServletRequest req, HttpServletResponse res, @PathVariable Location location) {
 		return beachSvc.getBeachByLocation(location);
 	}
 	
 	//GET beaches/keyword/{keyword}
 	@GetMapping("beaches/keyword/{keyword}")
-	public List<Beach> showByKeyword(HttpServletRequest req, HttpServletResponse res, @PathVariable String keyword, Principal principal) {
+	public List<Beach> showByKeyword(HttpServletRequest req, HttpServletResponse res, @PathVariable String keyword) {
 		return beachSvc.getBeachByKeyword(keyword);
 	}
 		

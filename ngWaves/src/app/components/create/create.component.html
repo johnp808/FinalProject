@@ -1,19 +1,17 @@
-
 <div class="content">
   <div class="left">
     <br>
     <br>
-    <div>
-      <a [routerLink]="['/create/createreport']" routerLinkActive="active">Create Report</a>
-      <br>
-      <br>
-      <br>
-      <a [routerLink]="['/create/createweather']" routerLinkActive="active">Create Weather</a>
-    </div>
+    <a [routerLink]="['/create/createreport']" routerLinkActive="active">Create Report Comment</a>
+    <br>
+    <br>
+    <br>
+    <a [routerLink]="['/create/createweather']" routerLinkActive="active">Create Weather</a>
   </div>
 
   <div class="right">
-    <router-outlet></router-outlet>
+    <router-outlet>
+  </router-outlet>
   </div>
 </div>
 

@@ -6,7 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { AuthService } from './auth.service';
 import { DatePipe } from '@angular/common';
-import { environment } from 'src/environments/environment.prod';
+import { environment } from 'src/environments/environment';
 import { Beach } from '../models/beach';
 import { BeachService } from './beach.service';
 import { Router } from '@angular/router';
@@ -16,7 +16,7 @@ import { Router } from '@angular/router';
 })
 export class WeatherService {
   //private baseUrl = environment.baseUrl;
-  private url = environment.baseUrl + 'api/weather/';
+  private url = environment.baseUrl + 'api/weather';
 
   constructor(
     private http: HttpClient,
@@ -36,6 +36,18 @@ export class WeatherService {
       })
     );
   }
+
+  beachWeather(beachId: Number): Observable<Weather[]> {
+    return this.http.get<Weather[]>(this.url + '/' + beachId).pipe(
+      catchError((err: any) => {
+        console.log(err);
+        return throwError(
+          'WeatherService.index(): Error retrieving Weather list'
+        );
+      })
+    );
+  }
+
   show(weatherId: number): Observable<Weather> {
     return this.http
       .get<Weather>(this.url + '/' + weatherId, this.getHttpOptions())
@@ -46,14 +58,14 @@ export class WeatherService {
         })
       );
   }
-  create(weather: Weather): Observable<Weather> {
+  create(weather: Weather, beachId: Number): Observable<Weather> {
     // weather.weatherType = '';
     // weather.description = '';
     // weather.temperatureCelsius = 0;
     // weather.waveSize = '';
 
     return this.http
-      .post<Weather>(this.url, weather+'/', this.getHttpOptions())
+      .post<Weather>(this.url+'/'+ beachId, weather, this.getHttpOptions())
       .pipe(
         catchError((err: any) => {
           console.log(err);

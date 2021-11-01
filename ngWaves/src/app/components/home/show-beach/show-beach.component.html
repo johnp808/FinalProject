@@ -18,29 +18,110 @@
 
 <div id='beachDetails' *ngIf="selected">
   <h2>{{selected.name}}</h2>
-  <img src="data:image/jpeg;base64," alt= "{{ selected.name }}" style="height: 150px; width: 175px">
+  <img src="{{selected.defaultImage}}" alt= "{{ selected.name }}">
   <p>{{selected.description}}</p>
 
+  <h2>Location</h2>
+  <table>
+    <thead>
+      <tr>
+        <th> Street </th>
+        <th> City </th>
+        <th> State </th>
+        <th> Zip </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>{{selected.locationId}}</tr>
+    </tbody>
+  </table>
+  <!-- Report Section -->
   <h3>Reports</h3>
   <table>
     <thead>
     <tr>
-      <th>
-        Beach Comments
-      </th>
+      <th> username </th>
+
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let report of reports">
-      <td displayReport(beach)>{{ report.comment }}</td>
+      <td displayReport(beach)>{{ report.user.username }}</td>
     </tr>
   </tbody>
   </table>
-  <form action="createReport">
-
+  <br>
+  <form *ngIf="isLogin" name="ReportForm"   class="form-group">
+    <div>
+      <textarea cols="40" rows="3" placeholder="Enter Comment Here." name="comment" [(ngModel)]="newReport.comment"></textarea><br>
+      <br>
+      <input type="text" name="beachId" placeholder="beach Id" [(ngModel)]="newReport.beach.id">
+    </div>
+    <div>
+      <input id="image" type="text" name="image" placeholder="Image Url" [(ngModel)]="newReport.image">
+    </div>
+    <div>
+      <input id="rating" type="text" name="rating" [(ngModel)]="newReport.rating">
+    </div>
+    <button class="button"  (click)="addReport(newReport)">Submit</button>
   </form>
-  <h3>Weather</h3>
-  <form action="createWeather">
 
-  </form>
+    <br>
+    <br>
+
+    <!-- Weather Section -->
+    <h3>Weather</h3>
+    <div name="weatherForThisBeach">
+      <table >
+        <thead>
+          <tr>
+            <td>username</td>
+            <td>weatherType</td>
+            <td>...</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let post of thisBeachPosts">
+              <td>{{post.id}}</td>
+              <td>{{post.weatherType}}</td>
+              <td>
+                {{post.waveSize}}
+              </td>
+              <td> {{post.created}} </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+    <form *ngIf="isLogin" name="WeatherForm"   class="form-group"  >
+      Add a Weather Update
+      <div>
+        <label for="weatherType">
+          Weather Type
+        </label>
+        <input id="weatherType" type="text" name="newWeatherType"  [(ngModel)]="newWeather.weatherType">
+      </div>
+
+      <div>
+        <label for="description">
+          Description
+        </label>
+        <input id="description" type="text" name="description" [(ngModel)]="newWeather.description">
+      </div>
+      <div>
+        <label for="temperature">
+          Temperature
+        </label>
+        <input id="temperature" type="text" name="temperature" [(ngModel)]="newWeather.temperatureCelsius">
+      </div>
+      <div>
+        <label for="waveSize">
+          Wave Size
+        </label>
+        <input id="waveSize" class="form-control" type="text" name="waveSize" [(ngModel)]="newWeather.waveSize">
+      </div>
+
+      <button class="button"  (click)="addWeather(newWeather)">Submit</button>
+    </form>
+    </div>
+
 </div>

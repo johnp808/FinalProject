@@ -12,5 +12,7 @@ public interface WeatherService {
 	Weather updateWeatherById(int weatherId, int beachId, String username, Weather weather);
 
 	Weather AddWeather(int beachId, String username, Weather weather);
+
+	List<Weather> getAllWeatherForBeach(int beachId);
 	
 }

@@ -8,6 +8,7 @@ import { CreateReportComponent } from './components/create/create-report/create-
 import { CreateWeatherComponent } from './components/create/create-weather/create-weather.component';
 import { LoginComponent } from './components/login/login.component';
 import { LogoutComponent } from './components/logout/logout.component';
+import { ReportCommentComponent } from './components/report-comment/report-comment.component';
 import { FilloutComponent } from './components/login/fillout/fillout.component';
 import { ExitComponent } from './components/logout/exit/exit.component';
 import { RegisterComponent } from './components/login/register/register.component';
