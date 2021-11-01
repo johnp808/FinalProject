@@ -10,7 +10,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class RegisterComponent implements OnInit {
   user: User = new User();
   registered: boolean = false;
-  // existed: boolean = false;
+  existed: boolean = false;
 
   constructor(
     private authService: AuthService
@@ -32,18 +32,20 @@ export class RegisterComponent implements OnInit {
     );
   }
 
-  // checkIsRegistered(user: User){
-  //   this.authService.getUserByUsername(user.username).subscribe(
-  //     data => {
-  //       if(data != null){
-  //         this.existed = true;
-  //       }
-  //     },
-  //     fail => {
-  //       console.error('RegisterComponent.checkIsRegistered(): error checking if registered');
-  //       console.log(fail);
-  //     }
-  //   );
-  // }
+  checkIsRegistered(user: User){
+    this.authService.  checkRegister
+    (user.username).subscribe(
+      data => {
+        if(data != null){
+          this.existed = true;
+        }
+      },
+      fail => {
+        console.error('RegisterComponent.checkIsRegistered(): error checking if registered');
+        console.log(fail);
+      }
+    );
+  }
+
 
 }

@@ -1,1 +1,33 @@
-<p>user-op works!</p>
+<div *ngIf="isLogin && role=='admin'">
+
+  <button (click)='reloadUsers()' type="button" >Show User List</button>
+  <div *ngIf='userList.length > 0'>
+  <table>
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Enabled</th>
+        <th>ProfileImage</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let user of userList'>
+        <th>{{user.username}}</th>
+        <th>{{user.email}}</th>
+        <th>{{user.role}}</th>
+        <th>{{user.enabled}}</th>
+        <th>{{user.profileImage}}</th>
+        <button *ngIf='user.enabled' (click)='reverse(user)' type="button">Disable</button>
+        <button *ngIf='!user.enabled' (click)='reverse(user)' type="button">Enable</button>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+</div>
+
+<br>
+
+<p *ngIf="!isLogin || role!='admin'">Please login as admin to access this!</p>

@@ -1,5 +1,5 @@
 <h1> Waves Beaches</h1>
-<div id='todoList' *ngIf="! selected">
+<div id='beachList' *ngIf="! selected">
 <table>
   <thead>
   <tr>
@@ -17,7 +17,30 @@
 </div>
 
 <div id='beachDetails' *ngIf="selected">
-  <h4>{{selected.name}}</h4>
-  <img src="{{ selected.profileImage}}" alt= "{{ selected.name }}" style="height: 150px; width: 175px">
+  <h2>{{selected.name}}</h2>
+  <img src="data:image/jpeg;base64," alt= "{{ selected.name }}" style="height: 150px; width: 175px">
   <p>{{selected.description}}</p>
+
+  <h3>Reports</h3>
+  <table>
+    <thead>
+    <tr>
+      <th>
+        Beach Comments
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let report of reports">
+      <td displayReport(beach)>{{ report.comment }}</td>
+    </tr>
+  </tbody>
+  </table>
+  <form action="createReport">
+
+  </form>
+  <h3>Weather</h3>
+  <form action="createWeather">
+
+  </form>
 </div>

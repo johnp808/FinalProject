@@ -2,7 +2,7 @@ export class Beach {
   id: number;
   name: String;
   description: String;
-  profileImage: String;
+  defaultImage: String;
   locationId: number;
   operational: boolean;
   petFriendly: String;
@@ -16,7 +16,7 @@ export class Beach {
     id: number = 0,
     name: String = '',
     description: String = '',
-    profileImage: String = '',
+    defaultImage: String = '',
     locationId: number = 0,
     operational: boolean = true,
     petFriendly: String = '',
@@ -30,7 +30,7 @@ export class Beach {
     this.id = id;
     this.name = name;
     this.description = description;
-    this.profileImage = profileImage;
+    this.defaultImage = defaultImage;
     this.locationId = locationId;
     this.operational = operational;
     this.petFriendly = petFriendly;

@@ -17,6 +17,7 @@ import { CreateWeatherComponent } from './components/create/create-weather/creat
 import { FilloutComponent } from './components/login/fillout/fillout.component';
 import { AuthService } from './services/auth.service';
 import { FormsModule } from '@angular/forms';
+import { WeatherService } from './services/weather.service';
 import { ExitComponent } from './components/logout/exit/exit.component';
 import { RegisterComponent } from './components/login/register/register.component';
 import { MaintainComponent } from './components/maintain/maintain.component';
@@ -50,11 +51,9 @@ import { BeachOpComponent } from './components/maintain/beach-op/beach-op.compon
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
-  providers: [
-    AuthService
-  ],
-  bootstrap: [AppComponent]
+  providers: [AuthService, WeatherService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

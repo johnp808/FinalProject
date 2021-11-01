@@ -104,4 +104,23 @@ public class UserController {
 		}
 		return user;
 	}
+	
+	@GetMapping("users/checkusername/{username}")
+	public boolean checkRegister(
+			@PathVariable String username,
+			HttpServletResponse res
+			) {
+		User user = userSvc.getUserByName(username);
+		return user!= null;
+	}
+	
+	@GetMapping("auth/users")
+	public List<User> getAllUsers(HttpServletResponse res){
+		List<User> users = userSvc.getAllUsers();
+		if(users == null) {
+			res.setStatus(404);
+		}
+		return users;
+	}
+	
 }

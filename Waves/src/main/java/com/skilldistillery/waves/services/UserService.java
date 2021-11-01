@@ -19,6 +19,7 @@ public interface UserService {
 	User update(int id, User user);
 	User show(int id);
 	
+	List<User> getAllUsers();
 	
 	
 	

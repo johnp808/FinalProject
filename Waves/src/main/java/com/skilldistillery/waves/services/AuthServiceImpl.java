@@ -22,7 +22,7 @@ public class AuthServiceImpl implements AuthService {
 
 		// set other fields to default values
 		user.setEnabled(true);
-		user.setRole("standard");
+		user.setRole("user");
 
 		userRepo.saveAndFlush(user);
 		return user;

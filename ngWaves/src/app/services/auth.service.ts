@@ -11,7 +11,7 @@ import { User } from '../models/user';
 export class AuthService {
 
   private baseUrl = environment.baseUrl;
-  private currUser:User = new User();
+  public currUser:User = new User();
 
   constructor(
     private http: HttpClient
@@ -54,6 +54,7 @@ export class AuthService {
 
   logout(){
     localStorage.removeItem('credentials');
+    this.currUser = new User();
   }
 
   checkLogin(){
@@ -85,5 +86,41 @@ export class AuthService {
                 })
                );
   }
+  //("auth/users/checkusername/{username}")
+  checkRegister(username: string):Observable<User>{
+    return this.http.get<User>(this.baseUrl + 'api/users/checkusername/' +username)
+               .pipe(
+                tap((res) => {
+                  return res;
+                }),
+                catchError((err: any) => {
+                  console.log(err);
+                  return throwError('AuthService.getUserByUsername(): Error getting user in.');
+                })
+               );
+  }
+
+  //"auth/users"
+  index(): Observable<User[]>{
+    return this.http.get<User[]>(this.baseUrl+'api/auth/users').pipe(
+      catchError((err: any) => {
+        console.error(err);
+        return throwError('userService.index(): Error retrieving user list');
+      })
+    );
+  }
+
+
+  //"auth/update/{userId}"
+  reverse(user: User): Observable<User>{
+    user.enabled = !user.enabled;
+    return this.http.put<User>(this.baseUrl+`api/auth/update/${user.id}`, user).pipe(
+      catchError((err : any) => {
+        console.error(err);
+        return throwError('UserService.update(): Error updating user');
+      })
+    );
+  }
+
 
 }
