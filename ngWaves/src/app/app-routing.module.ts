@@ -44,7 +44,7 @@ const routes: Routes = [
    path:'create', component:CreateComponent,
    children:[
     {path:'createweather', component:CreateWeatherComponent},
-    {path:'createreport', component:ReportCommentComponent},
+    {path:'createreport', component:CreateReportComponent},
     {path:'**', component:CreateReportComponent},
    ]
   },
