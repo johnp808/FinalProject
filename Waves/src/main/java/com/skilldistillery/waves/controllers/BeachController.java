@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.skilldistillery.waves.entities.Beach;
 import com.skilldistillery.waves.entities.Location;
+import com.skilldistillery.waves.entities.User;
 import com.skilldistillery.waves.services.BeachService;
 
 @RestController
@@ -64,8 +65,7 @@ public class BeachController {
 	public List<Beach> showByKeyword(HttpServletRequest req, HttpServletResponse res, @PathVariable String keyword, Principal principal) {
 		return beachSvc.getBeachByKeyword(keyword);
 	}
-	
-	
+		
 	// Authorized user or admin requests ************************************************************************************
 	
 	@PostMapping("auth/beaches")
@@ -77,8 +77,24 @@ public class BeachController {
 		return beach;
 	}
 	
+//	@PostMapping("auth/beaches/{localId}")
+//	public Beach create2(
+//			HttpServletResponse res,
+//			@PathVariable int localId,
+//			@RequestBody Beach beach) {
+//		Beach newBeach = beachSvc.addBeach(localId, beach);
+//		if( newBeach == null) {
+//			res.setStatus(400);
+//		}
+//		return newBeach;
+//	}
+	
 	@PutMapping("auth/beaches/{bid}")	
-	public Beach update(HttpServletRequest req, HttpServletResponse res, @PathVariable int bid, @RequestBody Beach beach, Principal principal) {
+	public Beach update(HttpServletRequest req, 
+			HttpServletResponse res, 
+			@PathVariable int bid, 
+			@RequestBody Beach beach, 
+			Principal principal) {
 		beach = beachSvc.update(principal.getName(), bid, beach);
 		if (beach == null) {
 			res.setStatus(400);

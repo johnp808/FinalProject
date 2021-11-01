@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { AuthService } from './auth.service';
 import { HttpClient } from '@angular/common/http';
-import { DatePipe } from '@angular/common';
 import { Beach } from '../models/beach';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';

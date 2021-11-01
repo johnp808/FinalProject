@@ -93,7 +93,7 @@ public class UserController {
 		
 	}
 	
-	@GetMapping("auth/users/username/{username}")
+	@GetMapping("users/username/{username}")
 	public User getUserByUsername(
 			@PathVariable String username,
 			HttpServletResponse res
@@ -114,7 +114,7 @@ public class UserController {
 		return user!= null;
 	}
 	
-	@GetMapping("auth/users")
+	@GetMapping("users")
 	public List<User> getAllUsers(HttpServletResponse res){
 		List<User> users = userSvc.getAllUsers();
 		if(users == null) {
