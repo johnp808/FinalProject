@@ -69,6 +69,13 @@ export class ShowBeachComponent implements OnInit {
     this.selected = null;
     this.thisBeachPosts = [];
   }
+  // Location Section
+
+  getLocation(){
+    if(this.selected){
+      this.selected.locationId
+    }
+  }
 
   // Weather Section
   reloadWeatherPosts(): void {

@@ -21,6 +21,20 @@
   <img src="{{selected.defaultImage}}" alt= "{{ selected.name }}">
   <p>{{selected.description}}</p>
 
+  <h2>Location</h2>
+  <table>
+    <thead>
+      <tr>
+        <th> Street </th>
+        <th> City </th>
+        <th> State </th>
+        <th> Zip </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>{{selected.locationId}}</tr>
+    </tbody>
+  </table>
   <!-- Report Section -->
   <h3>Reports</h3>
   <table>
