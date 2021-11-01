@@ -16,7 +16,7 @@ import { Router } from '@angular/router';
 })
 export class WeatherService {
   //private baseUrl = environment.baseUrl;
-  private url = environment.baseUrl + 'api/weather/';
+  private url = environment.baseUrl + 'api/weather';
 
   constructor(
     private http: HttpClient,
@@ -53,7 +53,7 @@ export class WeatherService {
     // weather.waveSize = '';
 
     return this.http
-      .post<Weather>(this.url, weather+'/', this.getHttpOptions())
+      .post<Weather>(this.url+'/'+ weather.beach.id, weather, this.getHttpOptions())
       .pipe(
         catchError((err: any) => {
           console.log(err);
