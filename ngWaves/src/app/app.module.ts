@@ -23,6 +23,7 @@ import { RegisterComponent } from './components/login/register/register.componen
 import { MaintainComponent } from './components/maintain/maintain.component';
 import { UserOpComponent } from './components/maintain/user-op/user-op.component';
 import { BeachOpComponent } from './components/maintain/beach-op/beach-op.component';
+import { FavoritesComponent } from './components/favorites/favorites.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { BeachOpComponent } from './components/maintain/beach-op/beach-op.compon
     RegisterComponent,
     MaintainComponent,
     UserOpComponent,
-    BeachOpComponent
+    BeachOpComponent,
+    FavoritesComponent
 
   ],
   imports: [
