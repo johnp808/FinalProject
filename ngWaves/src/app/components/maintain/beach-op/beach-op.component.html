@@ -1,1 +1,30 @@
-<p>beach-op works!</p>
+<div *ngIf="isLogin && role=='admin'">
+
+  <button (click)='reloadBeaches()' type="button" >Show Beach List</button>
+  <div *ngIf='beachList.length > 0'>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Rating</th>
+        <th>Enabled</th>
+        <th>ProfileImage</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let beach of beachList'>
+        <td>{{beach.name}}</td>
+        <td>{{beach.rating}}</td>
+        <td>{{beach.enabled}}</td>
+        <td><img height="100px" [src]="beach.defaultImage"></td>
+        <!-- <td><img height="100px" src=`${beach.profileImage}`></td> -->
+        <!-- <button *ngIf='beach.enabled' (click)='reverse(beach)' type="button">Disable</button>
+        <button *ngIf='!beach.enabled' (click)='reverse(beach)' type="button">Enable</button> -->
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+<br>
+
+<p *ngIf="!isLogin || role!='admin'">Please login as admin to access this!</p>
