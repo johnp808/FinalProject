@@ -34,11 +34,13 @@ export class ShowBeachComponent implements OnInit {
   report: Report | null = null;
   newWeather: Weather = new Weather();
   editWeather: Weather | null = null;
+  newReport: Report = new Report();
 
   constructor(private beachService: BeachService,
     private reportService: ReportService,
     private authService: AuthService,
     private weatherService: WeatherService,
+    private ReportService: ReportService
     )
     {
 
@@ -111,5 +113,36 @@ export class ShowBeachComponent implements OnInit {
         }
       );
     }
+  }
+
+  //Report Section
+
+  addReport(report: Report) {
+    console.log('Adding Report'+this.newReport);
+    console.log(JSON.stringify(this.newReport));
+    this.ReportService.create(this.newReport).subscribe(
+      (newTo): void => {
+
+        // this.newReport.created =
+        this.reloadReports();
+        this.newReport= report;
+      },
+      (nojoy) => {
+        console.error('Error creating Report Post');
+        console.error(nojoy);
+      }
+    );
+  }
+
+  reloadReports(): void {
+    this.ReportService.index().subscribe(
+      (reportList) => {
+        this.reports = reportList;
+      },
+      (fail) => {
+        console.error('Component.reloadReport(): error getting report posts');
+        console.error(fail);
+      }
+    );
   }
 }
