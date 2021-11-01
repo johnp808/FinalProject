@@ -6,6 +6,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { BeachService } from 'src/app/services/beach.service';
 import { ReportService } from 'src/app/services/report.service';
 
+
 @Component({
   selector: 'app-create-report',
   templateUrl: './create-report.component.html',
@@ -52,8 +53,8 @@ export class CreateReportComponent implements OnInit {
     );
   }
   ngOnInit(): void {
-    this.reloadReports();
     this.isLogin = this.authService.checkLogin();
+    this.reloadReports();
   }
 
 
@@ -62,10 +63,10 @@ addReport(report: Report) {
   console.log(JSON.stringify(this.newReport));
   this.ReportService.create(this.newReport).subscribe(
     (newTo): void => {
-
-      // this.newReport.created =
-      this.reloadReports();
+      var currentTimeInSeconds =Math.floor(Date.now());
+      // this.newReport.created = currentTimeInSeconds;
       this.newReport= report;
+      this.reloadReports();
     },
     (nojoy) => {
       console.error('Error creating Report Post');
@@ -76,8 +77,8 @@ addReport(report: Report) {
 updateReport(report: Report, showReport = true): void {
   this.ReportService.update(report).subscribe(
     (updated) => {
-      this.reloadReports();
       this.editReport = null;
+      this.reloadReports();
       // this.selected = updated;
     },
     (fail) => {
