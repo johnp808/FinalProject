@@ -6,7 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { AuthService } from './auth.service';
 import { DatePipe } from '@angular/common';
-import { environment } from 'src/environments/environment.prod';
+import { environment } from 'src/environments/environment';
 import { Beach } from '../models/beach';
 import { BeachService } from './beach.service';
 import { Router } from '@angular/router';
