@@ -1,3 +1,4 @@
+
 export class Beach {
   id: number;
   name: String;
@@ -39,6 +40,5 @@ export class Beach {
     this.hours = hours;
     this.enabled = enabled;
     this.rating = rating;
-
   }
 }

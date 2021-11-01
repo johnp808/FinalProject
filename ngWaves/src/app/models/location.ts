@@ -1,5 +1,3 @@
-import { Beach } from "./beach";
-import { User } from "./user";
 
 export class Location {
   id: number;

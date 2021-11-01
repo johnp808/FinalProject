@@ -6,24 +6,39 @@
     <thead>
       <tr>
         <th>Name</th>
-        <th>Rating</th>
         <th>Enabled</th>
+        <th>Rating</th>
         <th>ProfileImage</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor='let beach of beachList'>
         <td>{{beach.name}}</td>
-        <td>{{beach.rating}}</td>
         <td>{{beach.enabled}}</td>
-        <td><img height="100px" [src]="beach.defaultImage"></td>
-        <!-- <td><img height="100px" src=`${beach.profileImage}`></td> -->
-        <!-- <button *ngIf='beach.enabled' (click)='reverse(beach)' type="button">Disable</button>
-        <button *ngIf='!beach.enabled' (click)='reverse(beach)' type="button">Enable</button> -->
+        <td>{{beach.rating}}</td>
+        <td *ngIf='beach.enabled'><img height="80px" [src]="beach.defaultImage"></td>
+        <td *ngIf='!beach.enabled'><img height="80px" [src]="'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4iz-hXWr2pgUAerTjgdzGRfZWBb6BAfDI7A&usqp=CAU'"></td>
+        <button *ngIf='beach.enabled' (click)='reverse(beach)' type="button">Close</button>
+        <button *ngIf='!beach.enabled' (click)='reverse(beach)' type="button">Open</button>
       </tr>
     </tbody>
   </table>
   </div>
+  <br>
+  <hr>
+
+  <form>
+    <input type="text" name="name" placeholder="name" [(ngModel)]="beach.name"><br>
+    <input type="text" name="description" placeholder="description" [(ngModel)]="beach.description"><br>
+    <input type="text" name="defaultImage" placeholder="defaultImage" [(ngModel)]="beach.defaultImage"><br>
+    <input type="text" name="enabled" placeholder="enabled" [(ngModel)]="beach.enabled"><br>
+    <input type="text" name="operational" placeholder="operational" [(ngModel)]="beach.operational"><br>
+    <input type="text" name="rating" placeholder="rating" [(ngModel)]="beach.rating"><br>
+    <input type="text" name="hours" placeholder="hours" [(ngModel)]="beach.hours"><br>
+    <input type="text" name="locationId" placeholder="locationId" [(ngModel)]="beach.locationId"><br>
+    <!-- <button type="button" (click)="create()">Create</button> -->
+  </form>
+
 </div>
 <br>
 

@@ -2,18 +2,27 @@ package com.skilldistillery.waves.services;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import com.skilldistillery.waves.entities.Beach;
 import com.skilldistillery.waves.entities.Location;
+import com.skilldistillery.waves.entities.Report;
+import com.skilldistillery.waves.entities.User;
 import com.skilldistillery.waves.repositories.BeachRepository;
+import com.skilldistillery.waves.repositories.LocationRepository;
 
 @Service
 public class BeachServiceImpl implements BeachService {
 
 	@Autowired
 	private BeachRepository beachRepo;
+	@Autowired
+	private LocationRepository localRepo;
 	
 	@Override
 	public Beach getBeachByName(String name) {
@@ -164,14 +173,29 @@ public class BeachServiceImpl implements BeachService {
 		}
 		
 		return matches;
+	}	
+	
+	@Override
+	public Beach addBeach(int localId, Beach beach){
+		Location local = localRepo.getById(localId);
+		if(local!=null && beach!=null) {
+			beach.setLocation(local);
+			beachRepo.saveAndFlush(beach);
+			return beach;
+		}
+		
+		return null;
 	}
-	
-	
-	
-	
-
-
-
-	
+//	@Override
+//	public Beach addBeach(Beach beach){
+//		Location local = localRepo.getById(beach.getLocation().getId());
+//		if(local!=null && beach!=null) {
+//			beach.setLocation(local);
+//			beachRepo.saveAndFlush(beach);
+//			return beach;
+//		}
+//		
+//		return null;
+//	}
 
 }

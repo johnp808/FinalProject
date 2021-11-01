@@ -1,31 +1,31 @@
 <div *ngIf="isLogin && role=='admin'">
 
-  <button (click)='reloadUsers()' type="button" >Show User List</button>
+  <button (click)='reloadUsers()' type="button" >User List Information</button>
   <div *ngIf='userList.length > 0'>
   <table>
     <thead>
       <tr>
         <th>Username</th>
+        <th>Enabled</th>
         <th>Email</th>
         <th>Role</th>
-        <th>Enabled</th>
         <th>ProfileImage</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor='let user of userList'>
         <th>{{user.username}}</th>
+        <th>{{user.enabled}}</th>
         <th>{{user.email}}</th>
         <th>{{user.role}}</th>
-        <th>{{user.enabled}}</th>
-        <th>{{user.profileImage}}</th>
+        <td *ngIf='user.enabled'><img height="80px" [src]="user.profileImage"></td>
+        <td *ngIf='!user.enabled'><img height="80px" [src]="'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4iz-hXWr2pgUAerTjgdzGRfZWBb6BAfDI7A&usqp=CAU'"></td>
         <button *ngIf='user.enabled' (click)='reverse(user)' type="button">Disable</button>
         <button *ngIf='!user.enabled' (click)='reverse(user)' type="button">Enable</button>
       </tr>
     </tbody>
   </table>
   </div>
-
 </div>
 
 <br>

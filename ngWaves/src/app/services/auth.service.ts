@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, tap } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
 import { User } from '../models/user';
+import { Beach } from '../models/beach';
 
 @Injectable({
   providedIn: 'root'
@@ -72,10 +73,8 @@ export class AuthService {
     return localStorage.getItem('credentials');
   }
 
-   //http://localhost:9090/api/auth/users/username/yanyan
-   //baseUrl: 'http://localhost:9090/'
   getUserByUsername(username: string):Observable<User>{
-    return this.http.get<User>(this.baseUrl + 'api/auth/users/username/' +username)
+    return this.http.get<User>(this.baseUrl + 'api/users/username/' +username)
                .pipe(
                 tap((res) => {
                   return res;
@@ -102,7 +101,7 @@ export class AuthService {
 
   //"auth/users"
   index(): Observable<User[]>{
-    return this.http.get<User[]>(this.baseUrl+'api/auth/users').pipe(
+    return this.http.get<User[]>(this.baseUrl+'api/users').pipe(
       catchError((err: any) => {
         console.error(err);
         return throwError('userService.index(): Error retrieving user list');
@@ -114,7 +113,7 @@ export class AuthService {
   //"auth/update/{userId}"
   reverse(user: User): Observable<User>{
     user.enabled = !user.enabled;
-    return this.http.put<User>(this.baseUrl+`api/auth/update/${user.id}`, user).pipe(
+    return this.http.put<User>(this.baseUrl+`api/auth/update/${user.id}`, user, this.getHttpOptions()).pipe(
       catchError((err : any) => {
         console.error(err);
         return throwError('UserService.update(): Error updating user');
@@ -122,5 +121,37 @@ export class AuthService {
     );
   }
 
+  //("auth/beaches/{bid}")
+  reverseBeach(beach: Beach): Observable<Beach>{
+    beach.enabled = !beach.enabled;
+    return this.http.put<Beach>(this.baseUrl+`api/auth/beaches/${beach.id}`, beach, this.getHttpOptions()).pipe(
+      catchError((err : any) => {
+        console.error(err);
+        return throwError('BeachService.update(): Error updating beach');
+      })
+    );
+  }
+
+  //("auth/beaches/{localId}")
+  // createBeach(beach: Beach):  Observable<Beach>{
+  //   console.log(beach);
+  //   return this.http.post<Beach>(this.baseUrl+'api/auth/beaches/'+beach.locationId, beach, this.getHttpOptions()).pipe(
+  //     catchError((err: any) => {
+  //       console.log(err);
+  //       return throwError('Beach create err!');
+  //     })
+  //   );
+  // }
+
+  getHttpOptions(){
+    let credentials = this.getCredentials();
+    let options = {
+      headers: {
+        'X-Requested-With': 'XMLHttpRequest',
+        'Authorization':`Basic ${credentials}`
+      }
+    };
+    return options;
+  }
 
 }
