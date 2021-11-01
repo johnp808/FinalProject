@@ -18,7 +18,7 @@ import { CreateWeatherComponent } from './components/create/create-weather/creat
 import { FilloutComponent } from './components/login/fillout/fillout.component';
 import { AuthService } from './services/auth.service';
 import { FormsModule } from '@angular/forms';
-
+import { WeatherService } from './services/weather.service';
 
 @NgModule({
   declarations: [
@@ -34,18 +34,16 @@ import { FormsModule } from '@angular/forms';
     CreateComponent,
     CreateReportComponent,
     CreateWeatherComponent,
-    FilloutComponent
+    FilloutComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
-  providers: [
-    AuthService
-  ],
-  bootstrap: [AppComponent]
+  providers: [AuthService, WeatherService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
