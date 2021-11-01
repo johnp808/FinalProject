@@ -186,16 +186,5 @@ public class BeachServiceImpl implements BeachService {
 		
 		return null;
 	}
-//	@Override
-//	public Beach addBeach(Beach beach){
-//		Location local = localRepo.getById(beach.getLocation().getId());
-//		if(local!=null && beach!=null) {
-//			beach.setLocation(local);
-//			beachRepo.saveAndFlush(beach);
-//			return beach;
-//		}
-//		
-//		return null;
-//	}
 
 }
