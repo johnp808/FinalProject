@@ -33,6 +33,19 @@ private auth: AuthService,
       })
     );
   }
+
+
+  beachReport(beachId: Number): Observable<Report[]> {
+    return this.http.get<Report[]>(this.url + '/' + beachId).pipe(
+      catchError((err: any) => {
+        console.log(err);
+        return throwError(
+          'ReportService.beachReport(): Error retrieving Report list'
+        );
+      })
+    );
+  }
+
   show(reportId: number): Observable<Report> {
     return this.http
       .get<Report>(this.url + '/' + reportId, this.getHttpOptions())

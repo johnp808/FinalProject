@@ -1,21 +1,12 @@
-<h1>Create Report Post</h1>
-
-
-  <form *ngIf="isLogin" name="ReportForm"   class="form-group">
-
-    <div>
-      <textarea cols="40" rows="3" placeholder="Enter Comment Here." name="comment" [(ngModel)]="newReport.comment"></textarea>
-      <br>
-      <input type="text" name="beachId" placeholder="" [(ngModel)]="newReport.beach.id">
-    </div>
-    <div>
-      <input id="image" type="text" name="image" placeholder="Image Url" [(ngModel)]="newReport.image">
-    </div>
-    <div>
-      <input id="rating" type="text" name="rating" [(ngModel)]="newReport.rating">
-    </div>
-    <button class="button"  (click)="addReport(newReport)">Submit</button>
-  </form>
+<h1>User Profile</h1>
+  <div *ngIf="isLogin">
+    <div>Username: {{user.username}}</div>
+    <div>Email: {{user.email}}</div>
+    <div>Role: {{user.role}}</div>
+    <div>Enabled: {{user.enabled}}</div>
+    <div>Address: {{user.location.street}},{{user.location.city}},{{user.location.state}},{{user.location.zip}}</div>
+    <div><img height="100px" [src]="user.profileImage"></div>
+  </div>
 <br>
 
 <p *ngIf="!isLogin">Please login to access this!</p>

@@ -42,7 +42,7 @@ export class WeatherService {
       catchError((err: any) => {
         console.log(err);
         return throwError(
-          'WeatherService.index(): Error retrieving Weather list'
+          'WeatherService.beachWeather(): Error retrieving Weather list'
         );
       })
     );
