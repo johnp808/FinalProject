@@ -18,6 +18,12 @@
 
 <div id='beachDetails' *ngIf="selected">
   <h2>{{selected.name}}</h2>
+  <span
+  class="bi"
+  [ngClass]="isFavorite?'bi-star-fill':'bi-star'"
+  (click)="toggleFavorite()"
+  ></span>
+  <h3>{{isFavorite}}</h3>
   <img src="{{selected.defaultImage}}" alt= "{{ selected.name }}">
   <p>{{selected.description}}</p>
 
