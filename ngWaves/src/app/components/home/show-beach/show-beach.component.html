@@ -34,6 +34,7 @@
         <th> Street </th>
         <th> City </th>
         <th> State </th>
+        <br>
         <th> Zip </th>
       </tr>
     </thead>
@@ -74,7 +75,15 @@
       <input id="image" type="text" name="image" placeholder="Image Url" [(ngModel)]="newReport.image">
     </div>
     <div>
-      <input id="rating" type="text" name="rating" [(ngModel)]="newReport.rating">
+      <select id="rating" name="rating" [(ngModel)]="newReport.rating">
+        <option value="0" disabled selected hidden> Beach Rating</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+      <!-- <input id="rating" type="text" name="rating" [(ngModel)]="newReport.rating"> -->
     </div>
     <button class="button"  (click)="addReport(newReport)">Submit</button>
   </form>
@@ -106,32 +115,29 @@
       </table>
       <br>
     <form *ngIf="isLogin" name="WeatherForm"   class="form-group"  >
-      Add a Weather Update
+      <h4>Add a Weather Update</h4>
       <div>
-        <label for="weatherType">
-          Weather Type
-        </label>
-        <input id="weatherType" type="text" name="newWeatherType"  [(ngModel)]="newWeather.weatherType">
+        <input id="weatherType" placeholder="Weather Type" type="text" name="newWeatherType"  [(ngModel)]="newWeather.weatherType">
       </div>
 
       <div>
-        <label for="description">
-          Description
-        </label>
-        <input id="description" type="text" name="description" [(ngModel)]="newWeather.description">
+        <input id="description" placeholder="Description" type="text" name="description" [(ngModel)]="newWeather.description">
       </div>
       <div>
-        <label for="temperature">
-          Temperature
-        </label>
-        <input id="temperature" type="text" name="temperature" [(ngModel)]="newWeather.temperatureCelsius">
+        <input id="temperature" placeholder="Temperature" type="text" name="temperature" [(ngModel)]="newWeather.temperatureCelsius">
       </div>
       <div>
-        <label for="waveSize">
-          Wave Size
-        </label>
-        <input id="waveSize" class="form-control" type="text" name="waveSize" [(ngModel)]="newWeather.waveSize">
+        <select id="waveSize" name="waveSize" [(ngModel)]="newWeather.waveSize">
+          <option value="" disabled selected hidden>Wave Size</option>
+          <option value="Flat">Flat</option>
+          <option value="Chest Height">Chest Height</option>
+          <option value="Head Height">Head Height</option>
+          <option value="Over Head">Over Head</option>
+          <option value="Double Over Head">Double Over Head</option>
+      </select>
+        <!-- <input id="waveSize" class="form-control" type="text" name="waveSize" [(ngModel)]="newWeather.waveSize"> -->
       </div>
+
 
       <button class="button"  (click)="addWeather(newWeather)">Submit</button>
     </form>

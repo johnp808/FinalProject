@@ -15,16 +15,7 @@ import { CreateWeatherComponent } from '../../create/create-weather/create-weath
 })
 export class ShowBeachComponent implements OnInit {
   isLogin: boolean = false;
-
-  ngOnInit(): void {
-    this.reloadBeaches();
-    this.reloadReports();
-    this.isLogin = this.authService.checkLogin();
-    // this.reloadWeatherPosts();
-  }
-
   title = 'ngBeach';
-
   beaches: Beach[] = [];
   reports: Report[] = [];
   // posts: Weather[] = [];
@@ -47,6 +38,13 @@ export class ShowBeachComponent implements OnInit {
     )
     {
 
+    }
+
+    ngOnInit(): void {
+      this.reloadBeaches();
+      this.reloadReports();
+      this.isLogin = this.authService.checkLogin();
+      // this.reloadWeatherPosts();
     }
 
   reloadBeaches(): void {
