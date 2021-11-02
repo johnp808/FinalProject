@@ -62,6 +62,7 @@ export class ShowBeachComponent implements OnInit {
         console.log(fail);
       }
     );
+    this.reloadReports();
   }
 
   displayBeach(beach: Beach): void {
@@ -87,6 +88,7 @@ export class ShowBeachComponent implements OnInit {
   } else{
     this.selected = beach;
         this.reloadWeatherPosts();
+        this.reloadReports();
 
   }
 }
