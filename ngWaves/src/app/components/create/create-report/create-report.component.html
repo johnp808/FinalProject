@@ -8,5 +8,14 @@
     <div><img height="100px" [src]="user.profileImage"></div>
   </div>
 <br>
+<h3>Favorites</h3>
+<div *ngFor="let favorite of favorites">
+
+  <p>{{favorite.name}}</p>
+  <img [src]="favorite.defaultImage" height="100px" alt="favorite beach image">
+  <p>{{favorite.rating}}</p>
+
+</div>
+
 
 <p *ngIf="!isLogin">Please login to access this!</p>
