@@ -48,6 +48,9 @@ export class ShowBeachComponent implements OnInit {
     {
 
     }
+    checkLogin(): boolean{
+      return this.authService.checkLogin();
+    }
 
   reloadBeaches(): void {
     this.beachService.index().subscribe(
@@ -63,6 +66,7 @@ export class ShowBeachComponent implements OnInit {
   }
 
   displayBeach(beach: Beach): void {
+    if(this.authService.checkLogin()){
     this.authService.getFavorites().subscribe(
       beachList => {
         this.selected = beach;
@@ -80,7 +84,12 @@ export class ShowBeachComponent implements OnInit {
         console.log(fail);
       }
     );
+  } else{
+    this.selected = beach;
+        this.reloadWeatherPosts();
+
   }
+}
   toggleFavorite(): void {
     this.isFavorite = !this.isFavorite;
 
