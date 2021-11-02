@@ -77,17 +77,17 @@ public class BeachController {
 		return beach;
 	}
 	
-//	@PostMapping("auth/beaches/{localId}")
-//	public Beach create2(
-//			HttpServletResponse res,
-//			@PathVariable int localId,
-//			@RequestBody Beach beach) {
-//		Beach newBeach = beachSvc.addBeach(localId, beach);
-//		if( newBeach == null) {
-//			res.setStatus(400);
-//		}
-//		return newBeach;
-//	}
+	//http://localhost:9090/api/auth/beaches/location 
+	@PostMapping("auth/beaches/location")
+	public Beach create2(
+			HttpServletResponse res,
+			@RequestBody Beach beach) {
+		Beach newBeach = beachSvc.addBeach(beach);
+		if( newBeach == null) {
+			res.setStatus(400);
+		}
+		return newBeach;
+	}
 	
 	@PutMapping("auth/beaches/{bid}")	
 	public Beach update(HttpServletRequest req, 

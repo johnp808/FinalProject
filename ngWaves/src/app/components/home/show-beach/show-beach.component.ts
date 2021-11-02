@@ -93,7 +93,7 @@ export class ShowBeachComponent implements OnInit {
 
   getLocation(){
     if(this.selected){
-      this.selected.locationId
+      // this.selected.locationId
     }
   }
 
