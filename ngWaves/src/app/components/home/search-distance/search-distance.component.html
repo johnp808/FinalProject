@@ -12,13 +12,25 @@
   <thead>
   <tr>
     <th>
-      Beaches
+      Beach Name
+    </th>
+    <th>
+      Beach Rating
+    </th>
+    <th>
+      Beach Zip
+    </th>
+    <th>
+      Beach Image
     </th>
   </tr>
 </thead>
 <tbody>
   <tr *ngFor="let beach of beaches">
     <td (click)="displayBeach(beach)">{{ beach.name }}</td>
+    <td (click)="displayBeach(beach)">{{ beach.rating }}</td>
+    <td (click)="displayBeach(beach)">{{ beach.location.zip }}</td>
+    <td (click)="displayBeach(beach)"><img height="100px" [src]="beach.defaultImage"></td>
   </tr>
 </tbody>
 </table>

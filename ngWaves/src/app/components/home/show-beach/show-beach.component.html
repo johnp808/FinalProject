@@ -1,20 +1,32 @@
 <h1> Waves Beaches</h1>
 <div id='beachList' *ngIf="! selected">
-<table>
-  <thead>
-  <tr>
-    <th>
-      Beaches
-    </th>
-  </tr>
-</thead>
-<tbody>
-  <tr *ngFor="let beach of beaches">
-    <td (click)="displayBeach(beach)">{{ beach.name }}</td>
-  </tr>
-</tbody>
-</table>
-</div>
+  <table>
+    <thead>
+    <tr>
+      <th>
+        Beach Name
+      </th>
+      <th>
+        Beach Rating
+      </th>
+      <th>
+        Beach Zip
+      </th>
+      <th>
+        Beach Image
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let beach of beaches">
+      <td (click)="displayBeach(beach)">{{ beach.name }}</td>
+      <td (click)="displayBeach(beach)">{{ beach.rating }}</td>
+      <td (click)="displayBeach(beach)">{{ beach.location.zip }}</td>
+      <td (click)="displayBeach(beach)"><img height="100px" [src]="beach.defaultImage"></td>
+    </tr>
+  </tbody>
+  </table>
+  </div>
 
 <div id='beachDetails' *ngIf="selected">
   <h2>{{selected.name}}</h2>
@@ -34,7 +46,6 @@
         <th> Street </th>
         <th> City </th>
         <th> State </th>
-        <br>
         <th> Zip </th>
       </tr>
     </thead>
@@ -52,16 +63,16 @@
     <tr>
       <th> User Name </th>
       <th> Comment </th>
+      <th> Rating </th>
       <th> Created </th>
-      <br>
       <th> Picture </th>
-
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let report of reports">
       <td>{{report.user.username}}</td>
       <td>{{report.comment}}</td>
+      <td>{{report.rating}}</td>
       <td>{{report.created}}</td><br>
       <td><img src="{{report.image}}" style=" border-radius:5%; border:2; " height=150 width=150/></td>
     </tr>
@@ -97,19 +108,22 @@
       <table >
         <thead>
           <tr>
-            <td>username</td>
-            <td>weatherType</td>
-            <td>...</td>
+            <th>Username</th>
+            <th>WeatherType</th>
+            <th>Description</th>
+            <th>Temperature (Celsius)</th>
+            <th>Created</th>
+            <th>Wave Size</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let post of thisBeachPosts">
               <td>{{post.user.username}}</td>
               <td>{{post.weatherType}}</td>
-              <td>
-                {{post.waveSize}}
-              </td>
+              <td> {{post.description}} </td>
+              <td> {{post.temperatureCelsius}} </td>
               <td> {{post.created}} </td>
+              <td>{{post.waveSize}} </td>
           </tr>
         </tbody>
       </table>

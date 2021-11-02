@@ -52,18 +52,18 @@ export class SearchDistanceComponent implements OnInit {
 
     }
 
-  reloadBeaches(): void {
-    this.beachService.index().subscribe(
-      beachList => {
-        this.beaches = beachList;
-        // this.reloadWeatherPosts();
-      },
-      fail => {
-        console.error('homeComponent.reloadBeachess(): error getting beach list');
-        console.log(fail);
-      }
-    );
-  }
+  // reloadBeaches(): void {
+  //   this.beachService.index().subscribe(
+  //     beachList => {
+  //       this.beaches = beachList;
+  //       // this.reloadWeatherPosts();
+  //     },
+  //     fail => {
+  //       console.error('homeComponent.reloadBeachess(): error getting beach list');
+  //       console.log(fail);
+  //     }
+  //   );
+  // }
   reloadBeachByDistance(): void {
     this.beachService.getBeachesByDistance(this.zip).subscribe(
       beachList => {

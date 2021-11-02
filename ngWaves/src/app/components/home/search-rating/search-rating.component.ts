@@ -17,8 +17,9 @@ export class SearchRatingComponent implements OnInit {
 
   ngOnInit(): void {
     // this.reloadBeaches();
-    this.reloadReports();
+    // this.reloadReports();
     this.isLogin = this.authService.checkLogin();
+    this.reloadBeachByRating();
     // this.reloadWeatherPosts();
   }
 
@@ -52,30 +53,30 @@ export class SearchRatingComponent implements OnInit {
 
     }
 
-  reloadBeaches(): void {
-    this.beachService.index().subscribe(
-      beachList => {
-        this.beaches = beachList;
-        // this.reloadWeatherPosts();
-      },
-      fail => {
-        console.error('homeComponent.reloadBeachess(): error getting beach list');
-        console.log(fail);
-      }
-    );
-  }
-  reloadBeachByKeyword(): void {
-    this.beachService.getBeachesByKeyword(this.keyword).subscribe(
-      beachList => {
-        this.beaches = beachList;
-        // this.reloadWeatherPosts();
-      },
-      fail => {
-        console.error('homeComponent.reloadBeachess(): error getting beach list');
-        console.log(fail);
-      }
-    );
-  }
+  // reloadBeaches(): void {
+  //   this.beachService.index().subscribe(
+  //     beachList => {
+  //       this.beaches = beachList;
+  //       // this.reloadWeatherPosts();
+  //     },
+  //     fail => {
+  //       console.error('homeComponent.reloadBeachess(): error getting beach list');
+  //       console.log(fail);
+  //     }
+  //   );
+  // }
+  // reloadBeachByKeyword(): void {
+  //   this.beachService.getBeachesByKeyword(this.keyword).subscribe(
+  //     beachList => {
+  //       this.beaches = beachList;
+  //       // this.reloadWeatherPosts();
+  //     },
+  //     fail => {
+  //       console.error('homeComponent.reloadBeachess(): error getting beach list');
+  //       console.log(fail);
+  //     }
+  //   );
+  // }
 
   //getBeachesByRating()
   reloadBeachByRating(): void {
