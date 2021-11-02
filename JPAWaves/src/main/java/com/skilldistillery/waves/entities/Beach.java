@@ -53,11 +53,29 @@ public class Beach {
 	@ManyToMany(mappedBy="beachFavorites")
 	private List<User> favoritedUsers;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy="beach")
 	private List<Weather> weatherPosts;
 	
+	@JsonIgnore
+	@OneToMany(mappedBy="beach")
+	private List<Report> reportPosts;
+	
 	public Beach() {
 		super();
+	}
+	
+	public List<Weather> getWeatherPosts() {
+		return weatherPosts;
+	}
+	public void setWeatherPosts(List<Weather> weatherPosts) {
+		this.weatherPosts = weatherPosts;
+	}
+	public List<Report> getReportPosts() {
+		return reportPosts;
+	}
+	public void setReportPosts(List<Report> reportPosts) {
+		this.reportPosts = reportPosts;
 	}
 	public int getId() {
 		return id;

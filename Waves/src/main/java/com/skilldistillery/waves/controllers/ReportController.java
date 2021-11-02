@@ -26,6 +26,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.skilldistillery.waves.entities.Report;
+import com.skilldistillery.waves.entities.Weather;
 import com.skilldistillery.waves.services.ReportService;
 
 @RestController
@@ -43,6 +44,11 @@ public class ReportController {
 			res.setStatus(404);
 		}
 		return reports;
+	}
+	
+	@GetMapping("reports/{beachId}")
+	public List<Report> getWeatherByBeachId(@PathVariable Integer beachId){
+		return reportSvc.getAllReportForBeach(beachId);
 	}
 	
 	@GetMapping("reports/user")

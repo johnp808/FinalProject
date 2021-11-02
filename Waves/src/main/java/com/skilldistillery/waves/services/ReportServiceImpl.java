@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.skilldistillery.waves.entities.Beach;
 import com.skilldistillery.waves.entities.Report;
 import com.skilldistillery.waves.entities.User;
+import com.skilldistillery.waves.entities.Weather;
 import com.skilldistillery.waves.repositories.BeachRepository;
 import com.skilldistillery.waves.repositories.ReportRepository;
 import com.skilldistillery.waves.repositories.UserRepository;
@@ -61,6 +62,9 @@ public class ReportServiceImpl implements ReportService {
 		return reportRepo.findAll();
 	}
 	
-	
+	@Override
+	public List<Report> getAllReportForBeach(int beachId){
+		return reportRepo.findByBeach_IdOrderByCreatedDesc(beachId);
+	}
 
 }
