@@ -55,7 +55,7 @@ public class Weather {
 	@OneToMany(mappedBy="weather")
 	private List<WeatherComment> weatherComments;
 	
-	@JsonIgnore
+	@JsonIgnoreProperties({"weather","weatherComments"})
 	@ManyToOne
 	@JoinColumn(name="user_id")
 	private User user;
