@@ -5,7 +5,7 @@ import { ShowBeachComponent } from './components/home/show-beach/show-beach.comp
 import { ShowReportsComponent } from './components/home/show-reports/show-reports.component';
 import { CreateComponent } from './components/create/create.component';
 import { CreateReportComponent } from './components/create/create-report/create-report.component';
-import { CreateWeatherComponent } from './components/create/create-weather/create-weather.component';
+// import { CreateWeatherComponent } from './components/create/create-weather/create-weather.component';
 import { LoginComponent } from './components/login/login.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { ReportCommentComponent } from './components/report-comment/report-comment.component';
@@ -15,6 +15,7 @@ import { RegisterComponent } from './components/login/register/register.componen
 import { MaintainComponent } from './components/maintain/maintain.component';
 import { UserOpComponent } from './components/maintain/user-op/user-op.component';
 import { BeachOpComponent } from './components/maintain/beach-op/beach-op.component';
+import { CreateWeatherComponent } from './components/create/create-weather/create-weather.component';
 
 const routes: Routes = [
   {path:'login', component:LoginComponent,
@@ -43,7 +44,7 @@ const routes: Routes = [
   {
    path:'create', component:CreateComponent,
    children:[
-    {path:'createweather', component:CreateWeatherComponent},
+    //{path:'createweather', component:CreateWeatherComponent},
     {path:'createreport', component:CreateReportComponent},
     {path:'**', component:CreateReportComponent},
    ]
