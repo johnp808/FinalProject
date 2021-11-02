@@ -50,24 +50,29 @@
   <table>
     <thead>
     <tr>
-      <th> Report Id </th>
+      <!-- COME BACK TO ME -->
+      <!-- <th> User Name </th> -->
       <th> Comment </th>
       <th> Created </th>
+      <br>
+      <th> Picture </th>
 
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let report of reports">
-      <td>{{report.id}}</td>
+      <!-- COME BACK TO USER NAME -->
+      <!-- <td>{{report.user.username}}</td> -->
       <td>{{report.comment}}</td>
-      <td>{{report.created}}</td>
+      <td>{{report.created}}</td><br>
+      <td><img src="{{report.image}}" style=" border-radius:5%; border:2; " height=150 width=150/></td>
     </tr>
   </tbody>
   </table>
   <br>
   <form *ngIf="isLogin" name="ReportForm"   class="form-group">
     <div>
-      <textarea cols="31" rows="5" placeholder="Enter Comment Here." name="comment" [(ngModel)]="newReport.comment"></textarea>
+      <textarea cols="31" rows="5" placeholder="Enter Your Comment Here..." name="comment" [(ngModel)]="newReport.comment"></textarea>
     </div>
     <div>
       <input id="image" type="text" name="image" size="32" placeholder="Image Url" [(ngModel)]="newReport.image">
