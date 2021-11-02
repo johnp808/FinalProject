@@ -8,6 +8,9 @@
 </form>
 </div>
 
+<div *ngIf="!existed">
+  <h3>Username doesn't exist, please register!</h3>
+</div>
 <div *ngIf="isLogin">
   <table>
     <thead>
