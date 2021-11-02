@@ -146,7 +146,7 @@ CREATE TABLE IF NOT EXISTS `weather` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `weather_type` VARCHAR(45) NULL,
   `description` VARCHAR(45) NULL,
-  `temperature_celsius` INT NULL,
+  `temperature_farenheit` INT NULL,
   `created` DATETIME NULL,
   `wave_size` VARCHAR(45) NULL,
   `user_id` INT NOT NULL,
@@ -327,12 +327,16 @@ START TRANSACTION;
 USE `wavesdb`;
 INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip`) VALUES (1, '8751 sand lake ct', 'lake worth', 'fl', '33467');
 INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip`) VALUES (2, '6620 North Ocean Boulevard', 'Ocean Ridge', 'fl', '33435');
-INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip`) VALUES (3, '6990 N. Ocean Boulevard', 'Ocean Ridge', 'fl', '33435');
-INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip`) VALUES (4, '4489 N. Ocean Boulevard', 'Gulfstream', 'fl', '33483');
-INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip`) VALUES (5, '10 S Ocean Blvd', 'Lake Worth', 'fl', '33460');
-INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip`) VALUES (6, '2010 N Federal Hwy', 'Boynton Beach', 'fl', '33435');
-INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip`) VALUES (7, '700 NE 4th Ave', 'Boyton Beach', 'fl', '33435');
-INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip`) VALUES (8, '300 Boynton Lakes Boulevard', 'Boynton Beach', 'fl', '33435');
+INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip`) VALUES (3, '6990 N. Ocean Boulevard', 'Ocean Ridge', 'FL ', '33435');
+INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip`) VALUES (4, '4489 N. Ocean Boulevard', 'Gulfstream', 'FL ', '33483');
+INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip`) VALUES (5, '10 S Ocean Blvd', 'Lake Worth', 'FL ', '33460');
+INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip`) VALUES (6, '2010 N Federal Hwy', 'Boynton Beach', 'FL ', '33435');
+INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip`) VALUES (7, '700 NE 4th Ave', 'Boyton Beach', 'FL ', '33435');
+INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip`) VALUES (8, '300 Boynton Lakes Blvd', 'Boynton Beach', 'FL ', '33435');
+INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip`) VALUES (9, '2050 Florida A1A', 'Jupiter', 'FL ', '33477');
+INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip`) VALUES (10, '400 S. S.R. A1A', 'Jupiter', 'FL', '33477');
+INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip`) VALUES (11, '1600 Beach Road', 'Tequesta', 'FL', '33469');
+INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip`) VALUES (12, '19075 DuBois Road', 'Jupiter', 'FL', '33477');
 
 COMMIT;
 
@@ -365,6 +369,10 @@ INSERT INTO `beach` (`id`, `name`, `description`, `default_image`, `location_id`
 INSERT INTO `beach` (`id`, `name`, `description`, `default_image`, `location_id`, `operational`, `pet_friendly`, `parking_available`, `price_of_admission`, `hours`, `enabled`, `rating`) VALUES (5, 'Harvey E. Oye Jr. Park', 'Oceanfront park beach is open 365 days a year from sunrise to 9:00 p.m; Lifeguards are on duty every day from 9 am – 5 pm. The staff is certified or licensed as First Responders or EMT’s.  Designated surfing and skim board areas are located at the north and south end of the beach. ', 'https://captainkimo.s3.amazonaws.com/wp-content/uploads/2018/11/02122151/Harvey-E-Oyer-Jr-Park-Public-Boat-Ramp-to-Boynton-Inlet.jpg', 6, 1, 'yes', 'yes', '0', '9 am – 5 pm', 1, 4.5);
 INSERT INTO `beach` (`id`, `name`, `description`, `default_image`, `location_id`, `operational`, `pet_friendly`, `parking_available`, `price_of_admission`, `hours`, `enabled`, `rating`) VALUES (6, 'Mangrove Park', 'This nature area with wildlife features a suspended walkway over water & interpretive signs.', 'https://www.thepalmbeaches.com/sites/default/files/styles/profile_slideshow_xl/public/mmg_lfef_images/mangrove-park-42313-9dd47b5ae978f8301586c029381e4db4.jpg?itok=MfMPafRf', 7, 0, 'yes', 'yes', '0', 'Sunrise-Sunset', 1, 4.1);
 INSERT INTO `beach` (`id`, `name`, `description`, `default_image`, `location_id`, `operational`, `pet_friendly`, `parking_available`, `price_of_admission`, `hours`, `enabled`, `rating`) VALUES (7, 'Boynton Lakes Park', 'This is a neighborhood park that is maintained by the city of Boynton Beach. There is approximately 8 parking spaces and no restrooms. Mainly used by neighborhood families it can be a nice quiet place to play or take bike rides. There is a large open field adjacent to the playground that\'s great for frisbee, football, or soccer games. The playground equipment is mostly for younger kids and the pavilion is very small so not for party use. Swings are both infant and normal so older kids and adults may also swing. ', 'https://www.boynton-beach.org/sites/default/files/styles/hero_image_style/public/images/Landing%20Pages/Parks%20and%20Rec/boynton%20lakes%201567%20x%20498%20.jpg?itok=68eyKJiC', 8, 1, 'yes', 'yes', '0', 'Sunrise-Sunset', 1, 4.3);
+INSERT INTO `beach` (`id`, `name`, `description`, `default_image`, `location_id`, `operational`, `pet_friendly`, `parking_available`, `price_of_admission`, `hours`, `enabled`, `rating`) VALUES (8, 'Jupiter Beach Park', 'Jupiter Beach Park lies on the south side of the Jupiter Inlet. It has 1,700 feet of guarded beach, picnic areas with grills, restrooms, outdoor showers and a sand volleyball court. Park hours are sunrise to sunset but inlet fishing is available 24 hours.\n\nTo rent a pavilion please call (561) 966-6611', 'https://www.jupiter.fl.us/Facilities/Facility/Details/Jupiter-Beach-Park-Jupiter-Inlet-66', 9, 1, 'yes', 'yes', '0', 'Sunrise-Sunset', 1, 4.6);
+INSERT INTO `beach` (`id`, `name`, `description`, `default_image`, `location_id`, `operational`, `pet_friendly`, `parking_available`, `price_of_admission`, `hours`, `enabled`, `rating`) VALUES (9, 'Carlin Park', 'Carlin Park hosts 3,000 feet of guarded beach and has plentiful amenities to suit most anyone\'s needs. From bocce ball, tennis, sand volleyball, playgrounds, exercise running course, restroom facilities, picnic areas, shelters with grills and a cafe, there\'s a lot of recreation activities available at Carlin Park. ', 'https://www.jupiter.fl.us/Facilities/Facility/Details/Carlin-Park-62', 10, 1, 'yes', 'yes', '0', 'Sunrise-Sunset', 1, 4.7);
+INSERT INTO `beach` (`id`, `name`, `description`, `default_image`, `location_id`, `operational`, `pet_friendly`, `parking_available`, `price_of_admission`, `hours`, `enabled`, `rating`) VALUES (10, 'Coral Cove Park', 'While this park is light on acreage, once here, you\'ll experience the beauty of old Florida. Coral Cove park has 600 feet of guarded beach, 600 feet of intracoastal waterway frontage, picnic areas with grills, playground, restroom facilities and outdoor showers.', 'https://www.jupiter.fl.us/Facilities/Facility/Details/Coral-Cove-Park-63', 11, 1, 'yes', 'yes', '0', 'Sunrise-Sunset', 1, 4.7);
+INSERT INTO `beach` (`id`, `name`, `description`, `default_image`, `location_id`, `operational`, `pet_friendly`, `parking_available`, `price_of_admission`, `hours`, `enabled`, `rating`) VALUES (11, 'Dubois Park', 'Operated by: Palm Beach County Parks & Recreation Department \n(561) 966-6600 \n18.69 acres\n\n*Swimming area is guarded from 9:00 am - 5:20 pm, seven days a week from Memorial Day until Palm Beach County public schools begin in August; when school starts, swimming areas will be guarded only on weekends until Memorial Day.', 'https://www.jupiter.fl.us/Facilities/Facility/Details/Dubois-Park-64', 12, 1, 'yes', 'yes', '0', 'Sunrise-Sunset', 1, 4.8);
 
 COMMIT;
 
@@ -394,7 +402,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `wavesdb`;
-INSERT INTO `weather` (`id`, `weather_type`, `description`, `temperature_celsius`, `created`, `wave_size`, `user_id`, `beach_id`, `enabled`) VALUES (1, 'sunny', 'no clouds', 40, NULL, NULL, 1, 1, 1);
+INSERT INTO `weather` (`id`, `weather_type`, `description`, `temperature_farenheit`, `created`, `wave_size`, `user_id`, `beach_id`, `enabled`) VALUES (1, 'sunny', 'no clouds', 40, NULL, NULL, 1, 1, 1);
 
 COMMIT;
 
