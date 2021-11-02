@@ -29,6 +29,7 @@ export class ShowBeachComponent implements OnInit {
   reports: Report[] = [];
   // posts: Weather[] = [];
   thisBeachPosts: Weather [] = [];
+  thisBeachReports: Report [] = [];
   selected: Beach | null = null;
   newBeach: Beach | null = new Beach();
   editBeach: Beach | null = null;
@@ -37,7 +38,7 @@ export class ShowBeachComponent implements OnInit {
   editWeather: Weather | null = null;
   newReport: Report = new Report();
   editReport: Report | null = null;
-  beachReports: Report | null = null;
+  beachReport: Report | null = null;
   isFavorite: boolean = false;
 
   constructor(private beachService: BeachService,
@@ -67,6 +68,7 @@ export class ShowBeachComponent implements OnInit {
       beachList => {
         this.selected = beach;
         this.reloadWeatherPosts();
+        this.reloadReports();
         console.log("this beach's id:" + this.selected.id);
         this.isFavorite = false;
         beachList.forEach(b => {
@@ -146,11 +148,11 @@ export class ShowBeachComponent implements OnInit {
   //Report Section
 
   setEditReport() {
-    this.editReport = Object.assign({}, this.beachReports);
+    this.editReport = Object.assign({}, this.beachReport);
   }
 
   displayTable() {
-    this.beachReports = null;
+    this.beachReport = null;
   }
 
   getReportCount(): number {
@@ -159,36 +161,50 @@ export class ShowBeachComponent implements OnInit {
   }
 
   displayReport(reports : Report) {
-    this.beachReports = reports;
+    this.beachReport = reports;
   }
 
   reloadReports(): void {
-    this.reportService.index().subscribe(
-      (reportList) => {
-        this.reports = reportList;
-      },
-      (fail) => {
-        console.error('Component.reloadReport(): error getting report posts');
-        console.error(fail);
+    // this.reportService.index().subscribe(
+    //   (reportList) => {
+    //     this.reports = reportList;
+    //   },
+    //   (fail) => {
+    //     console.error('Component.reloadReport(): error getting report posts');
+    //     console.error(fail);
+    //   }
+    // );
+      if(this.selected){
+        this.reportService.beachReport(this.selected.id).subscribe(
+          (reportList) => {
+            this.reports = reportList;
+          },
+          (fail) => {
+            console.error('Component.reloadWeather(): error getting Report posts');
+            console.error(fail);
+          }
+        );
       }
-    );
   }
 
   addReport(report: Report) {
-    console.log('Adding Report'+this.newReport);
-    console.log(JSON.stringify(this.newReport));
-    this.reportService.create(this.newReport).subscribe(
-      (newTo): void => {
+    if(this.selected){
+      this.newReport.beach = this.selected;
+      console.log('Adding Report'+this.newReport);
+      console.log(JSON.stringify(this.newReport));
+      this.reportService.create(this.newReport).subscribe(
+        (newTo): void => {
 
-        // this.newReport.created =
-        this.reloadReports();
-        this.newReport= report;
-      },
-      (nojoy) => {
-        console.error('Error creating Report Post');
-        console.error(nojoy);
-      }
-    );
+          // this.newReport.created =
+          this.reloadReports();
+          this.newReport = new Report();
+        },
+        (nojoy) => {
+          console.error('Error creating Report Post');
+          console.error(nojoy);
+        }
+      );
+    }
   }
 
   updateReport(report: Report, showReport = true): void {

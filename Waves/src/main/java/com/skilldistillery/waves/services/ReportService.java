@@ -12,6 +12,8 @@ public interface ReportService {
 	Report updateReportById(Integer reportId, Integer beachId, String username, Report report);
 	
 	Report AddReport(int beachId, String username, Report report);
+
+	List<Report> getAllReportForBeach(int beachId);
 	
 	
 }

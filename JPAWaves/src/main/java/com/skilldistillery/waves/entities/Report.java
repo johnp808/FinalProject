@@ -15,6 +15,7 @@ import javax.persistence.OneToMany;
 import org.hibernate.annotations.CreationTimestamp;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 public class Report {
@@ -29,7 +30,8 @@ public class Report {
 	@CreationTimestamp
 	private LocalDateTime created;
 	private Boolean enabled;
-	@JsonIgnore
+	
+	@JsonIgnoreProperties({"reportPosts"})
 	@ManyToOne
 	@JoinColumn(name = "beach_id")
 	private Beach beach;
