@@ -5,7 +5,6 @@
 
 .header a{
   margin: 0;
-  color: green;
   padding: 10px 40px;
   text-decoration: none;
   background-color: #00000083;
@@ -34,12 +33,11 @@ body {
 .ocean {
   height: 5%;
   width:100%;
-  position:absolute;
   bottom:0;
   left:0;
   background: #004153;
   z-index: -2;
-
+  position: fixed;
 }
 
 .wave {

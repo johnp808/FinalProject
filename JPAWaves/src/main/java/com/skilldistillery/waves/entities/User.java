@@ -41,15 +41,19 @@ public class User {
     @JoinColumn(name="location_id")
     private Location location;
 	
+	@JsonIgnoreProperties({"user"})
 	@OneToMany(mappedBy="user")
 	private List<Weather> weather;
 	
+	@JsonIgnoreProperties({"user"})
 	@OneToMany(mappedBy="user")
 	private List<WeatherComment> weatherComments;
 	
+	@JsonIgnoreProperties({"user"})
 	@OneToMany(mappedBy="user")
 	private List<ReportComment> reportComments;
 	
+	@JsonIgnoreProperties({"user"})
 	@OneToMany(mappedBy="user")
 	private List<Report> reports;
 	

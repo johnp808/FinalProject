@@ -50,8 +50,7 @@
   <table>
     <thead>
     <tr>
-      <!-- COME BACK TO ME -->
-      <!-- <th> User Name </th> -->
+      <th> User Name </th>
       <th> Comment </th>
       <th> Created </th>
       <br>
@@ -61,8 +60,7 @@
   </thead>
   <tbody>
     <tr *ngFor="let report of reports">
-      <!-- COME BACK TO USER NAME -->
-      <!-- <td>{{report.user.username}}</td> -->
+      <td>{{report.user.username}}</td>
       <td>{{report.comment}}</td>
       <td>{{report.created}}</td><br>
       <td><img src="{{report.image}}" style=" border-radius:5%; border:2; " height=150 width=150/></td>
