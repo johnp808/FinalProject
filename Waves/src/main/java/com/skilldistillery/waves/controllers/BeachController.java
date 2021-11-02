@@ -77,10 +77,10 @@ public class BeachController {
 		return beach;
 	}
 	
+	//http://localhost:9090/api/auth/beaches/location 
 	@PostMapping("auth/beaches/location")
 	public Beach create2(
 			HttpServletResponse res,
-			@PathVariable int localId,
 			@RequestBody Beach beach) {
 		Beach newBeach = beachSvc.addBeach(beach);
 		if( newBeach == null) {

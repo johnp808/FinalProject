@@ -131,7 +131,7 @@ export class AuthService {
       })
     );
   }
-
+  //http://localhost:9090/api/auth/beaches/location
   //("auth/beaches/location")
   createBeach(beach: Beach):  Observable<Beach>{
     console.log(beach);
