@@ -36,7 +36,7 @@ const routes: Routes = [
    children:[
     {path:'showbeach', component:ShowBeachComponent},
     {path:'showreport', component:ShowReportsComponent},
-    {path:'**', component:ShowBeachComponent},
+    {path:'**', component:ShowReportsComponent},
    ]
   },
 

@@ -8,13 +8,19 @@
   <input type="text" name="email" placeholder="email" [(ngModel)]="user.email"><br>
   <input type="text" name="enabled" placeholder="enabled" [(ngModel)]="user.enabled"><br>
   <input type="text" name="profileImage" placeholder="profileImage" [(ngModel)]="user.profileImage"><br>
-  <input type="number" name="locationId" placeholder="locationId" [(ngModel)]="user.location.id"><br>
+  <input type="text" name="street" placeholder="street" [(ngModel)]="user.location.street"><br>
+  <input type="text" name="city" placeholder="city" [(ngModel)]="user.location.city"><br>
+  <input type="text" name="state" placeholder="state" [(ngModel)]="user.location.state"><br>
+  <input type="text" name="zip" placeholder="zip" [(ngModel)]="user.location.zip"><br>
   <button type="button" (click)="register()" >Register</button>
-  <button type="button" (click)="checkIsRegistered(user)" >checkuser</button>
+  <!-- <button type="button" (click)="checkIsRegistered(user)" >checkuser</button> -->
 </form>
 </div>
 <br>
 
+<div *ngIf="existed">
+  <h3>Username already exists, please register with a different username!</h3>
+</div>
 <div *ngIf="registered">
   <h3>You are registered, please login!</h3>
 </div>

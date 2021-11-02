@@ -20,25 +20,28 @@ export class RegisterComponent implements OnInit {
   }
 
   register(){
+    this.checkIsRegistered(this.user);
     this.authService.register(this.user).subscribe(
       data => {
         console.log('RegisterComponent.register(): user registered.');
-        this.registered = true;
+        if(data != null){
+          this.registered = true;
+        }
       },
       fail => {
+        this.existed = true;
         console.error('RegisterComponent.register(): Error registering');
         console.error(fail);
       }
     );
+
   }
 
   checkIsRegistered(user: User){
-    this.authService.  checkRegister
-    (user.username).subscribe(
+    this.authService.checkRegister(user.username).subscribe(
       data => {
-        if(data != null){
-          this.existed = true;
-        }
+        this.existed = data;
+        console.log(this.existed+ 'exitsted');
       },
       fail => {
         console.error('RegisterComponent.checkIsRegistered(): error checking if registered');

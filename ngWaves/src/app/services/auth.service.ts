@@ -73,21 +73,8 @@ export class AuthService {
     return localStorage.getItem('credentials');
   }
 
-  getUserByUsername(username: string):Observable<User>{
-    return this.http.get<User>(this.baseUrl + 'api/users/username/' +username)
-               .pipe(
-                tap((res) => {
-                  return res;
-                }),
-                catchError((err: any) => {
-                  console.log(err);
-                  return throwError('AuthService.getUserByUsername(): Error getting user in.');
-                })
-               );
-  }
-  //("auth/users/checkusername/{username}")
-  checkRegister(username: string):Observable<User>{
-    return this.http.get<User>(this.baseUrl + 'api/users/checkusername/' +username)
+  checkRegister(username: string):Observable<boolean>{
+    return this.http.get<boolean>(this.baseUrl + 'api/users/checkusername/' +username)
                .pipe(
                 tap((res) => {
                   return res;
@@ -99,7 +86,6 @@ export class AuthService {
                );
   }
 
-  //"auth/users"
   index(): Observable<User[]>{
     return this.http.get<User[]>(this.baseUrl+'api/users').pipe(
       catchError((err: any) => {
@@ -109,8 +95,6 @@ export class AuthService {
     );
   }
 
-
-  //"auth/update/{userId}"
   reverse(user: User): Observable<User>{
     user.enabled = !user.enabled;
     return this.http.put<User>(this.baseUrl+`api/auth/update/${user.id}`, user, this.getHttpOptions()).pipe(
@@ -121,7 +105,6 @@ export class AuthService {
     );
   }
 
-  //("auth/beaches/{bid}")
   reverseBeach(beach: Beach): Observable<Beach>{
     beach.enabled = !beach.enabled;
     return this.http.put<Beach>(this.baseUrl+`api/auth/beaches/${beach.id}`, beach, this.getHttpOptions()).pipe(
@@ -131,8 +114,7 @@ export class AuthService {
       })
     );
   }
-  //http://localhost:9090/api/auth/beaches/location
-  //("auth/beaches/location")
+
   createBeach(beach: Beach):  Observable<Beach>{
     console.log(beach);
     return this.http.post<Beach>(this.baseUrl+'api/auth/beaches/location', beach, this.getHttpOptions()).pipe(

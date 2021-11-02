@@ -93,18 +93,6 @@ public class UserController {
 		
 	}
 	
-	@GetMapping("users/username/{username}")
-	public User getUserByUsername(
-			@PathVariable String username,
-			HttpServletResponse res
-			) {
-		User user = userSvc.getUserByName(username);
-		if(user == null) {
-			res.setStatus(404);
-		}
-		return user;
-	}
-	
 	@GetMapping("users/checkusername/{username}")
 	public boolean checkRegister(
 			@PathVariable String username,

@@ -10,6 +10,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class FilloutComponent implements OnInit {
   user: User = new User();
   isLogin: boolean = false;
+  existed: boolean = true;
 
   constructor(
     private authService: AuthService
@@ -25,9 +26,11 @@ export class FilloutComponent implements OnInit {
         this.user = data;
         if(this.user != null){
           this.checkLogin();
+          this.existed = true;
         }
       },
       fail => {
+        this.existed = false;
         console.error('filloutComponent.login(): Error login');
         console.log(fail);
       }
