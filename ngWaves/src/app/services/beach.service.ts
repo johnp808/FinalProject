@@ -26,6 +26,36 @@ export class BeachService {
       );
     }
 
+    //@GetMapping("beaches/keyword/{keyword}")
+    getBeachesByKeyword(keyword: string): Observable<Beach[]>{
+      return this.http.get<Beach[]>(this.url+`/keyword/${keyword}`, this.getHttpOptions()).pipe(
+        catchError((err: any) => {
+          console.log(err);
+          return throwError('BeachService.getBeachesByKeyword(): Error retrieving beach list by keyword');
+        })
+      );
+    }
+
+    //"beaches/rating"
+    getBeachesByRating(): Observable<Beach[]>{
+      return this.http.get<Beach[]>(this.url+'/rating', this.getHttpOptions()).pipe(
+        catchError((err: any) => {
+          console.log(err);
+          return throwError('BeachService.getBeachesByRating(): Error retrieving beach list by rating');
+        })
+      );
+    }
+
+    //@GetMapping("beaches/distance/{zip}")
+    getBeachesByDistance(zip: number): Observable<Beach[]>{
+      return this.http.get<Beach[]>(this.url+`/distance/${zip}`, this.getHttpOptions()).pipe(
+        catchError((err: any) => {
+          console.log(err);
+          return throwError('BeachService.getBeachesByDistance(): Error retrieving beach list by distance');
+        })
+      );
+    }
+
     show(beachId: number): Observable<Beach> {
       return this.http.get<Beach>(this.url + '/' + beachId, this.getHttpOptions()).pipe(
         catchError((err: any) => {

@@ -15,8 +15,9 @@ public interface BeachService {
 	Beach getBeachById(int id);
 	boolean enabledDisabledBeach(int bid);
 	List<Beach> getBeachByRating(double rating);
+	List<Beach> getBeachesByRatingDesc();
 	List<Beach> getBeachByLocation(Location location);
 	List<Beach> getBeachByKeyword(String keyword);
 	Beach addBeach(Beach beach);
-	
+	List<Beach> getBeachesByDistanceAsc(int zip);
 }

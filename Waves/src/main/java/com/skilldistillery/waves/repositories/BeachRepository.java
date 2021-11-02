@@ -12,4 +12,6 @@ public interface BeachRepository extends JpaRepository<Beach,Integer>{
 	Beach findByName(String name);
 	Beach findById(int id);
 	List<Beach> findByFavoritedUsers_Username(String username);
+	List<Beach> findAllByOrderByRatingDesc(); 
+	
 }

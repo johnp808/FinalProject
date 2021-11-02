@@ -6,18 +6,17 @@ import { AuthService } from 'src/app/services/auth.service';
 import { BeachService } from 'src/app/services/beach.service';
 import { ReportService } from 'src/app/services/report.service';
 import { WeatherService } from 'src/app/services/weather.service';
-//import { CreateWeatherComponent } from '../../create/create-weather/create-weather.component';
 
 @Component({
-  selector: 'app-show-beach',
-  templateUrl: './show-beach.component.html',
-  styleUrls: ['./show-beach.component.css']
+  selector: 'app-search-distance',
+  templateUrl: './search-distance.component.html',
+  styleUrls: ['./search-distance.component.css']
 })
-export class ShowBeachComponent implements OnInit {
+export class SearchDistanceComponent implements OnInit {
   isLogin: boolean = false;
 
   ngOnInit(): void {
-    this.reloadBeaches();
+    // this.reloadBeaches();
     this.reloadReports();
     this.isLogin = this.authService.checkLogin();
     // this.reloadWeatherPosts();
@@ -40,6 +39,9 @@ export class ShowBeachComponent implements OnInit {
   editReport: Report | null = null;
   beachReport: Report | null = null;
   isFavorite: boolean = false;
+  keyword:string = '';
+  zip: number = 0;
+  // keywordSearched: boolean = false;
 
   constructor(private beachService: BeachService,
     private reportService: ReportService,
@@ -58,6 +60,18 @@ export class ShowBeachComponent implements OnInit {
       },
       fail => {
         console.error('homeComponent.reloadBeachess(): error getting beach list');
+        console.log(fail);
+      }
+    );
+  }
+  reloadBeachByDistance(): void {
+    this.beachService.getBeachesByDistance(this.zip).subscribe(
+      beachList => {
+        this.beaches = beachList;
+        // this.reloadWeatherPosts();
+      },
+      fail => {
+        console.error('homeComponent.reloadBeachByDistance(): error getting near beaches');
         console.log(fail);
       }
     );
@@ -232,8 +246,5 @@ export class ShowBeachComponent implements OnInit {
       }
     );
   }
-
-  //getBeachesByKeyword
-
 
 }

@@ -54,6 +54,32 @@ public class BeachController {
 		return beachSvc.getBeachByRating(rating);
 	}
 	
+	//getBeachesByRatingDesc()()
+	@GetMapping("beaches/rating")
+	public List<Beach> showByRatingDesc(
+			HttpServletResponse res 
+			) {
+		List<Beach> beaches = beachSvc.getBeachesByRatingDesc();
+		if(beaches == null) {
+			res.setStatus(404);
+		}
+		return beaches;
+	}
+	
+	//List<Beach> getBeachesByDistanceAsc(int zip)
+	@GetMapping("beaches/distance/{zip}")
+	public List<Beach> showByDistanceAsc(
+			@PathVariable int zip,
+			HttpServletResponse res 
+			) {
+		List<Beach> beaches = beachSvc.getBeachesByDistanceAsc(zip);
+		if(beaches == null) {
+			res.setStatus(404);
+		}
+		return beaches;
+	}
+	
+	
 	//GET beaches/location/{location}
 	@GetMapping("beaches/location/{location}")
 	public List<Beach> showByLocation(HttpServletRequest req, HttpServletResponse res, @PathVariable Location location) {

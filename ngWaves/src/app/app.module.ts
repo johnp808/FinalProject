@@ -24,6 +24,9 @@ import { MaintainComponent } from './components/maintain/maintain.component';
 import { UserOpComponent } from './components/maintain/user-op/user-op.component';
 import { BeachOpComponent } from './components/maintain/beach-op/beach-op.component';
 import { FavoritesComponent } from './components/favorites/favorites.component';
+import { SearchBeachComponent } from './components/home/search-beach/search-beach.component';
+import { SearchRatingComponent } from './components/home/search-rating/search-rating.component';
+import { SearchDistanceComponent } from './components/home/search-distance/search-distance.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +48,10 @@ import { FavoritesComponent } from './components/favorites/favorites.component';
     MaintainComponent,
     UserOpComponent,
     BeachOpComponent,
-    FavoritesComponent
+    FavoritesComponent,
+    SearchBeachComponent,
+    SearchRatingComponent,
+    SearchDistanceComponent
 
   ],
   imports: [

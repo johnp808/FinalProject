@@ -120,7 +120,37 @@ public class BeachServiceImpl implements BeachService {
 			return allBeaches;
 		}
 	}
+	
+	@Override
+	public List<Beach> getBeachesByRatingDesc() {
+		List<Beach> matches = beachRepo.findAllByOrderByRatingDesc(); 
+		if(matches!=null && matches.size()>0) {
+			return matches;
+		}
+		else {
+			return null;
+		}
+	}
+	
+	@Override
+	public List<Beach> getBeachesByDistanceAsc(int zip) {
+		List<Beach> all = beachRepo.findAll(); 
 
+		all.sort((b1,b2)->{
+			if(b1.getLocation().getZip()==null || b1.getLocation().getZip().equals("")
+					|| b2.getLocation().getZip()==null || b2.getLocation().getZip().equals("")) {
+				return 1;
+			}else {
+				return (zip - Integer.parseInt(b2.getLocation().getZip()))-(zip - Integer.parseInt(b1.getLocation().getZip()));
+			}
+			
+		});
+		
+		return all;
+	}
+	
+	
+	
 	//Get list of beaches by location
 	@Override
 	public List<Beach> getBeachByLocation(Location location) {
@@ -138,26 +168,26 @@ public class BeachServiceImpl implements BeachService {
 		String search = null;
 		for(int i = 0; i < allBeaches.size(); i++) {
 			b = allBeaches.get(i);
-			search = b.getLocation().getStreet();
-			search = search.toLowerCase();
-			if(search.contains(keyword)) {
-				matches.add(b);
-			}
-			search = b.getLocation().getCity();
-			search = search.toLowerCase();
-			if(search.contains(keyword)) {
-				matches.add(b);
-			}
-			search = b.getLocation().getState();
-			search = search.toLowerCase();
-			if(search.contains(keyword)) {
-				matches.add(b);
-			}
-			search = b.getLocation().getZip();
-			search = search.toLowerCase();
-			if(search.contains(keyword)) {
-				matches.add(b);
-			}
+//			search = b.getLocation().getStreet();
+//			search = search.toLowerCase();
+//			if(search.contains(keyword)) {
+//				matches.add(b);
+//			}
+//			search = b.getLocation().getCity();
+//			search = search.toLowerCase();
+//			if(search.contains(keyword)) {
+//				matches.add(b);
+//			}
+//			search = b.getLocation().getState();
+//			search = search.toLowerCase();
+//			if(search.contains(keyword)) {
+//				matches.add(b);
+//			}
+//			search = b.getLocation().getZip();
+//			search = search.toLowerCase();
+//			if(search.contains(keyword)) {
+//				matches.add(b);
+//			}
 			search = b.getName();
 			search = search.toLowerCase();
 			if(search.contains(keyword)) {

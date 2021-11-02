@@ -1,11 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user';
-// import { ActivatedRoute, Router } from '@angular/router';
-// import { Beach } from 'src/app/models/beach';
-// import { Report } from 'src/app/models/report';
 import { AuthService } from 'src/app/services/auth.service';
-// import { BeachService } from 'src/app/services/beach.service';
-// import { ReportService } from 'src/app/services/report.service';
 
 
 @Component({

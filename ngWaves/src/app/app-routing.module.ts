@@ -8,14 +8,17 @@ import { CreateReportComponent } from './components/create/create-report/create-
 // import { CreateWeatherComponent } from './components/create/create-weather/create-weather.component';
 import { LoginComponent } from './components/login/login.component';
 import { LogoutComponent } from './components/logout/logout.component';
-import { ReportCommentComponent } from './components/report-comment/report-comment.component';
+//import { ReportCommentComponent } from './components/report-comment/report-comment.component';
 import { FilloutComponent } from './components/login/fillout/fillout.component';
 import { ExitComponent } from './components/logout/exit/exit.component';
 import { RegisterComponent } from './components/login/register/register.component';
 import { MaintainComponent } from './components/maintain/maintain.component';
 import { UserOpComponent } from './components/maintain/user-op/user-op.component';
 import { BeachOpComponent } from './components/maintain/beach-op/beach-op.component';
-import { CreateWeatherComponent } from './components/create/create-weather/create-weather.component';
+//import { CreateWeatherComponent } from './components/create/create-weather/create-weather.component';
+import { SearchBeachComponent } from './components/home/search-beach/search-beach.component';
+import { SearchRatingComponent } from './components/home/search-rating/search-rating.component';
+import { SearchDistanceComponent } from './components/home/search-distance/search-distance.component';
 
 const routes: Routes = [
   {path:'login', component:LoginComponent,
@@ -37,6 +40,9 @@ const routes: Routes = [
    children:[
     {path:'showbeach', component:ShowBeachComponent},
     {path:'showreport', component:ShowReportsComponent},
+    {path:'searchbeach', component:SearchBeachComponent},
+    {path:'searchrating', component:SearchRatingComponent},
+    {path:'searchdistance', component:SearchDistanceComponent},
     {path:'**', component:ShowReportsComponent},
    ]
   },
