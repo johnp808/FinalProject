@@ -1,3 +1,4 @@
+import { Beach } from "./beach";
 import { Location } from "./location"
 
 export class User {
@@ -9,6 +10,7 @@ export class User {
   role: string;
   profileImage: string;
   location: Location;
+  favorites: Beach[];
 
 
   constructor(
@@ -19,7 +21,8 @@ export class User {
     enabled: boolean = true,
     role: string = '',
     profileImage: string = '',
-    location: Location = new Location()
+    location: Location = new Location(),
+    favorites: Beach[] = []
   ){
     this.id = id;
     this.email = email;
@@ -29,5 +32,6 @@ export class User {
     this.role = role;
     this.profileImage = profileImage;
     this.location = location;
+    this.favorites = favorites;
   }
 }

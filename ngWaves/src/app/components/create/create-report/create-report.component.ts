@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Beach } from 'src/app/models/beach';
 import { User } from 'src/app/models/user';
 // import { ActivatedRoute, Router } from '@angular/router';
 // import { Beach } from 'src/app/models/beach';
@@ -16,7 +17,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class CreateReportComponent implements OnInit {
   isLogin: boolean = false;
   user: User = new User();
-
+  favorites: Beach[] = [];
   constructor(
     private authService: AuthService
   ) { }
@@ -24,8 +25,18 @@ export class CreateReportComponent implements OnInit {
   ngOnInit(): void {
     this.isLogin = this.authService.checkLogin();
     this.user = this.authService.currUser;
+    this.loadFavorites();
   }
 
-
+loadFavorites(): void {
+  this.authService.getFavorites().subscribe(
+    beachList => {
+      this.favorites = beachList;
+    },
+    fail => {
+      console.log('Error loading favorites');
+    }
+  );
+}
 
 }

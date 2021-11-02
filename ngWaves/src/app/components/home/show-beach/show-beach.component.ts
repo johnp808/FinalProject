@@ -49,6 +49,9 @@ export class ShowBeachComponent implements OnInit {
     {
 
     }
+    checkLogin(): boolean{
+      return this.authService.checkLogin();
+    }
 
   reloadBeaches(): void {
     this.beachService.index().subscribe(
@@ -64,6 +67,7 @@ export class ShowBeachComponent implements OnInit {
   }
 
   displayBeach(beach: Beach): void {
+    if(this.authService.checkLogin()){
     this.authService.getFavorites().subscribe(
       beachList => {
         this.selected = beach;
@@ -82,9 +86,39 @@ export class ShowBeachComponent implements OnInit {
         console.log(fail);
       }
     );
-  }
-  toggleFavorite(): void {
+  } else{
+    this.selected = beach;
+        this.reloadWeatherPosts();
 
+  }
+}
+  toggleFavorite(beach: Beach): void {
+    this.isFavorite = !this.isFavorite;
+    if(!this.isFavorite){
+      this.authService.destroyFavorites(beach.id).subscribe(
+        deleteFav => {
+          this.isFavorite= false;
+          // this.reloadWeatherPosts();
+        },
+        fail => {
+          console.error('Error deleting Favorite');
+          console.log(fail);
+        }
+
+      );
+    } else{
+      this.authService.addFavorites(beach).subscribe(
+        addFav => {
+          this.isFavorite= true;
+          // this.reloadWeatherPosts();
+        },
+        fail => {
+          console.error('Error adding Favorite');
+          console.log(fail);
+        }
+
+      );
+    }
   }
 
   displayBeaches(){
