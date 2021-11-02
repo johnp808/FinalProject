@@ -35,7 +35,7 @@ export class ShowBeachComponent implements OnInit {
   constructor(private beachService: BeachService,
     private reportService: ReportService,
     private authService: AuthService,
-    private weatherService: WeatherService,
+    private weatherService: WeatherService
     )
     {
 
