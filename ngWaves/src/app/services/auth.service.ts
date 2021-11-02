@@ -142,6 +142,14 @@ export class AuthService {
   //     })
   //   );
   // }
+  getFavorites(): Observable<Beach[]> {
+    return this.http.get<Beach[]>(this.baseUrl + 'api/auth/favorites', this.getHttpOptions()).pipe(
+      catchError((err: any) => {
+        console.log(err);
+        return throwError('BeachService.index(): Error retrieving fav list');
+      })
+    );
+  }
 
   getHttpOptions(){
     let credentials = this.getCredentials();

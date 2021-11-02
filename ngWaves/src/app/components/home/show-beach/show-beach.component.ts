@@ -38,6 +38,7 @@ export class ShowBeachComponent implements OnInit {
   newReport: Report = new Report();
   editReport: Report | null = null;
   beachReports: Report | null = null;
+  isFavorite: boolean = false;
 
   constructor(private beachService: BeachService,
     private reportService: ReportService,
@@ -62,9 +63,26 @@ export class ShowBeachComponent implements OnInit {
   }
 
   displayBeach(beach: Beach): void {
-    this.selected = beach;
-    this.reloadWeatherPosts();
-    console.log("this beach's id:" + this.selected.id)
+    this.authService.getFavorites().subscribe(
+      beachList => {
+        this.selected = beach;
+        this.reloadWeatherPosts();
+        console.log("this beach's id:" + this.selected.id);
+        this.isFavorite = false;
+        beachList.forEach(b => {
+          if(b.id === this.selected?.id){
+            this.isFavorite = true;
+          }
+        });
+      },
+      fail => {
+        console.error('homeComponent.reloadBeachess(): error getting beach list');
+        console.log(fail);
+      }
+    );
+  }
+  toggleFavorite(): void {
+
   }
 
   displayBeaches(){

@@ -10,6 +10,7 @@ export class User {
   profileImage: string;
   location: Location;
 
+
   constructor(
     id: number = 0,
     email: string = '',
