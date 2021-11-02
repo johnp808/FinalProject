@@ -194,20 +194,22 @@ export class ShowBeachComponent implements OnInit {
 
   displayReport(reports : Report) {
     this.beachReport = reports;
+
   }
 
   reloadReports(): void {
+
     // this.reportService.index().subscribe(
-    //   (reportList) => {
-    //     this.reports = reportList;
-    //   },
-    //   (fail) => {
-    //     console.error('Component.reloadReport(): error getting report posts');
-    //     console.error(fail);
-    //   }
-    // );
-      if(this.selected){
-        this.reportService.beachReport(this.selected.id).subscribe(
+      //   (reportList) => {
+        //     this.reports = reportList;
+        //   },
+        //   (fail) => {
+          //     console.error('Component.reloadReport(): error getting report posts');
+          //     console.error(fail);
+          //   }
+          // );
+          if(this.selected){
+            this.reportService.beachReport(this.selected.id).subscribe(
           (reportList) => {
             this.reports = reportList;
           },

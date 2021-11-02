@@ -1,5 +1,5 @@
-h1{
-  text-align:center;
+ul{
+  list-style-type: none;
 }
 .cb-slideshow,
 .cb-slideshow:after {
@@ -37,7 +37,7 @@ h1{
 }
 .cb-slideshow li div h3 {
   font-family: 'Luminari', fantasy;
-  font-size: 240px;
+  font-size: 230px;
   padding: 0;
   line-height: 200px;
 }
