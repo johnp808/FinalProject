@@ -15,16 +15,7 @@ import { WeatherService } from 'src/app/services/weather.service';
 })
 export class ShowBeachComponent implements OnInit {
   isLogin: boolean = false;
-
-  ngOnInit(): void {
-    this.reloadBeaches();
-    this.reloadReports();
-    this.isLogin = this.authService.checkLogin();
-    // this.reloadWeatherPosts();
-  }
-
   title = 'ngBeach';
-
   beaches: Beach[] = [];
   reports: Report[] = [];
   // posts: Weather[] = [];
@@ -51,6 +42,13 @@ export class ShowBeachComponent implements OnInit {
     }
     checkLogin(): boolean{
       return this.authService.checkLogin();
+    }
+
+    ngOnInit(): void {
+      this.reloadBeaches();
+      this.reloadReports();
+      this.isLogin = this.authService.checkLogin();
+      // this.reloadWeatherPosts();
     }
 
   reloadBeaches(): void {

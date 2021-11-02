@@ -5,7 +5,7 @@ export class Weather {
   id: number;
   weatherType: string;
   description: string;
-  temperatureCelsius: number;
+  temperatureCelsius: string;
   created: string;
   enabled: boolean;
   waveSize: string;
@@ -16,7 +16,7 @@ export class Weather {
     id: number = 0,
     weatherType: string = '',
     description: string = '',
-    temperatureCelsius: number = 0,
+    temperatureCelsius: string = "",
     created: string = '',
     enabled: boolean = false,
     waveSize: string = '',
