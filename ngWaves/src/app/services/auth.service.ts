@@ -118,11 +118,7 @@ export class AuthService {
   createBeach(beach: Beach):  Observable<Beach>{
     console.log(beach);
     return this.http.post<Beach>(this.baseUrl+'api/auth/beaches/location', beach, this.getHttpOptions()).pipe(
-  //("auth/beaches/{localId}")
-  // createBeach(beach: Beach):  Observable<Beach>{
-  //   console.log(beach);
-  //   return this.http.post<Beach>(this.baseUrl+'api/auth/beaches/'+beach.locationId, beach, this.getHttpOptions()).pipe(
-      catchError((err: any) => {
+    catchError((err: any) => {
         console.log(err);
         return throwError('Beach create err!');
       })
