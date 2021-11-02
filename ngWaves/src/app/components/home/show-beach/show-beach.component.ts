@@ -35,7 +35,7 @@ export class ShowBeachComponent implements OnInit {
   constructor(private beachService: BeachService,
     private reportService: ReportService,
     private authService: AuthService,
-    private weatherService: WeatherService,
+    private weatherService: WeatherService
     )
     {
 
@@ -62,6 +62,7 @@ export class ShowBeachComponent implements OnInit {
         console.log(fail);
       }
     );
+    this.reloadReports();
   }
 
   displayBeach(beach: Beach): void {
@@ -87,6 +88,7 @@ export class ShowBeachComponent implements OnInit {
   } else{
     this.selected = beach;
         this.reloadWeatherPosts();
+        this.reloadReports();
 
   }
 }
@@ -194,20 +196,22 @@ export class ShowBeachComponent implements OnInit {
 
   displayReport(reports : Report) {
     this.beachReport = reports;
+
   }
 
   reloadReports(): void {
+
     // this.reportService.index().subscribe(
-    //   (reportList) => {
-    //     this.reports = reportList;
-    //   },
-    //   (fail) => {
-    //     console.error('Component.reloadReport(): error getting report posts');
-    //     console.error(fail);
-    //   }
-    // );
-      if(this.selected){
-        this.reportService.beachReport(this.selected.id).subscribe(
+      //   (reportList) => {
+        //     this.reports = reportList;
+        //   },
+        //   (fail) => {
+          //     console.error('Component.reloadReport(): error getting report posts');
+          //     console.error(fail);
+          //   }
+          // );
+          if(this.selected){
+            this.reportService.beachReport(this.selected.id).subscribe(
           (reportList) => {
             this.reports = reportList;
           },

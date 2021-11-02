@@ -35,7 +35,7 @@
   [ngClass]="isFavorite?'bi-star-fill':'bi-star'"
   (click)="toggleFavorite(selected)"
    *ngIf="checkLogin()"></span>
-  <h3>{{isFavorite}}</h3>
+
   <img src="{{selected.defaultImage}}" alt= "{{ selected.name }}">
   <p>{{selected.description}}</p>
 
@@ -46,7 +46,6 @@
         <th> Street </th>
         <th> City </th>
         <th> State </th>
-        <br>
         <th> Zip </th>
       </tr>
     </thead>
@@ -62,24 +61,29 @@
   <table>
     <thead>
     <tr>
-      <th> Report Id </th>
+      <!-- COME BACK TO ME -->
+      <!-- <th> User Name </th> -->
       <th> Comment </th>
+      <th> Rating </th>
       <th> Created </th>
-
+      <th> Picture </th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let report of reports">
-      <td>{{report.id}}</td>
+      <!-- COME BACK TO USER NAME -->
+      <!-- <td>{{report.user.username}}</td> -->
       <td>{{report.comment}}</td>
-      <td>{{report.created}}</td>
+      <td>{{report.rating}}</td>
+      <td>{{report.created}}</td><br>
+      <td><img src="{{report.image}}" style=" border-radius:5%; border:2; " height=150 width=150/></td>
     </tr>
   </tbody>
   </table>
   <br>
   <form *ngIf="isLogin" name="ReportForm"   class="form-group">
     <div>
-      <textarea cols="31" rows="5" placeholder="Enter Comment Here." name="comment" [(ngModel)]="newReport.comment"></textarea>
+      <textarea cols="31" rows="5" placeholder="Enter Your Comment Here..." name="comment" [(ngModel)]="newReport.comment"></textarea>
     </div>
     <div>
       <input id="image" type="text" name="image" size="32" placeholder="Image Url" [(ngModel)]="newReport.image">
@@ -106,19 +110,22 @@
       <table >
         <thead>
           <tr>
-            <td>username</td>
-            <td>weatherType</td>
-            <td>...</td>
+            <th>Username</th>
+            <th>WeatherType</th>
+            <th>Description</th>
+            <th>Temperature (Celsius)</th>
+            <th>Created</th>
+            <th>Wave Size</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let post of thisBeachPosts">
               <td>{{post.user.username}}</td>
               <td>{{post.weatherType}}</td>
-              <td>
-                {{post.waveSize}}
-              </td>
+              <td> {{post.description}} </td>
+              <td> {{post.temperatureCelsius}} </td>
               <td> {{post.created}} </td>
+              <td>{{post.waveSize}} </td>
           </tr>
         </tbody>
       </table>

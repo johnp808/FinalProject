@@ -146,7 +146,7 @@ CREATE TABLE IF NOT EXISTS `weather` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `weather_type` VARCHAR(45) NULL,
   `description` VARCHAR(45) NULL,
-  `temperature_farenheit` INT NULL,
+  `temperature_celsius` INT NULL,
   `created` DATETIME NULL,
   `wave_size` VARCHAR(45) NULL,
   `user_id` INT NOT NULL,
@@ -402,7 +402,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `wavesdb`;
-INSERT INTO `weather` (`id`, `weather_type`, `description`, `temperature_farenheit`, `created`, `wave_size`, `user_id`, `beach_id`, `enabled`) VALUES (1, 'sunny', 'no clouds', 40, NULL, NULL, 1, 1, 1);
+INSERT INTO `weather` (`id`, `weather_type`, `description`, `temperature_celsius`, `created`, `wave_size`, `user_id`, `beach_id`, `enabled`) VALUES (1, 'sunny', 'no clouds', 40, NULL, NULL, 1, 1, 1);
 
 COMMIT;
 
