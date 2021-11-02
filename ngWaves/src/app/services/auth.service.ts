@@ -133,15 +133,15 @@ export class AuthService {
   }
 
   //("auth/beaches/{localId}")
-  // createBeach(beach: Beach):  Observable<Beach>{
-  //   console.log(beach);
-  //   return this.http.post<Beach>(this.baseUrl+'api/auth/beaches/'+beach.locationId, beach, this.getHttpOptions()).pipe(
-  //     catchError((err: any) => {
-  //       console.log(err);
-  //       return throwError('Beach create err!');
-  //     })
-  //   );
-  // }
+  createBeach(beach: Beach):  Observable<Beach>{
+    console.log(beach);
+    return this.http.post<Beach>(this.baseUrl+'api/auth/beaches/'+beach.location.id, beach, this.getHttpOptions()).pipe(
+      catchError((err: any) => {
+        console.log(err);
+        return throwError('Beach create err!');
+      })
+    );
+  }
   getFavorites(): Observable<Beach[]> {
     return this.http.get<Beach[]>(this.baseUrl + 'api/auth/favorites', this.getHttpOptions()).pipe(
       catchError((err: any) => {
