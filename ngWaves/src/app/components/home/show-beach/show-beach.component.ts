@@ -82,6 +82,7 @@ export class ShowBeachComponent implements OnInit {
     );
   }
   toggleFavorite(): void {
+    this.isFavorite = !this.isFavorite;
 
   }
 
