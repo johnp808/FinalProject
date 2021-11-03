@@ -36,7 +36,7 @@ public class Report {
 	@JoinColumn(name = "beach_id")
 	private Beach beach;
 	
-	@JsonIgnore
+	@JsonIgnoreProperties({"reports","reportComments","weatherComments"})
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User user;

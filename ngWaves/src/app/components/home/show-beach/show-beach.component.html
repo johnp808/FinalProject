@@ -1,4 +1,6 @@
+<div class="bodyCenter">
 <h1> Waves Beaches</h1>
+<br>
 <div id='beachList' *ngIf="! selected">
   <table>
     <thead>
@@ -29,15 +31,18 @@
   </div>
 
 <div id='beachDetails' *ngIf="selected">
+  <br>
   <h2>{{selected.name}}</h2>
   <span
   class="bi"
   [ngClass]="isFavorite?'bi-star-fill':'bi-star'"
   (click)="toggleFavorite(selected)"
    *ngIf="checkLogin()"></span>
-
-  <img src="{{selected.defaultImage}}" alt= "{{ selected.name }}">
-  <p>{{selected.description}}</p>
+  <br>
+  <br>
+  <img class="beachImage" src="{{selected.defaultImage}}" alt= "{{ selected.name }}">
+  <br> <br>
+  <p class="beachDescription">{{selected.description}}</p>
 
   <h2>Location</h2>
   <table>
@@ -56,50 +61,6 @@
       <td>{{selected.location.zip}}</td>
     </tbody>
   </table>
-  <!-- Report Section -->
-  <h3>Reports</h3>
-  <table>
-    <thead>
-    <tr>
-      <!-- COME BACK TO ME -->
-      <!-- <th> User Name </th> -->
-      <th> Comment </th>
-      <th> Rating </th>
-      <th> Created </th>
-      <th> Picture </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let report of reports">
-      <!-- COME BACK TO USER NAME -->
-      <!-- <td>{{report.user.username}}</td> -->
-      <td>{{report.comment}}</td>
-      <td>{{report.rating}}</td>
-      <td>{{report.created}}</td><br>
-      <td><img src="{{report.image}}" style=" border-radius:5%; border:2; " height=150 width=150/></td>
-    </tr>
-  </tbody>
-  </table>
-  <br>
-  <form *ngIf="isLogin" name="ReportForm"   class="form-group">
-    <div>
-      <textarea cols="31" rows="5" placeholder="Enter Your Comment Here..." name="comment" [(ngModel)]="newReport.comment"></textarea>
-    </div>
-    <div>
-      <input id="image" type="text" name="image" size="32" placeholder="Image Url" [(ngModel)]="newReport.image">
-    </div>
-    <div>
-      <select id="rating" name="rating" [(ngModel)]="newReport.rating">
-        <option value="0" width="50" disabled selected hidden>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Beach &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Rating &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-    </select>
-    </div>
-    <button class="button"  (click)="addReport(newReport)">Submit</button>
-  </form>
 
     <br>
     <br>
@@ -165,4 +126,51 @@
     </form>
     </div>
 
+    <br>
+    <br>
+
+    <!-- Report Section -->
+  <h3>Reports</h3>
+  <table>
+    <thead>
+    <tr>
+      <th> User Name </th>
+      <th> Comment </th>
+      <th> Rating </th>
+      <th> Created </th>
+      <th> Picture </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let report of reports">
+      <td>{{report.user.username}}</td>
+      <td>{{report.comment}}</td>
+      <td>{{report.rating}}</td>
+      <td>{{report.created}}</td><br>
+      <td><img src="{{report.image}}" style=" border-radius:5%; border:2; " height=150 width=150/></td>
+    </tr>
+  </tbody>
+  </table>
+  <br>
+  <form *ngIf="isLogin" name="ReportForm"   class="form-group">
+    <div>
+      <textarea cols="31" rows="5" placeholder="Enter Your Comment Here..." name="comment" [(ngModel)]="newReport.comment"></textarea>
+    </div>
+    <div>
+      <input id="image" type="text" name="image" size="32" placeholder="Image Url" [(ngModel)]="newReport.image">
+    </div>
+    <div>
+      <select id="rating" name="rating" [(ngModel)]="newReport.rating">
+        <option value="0" width="50" disabled selected hidden>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Beach &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Rating &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+    </div>
+    <button class="button"  (click)="addReport(newReport)">Submit</button>
+  </form>
+
+  </div>
 </div>
