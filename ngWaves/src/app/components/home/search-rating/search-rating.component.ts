@@ -53,31 +53,6 @@ export class SearchRatingComponent implements OnInit {
 
     }
 
-  // reloadBeaches(): void {
-  //   this.beachService.index().subscribe(
-  //     beachList => {
-  //       this.beaches = beachList;
-  //       // this.reloadWeatherPosts();
-  //     },
-  //     fail => {
-  //       console.error('homeComponent.reloadBeachess(): error getting beach list');
-  //       console.log(fail);
-  //     }
-  //   );
-  // }
-  // reloadBeachByKeyword(): void {
-  //   this.beachService.getBeachesByKeyword(this.keyword).subscribe(
-  //     beachList => {
-  //       this.beaches = beachList;
-  //       // this.reloadWeatherPosts();
-  //     },
-  //     fail => {
-  //       console.error('homeComponent.reloadBeachess(): error getting beach list');
-  //       console.log(fail);
-  //     }
-  //   );
-  // }
-
   //getBeachesByRating()
   reloadBeachByRating(): void {
     this.beachService.getBeachesByRating().subscribe(
