@@ -1,6 +1,6 @@
 .centerAll{
 text-align: center;
-margin-left: 270px;
+margin-left: -200px;
 }
 h1{
   font-family: 'Luminari', fantasy;
@@ -77,9 +77,10 @@ margin-left: auto;
   z-index: 3;
   color:rgb(255, 149, 0);
   float: right;
-  margin-right: 185px;
+  margin-right: 72px;
   position: relative;
   font-size: 45px;
+margin-top: -45px;
 }
 .beachList {
   margin-left: 380px;
@@ -89,8 +90,9 @@ margin-left: auto;
 margin-top: -35px;
 padding-bottom: 15px;
 }
-
-
+.selectedBeach{
+  margin-left: 300px;
+}
 
 
 

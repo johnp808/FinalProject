@@ -20,7 +20,7 @@
         <td>{{beach.enabled}}</td>
         <td>{{beach.rating}}</td>
         <td *ngIf='beach.enabled'><img height="80px" [src]="beach.defaultImage"></td>
-        <td *ngIf='!beach.enabled'><img height="80px" [src]="'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4iz-hXWr2pgUAerTjgdzGRfZWBb6BAfDI7A&usqp=CAU'"></td>
+        <td *ngIf='!beach.enabled'><img height="80px" style="mix-blend-mode: lighten;" [src]="'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4iz-hXWr2pgUAerTjgdzGRfZWBb6BAfDI7A&usqp=CAU'"></td>
         <td><button *ngIf='beach.enabled' (click)='reverse(beach)' type="button">Close</button>
         <button *ngIf='!beach.enabled' (click)='reverse(beach)' type="button">Open</button></td>
       </tr>
