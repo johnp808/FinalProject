@@ -1,3 +1,7 @@
+.background{
+  background-image: url("https://amymhaddad.s3.amazonaws.com/morocco-blue.png");
+z-index: 1;
+}
 .header{
   margin: 0;
   text-align: center;
@@ -47,7 +51,7 @@ body {
   top: -198px;
   width: 6400px;
   height: 198px;
-  animation: wave 7s cubic-bezier( 0.69, 0.45, 0.63, 0.53) infinite;
+  animation: wave 9s cubic-bezier( 0.69, 0.45, 0.63, 0.53) infinite;
   transform: translate3d(0, 0, 0);
   z-index: -2;
 
@@ -55,7 +59,7 @@ body {
 
 .wave:nth-of-type(2) {
   top: -175px;
-  animation: wave 7s cubic-bezier( 0.90, 0.45, 0.63, 0.53) -.125s infinite, swell 7s ease -1.25s infinite;
+  animation: wave 9s cubic-bezier( 0.90, 0.45, 0.63, 0.53) -.125s infinite, swell 9s ease -1.25s infinite;
   opacity: 1;
 }
 
@@ -76,3 +80,4 @@ body {
     transform: translate3d(0,5px,0);
   }
 }
+
