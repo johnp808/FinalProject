@@ -1,6 +1,7 @@
 .centerAll{
 position: relative;
-z-index: 100;
+z-index: 0;
+margin: auto;
 }
 h1{
   font-family: 'Luminari', fantasy;
@@ -35,14 +36,14 @@ tr:hover {background-color: #01eeff3d;}
   margin-right: auto;}
 .weatherTextCentered{
   margin-left: auto;
-  margin-right: auto;}
+  margin-right: auto;
+}
 .locationTextCentered{
-  position: relative;
-margin-left: 450px;
+  margin: auto;
 }
   .locationCentered{
-  margin-left: auto;
-  margin-right: auto;}
+    margin: auto;
+  }
 h2{
 margin-left: 250px;
 }
@@ -53,10 +54,11 @@ inline-size: 950px;
 }
 
 .beachImage {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   height: auto;
   width: 85%;
-
-  align-self:center;
 }
 
 .beachDescription{
