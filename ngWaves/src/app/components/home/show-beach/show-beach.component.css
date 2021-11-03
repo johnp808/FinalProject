@@ -26,5 +26,10 @@ h1{
 .beachDescription{
   padding-right: 70px;
 }
-
-
+form{
+margin-left: 256px;
+}
+.title{
+  margin-left: 100px;
+  margin-top: -6px;
+}
