@@ -46,8 +46,8 @@
   <br> <br>
   <p class="beachDescription">{{selected.description}}</p>
 
-  <h2>Location</h2>
-  <table>
+  <h2 class="locationTextCentered">Location</h2>
+  <table class="locationCentered">
     <thead>
       <tr>
         <th> Street </th>
@@ -68,9 +68,9 @@
     <br>
 
     <!-- Weather Section -->
-    <h3>Weather</h3>
+    <h2 class="weatherTextCentered">Weather</h2>
     <div name="weatherForThisBeach">
-      <table >
+      <table class="weatherCentered">
         <thead>
           <tr>
             <th>Username</th>
@@ -110,7 +110,7 @@
           <option value="Overcast">Overcast</option>
           <option value="Raining">Raining</option>
           <option value="Storming">Storming</option>
-      </select>
+        </select>
       </div>
       <div>
         <select id="waveSize" name="waveSize" [(ngModel)]="newWeather.waveSize">
@@ -120,41 +120,42 @@
           <option value="Head Height">Head Height</option>
           <option value="Over Head">Overhead</option>
           <option value="Double Over Head">Double Overhead</option>
-      </select>
+        </select>
       </div>
 
 
       <button class="button" (click)="addWeather(newWeather)">Submit</button>
     </form>
-    </div>
+  </div>
 
-    <br>
-    <br>
+  <br>
+  <br>
 
-    <!-- Report Section -->
-  <h3>Reports</h3>
-  <table>
+  <!-- Report Section -->
+  <h2 class="reportTextCentered">Reports</h2>
+  <table class="reportCentered">
     <thead>
-    <tr>
-      <th> User Name </th>
-      <th> Comment </th>
-      <th> Rating </th>
-      <th> Created </th>
-      <th> Picture </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let report of reports">
-      <td>{{report.user.username}}</td>
-      <td>{{report.comment}}</td>
-      <td>{{report.rating}}</td>
-      <td>{{report.created}}</td>
-      <td><img src="{{report.image}}" style=" border-radius:5%; border:2; " height=150 width=150/></td>
-    </tr>
-  </tbody>
+      <tr>
+        <th> User Name </th>
+        <th> Comment </th>
+        <th> Rating </th>
+        <th> Created </th>
+        <th> Picture </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let report of reports">
+        <td>{{report.user.username}}</td>
+        <td>{{report.comment}}</td>
+        <td>{{report.rating}}</td>
+        <td>{{report.created}}</td>
+        <td><img src="{{report.image}}" style=" border-radius:5%; border:2; " height=150 width=150/></td>
+      </tr>
+    </tbody>
   </table>
   <br>
   <form *ngIf="isLogin" name="ReportForm"   class="form-group">
+    <h4>Add a Weather Update</h4>
     <div>
       <textarea cols="31" rows="5" placeholder="Enter Your Comment Here..." name="comment" [(ngModel)]="newReport.comment"></textarea>
     </div>
@@ -169,10 +170,10 @@
         <option value="3">3</option>
         <option value="4">4</option>
         <option value="5">5</option>
-    </select>
+      </select>
     </div>
     <button class="button"  (click)="addReport(newReport)">Submit</button>
   </form>
 
-  </div>
+</div>
 </div>

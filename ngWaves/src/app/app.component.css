@@ -5,7 +5,7 @@ z-index: 1;
 .header{
   margin: 0;
   text-align: center;
-  margin-left: 230px
+  margin-left: 20px
 }
 
 .header a{
@@ -80,3 +80,4 @@ body {
     transform: translate3d(0,5px,0);
   }
 }
+
