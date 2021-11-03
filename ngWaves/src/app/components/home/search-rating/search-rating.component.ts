@@ -112,8 +112,33 @@ export class SearchRatingComponent implements OnInit {
       }
     );
   }
-  toggleFavorite(): void {
+  toggleFavorite(beach: Beach): void {
+    this.isFavorite = !this.isFavorite;
+    if(!this.isFavorite){
+      this.authService.destroyFavorites(beach.id).subscribe(
+        deleteFav => {
+          this.isFavorite= false;
+          // this.reloadWeatherPosts();
+        },
+        fail => {
+          console.error('Error deleting Favorite');
+          console.log(fail);
+        }
 
+      );
+    } else{
+      this.authService.addFavorites(beach).subscribe(
+        addFav => {
+          this.isFavorite= true;
+          // this.reloadWeatherPosts();
+        },
+        fail => {
+          console.error('Error adding Favorite');
+          console.log(fail);
+        }
+
+      );
+    }
   }
 
   displayBeaches(){
