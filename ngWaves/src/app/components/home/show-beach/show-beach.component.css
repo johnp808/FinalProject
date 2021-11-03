@@ -7,5 +7,10 @@ th {
   background-color: #202020b6;
   color: white;
 }
-th:hover {background-color: #1a1a1aef;}
+
 tr:hover {background-color: #01eeff3d;}
+
+.beachImage {
+  height: auto;
+  width: 100%;
+}

@@ -23,8 +23,10 @@
   [ngClass]="isFavorite?'bi-star-fill':'bi-star'"
   (click)="toggleFavorite(selected)"
    *ngIf="checkLogin()"></span>
-
-  <img src="{{selected.defaultImage}}" alt= "{{ selected.name }}">
+  <br>
+  <br>
+  <img class="beachImage" src="{{selected.defaultImage}}" alt= "{{ selected.name }}">
+  <br> <br>
   <p>{{selected.description}}</p>
 
   <h2>Location</h2>
