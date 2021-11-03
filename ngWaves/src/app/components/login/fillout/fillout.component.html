@@ -1,13 +1,17 @@
-<h3>Login Information</h3>
-
+<div class="centerLogin">
 <div *ngIf="!isLogin">
+    <h1>Login</h1>
+    <br>
 <form >
   <input type="text" name="username" placeholder="username" [(ngModel)]="user.username"><br>
   <input type="text" name="password" placeholder="password" [(ngModel)]="user.password"><br>
-  <button (click)="login()">Login</button>
+  <div class="floatRight">
+  <button class=myButton (click)="login()">Login</button>
+</div>
 </form>
 </div>
-
+</div>
+<div class="centerInfo">
 <div *ngIf="!existed">
   <h3>Account doesn't exist, please register!</h3>
 </div>
@@ -35,4 +39,4 @@
   </table>
 
 </div>
-
+</div>
