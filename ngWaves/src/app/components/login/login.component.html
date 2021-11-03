@@ -1,6 +1,6 @@
 
 <div class="content">
-  <div style="flex-grow: 0.2;"  class="left">
+  <div style="flex-grow: 0.2;" *ngIf="!loggedIn()" class="left">
     <ul>
     <li><a [routerLink]="['/login/fillout']" routerLinkActive="active">Login</a></li>
     <li><a [routerLink]="['/login/register']" routerLinkActive="active">Register</a></li>

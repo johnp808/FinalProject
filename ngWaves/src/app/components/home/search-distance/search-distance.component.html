@@ -9,175 +9,184 @@
 <br>
 <br>
 <div id='beachList' *ngIf="!selected && beaches.length>0">
-    <table>
-      <thead>
+  <h1 class="title"> Waves Beaches</h1>
+<br>
+<div class="beachList">
+
+  <table>
+    <thead>
+    <tr>
+      <th>
+        Beach Name
+      </th>
+      <th>
+        Beach Rating
+      </th>
+      <th>
+        Beach Zip
+      </th>
+      <th>
+        Beach Image
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let beach of beaches">
+      <td (click)="displayBeach(beach)">{{ beach.name }}</td>
+      <td (click)="displayBeach(beach)">{{ beach.rating }}</td>
+      <td (click)="displayBeach(beach)">{{ beach.location.zip }}</td>
+      <td (click)="displayBeach(beach)"><img height="100px" [src]="beach.defaultImage"></td>
+    </tr>
+  </tbody>
+  </table>
+  </div>
+</div>
+
+
+<div id='beachDetails' *ngIf="selected">
+  <br>
+  <h2>{{selected.name}}</h2>
+  <span
+  class="bi"
+  [ngClass]="isFavorite?'bi-heart-fill':'bi-heart'"
+  (click)="toggleFavorite(selected)"
+   ></span>
+  <img class="beachImage" src="{{selected.defaultImage}}" alt= "{{ selected.name }}">
+  <br> <br>
+  <p class="beachDescription">{{selected.description}}</p>
+
+  <h2 class="locationTextCentered">Location</h2>
+  <table class="locationCentered">
+    <thead>
       <tr>
-        <th>
-          Beach Name
-        </th>
-        <th>
-          Beach Rating
-        </th>
-        <th>
-          Beach Zip
-        </th>
-        <th>
-          Beach Image
-        </th>
+        <th> Street </th>
+        <th> City </th>
+        <th> State </th>
+        <th> Zip </th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let beach of beaches">
-        <td (click)="displayBeach(beach)">{{ beach.name }}</td>
-        <td (click)="displayBeach(beach)">{{ beach.rating }}</td>
-        <td (click)="displayBeach(beach)">{{ beach.location.zip }}</td>
-        <td (click)="displayBeach(beach)"><img height="100px" [src]="beach.defaultImage"></td>
-      </tr>
+      <td>{{selected.location.street}}</td>
+      <td>{{selected.location.city}}</td>
+      <td>{{selected.location.state}}</td>
+      <td>{{selected.location.zip}}</td>
     </tbody>
-    </table>
-    </div>
-  </div>
+  </table>
 
-
-  <div id='beachDetails' *ngIf="selected">
     <br>
-    <h2>{{selected.name}}</h2>
-    <span
-    class="bi"
-    [ngClass]="isFavorite?'bi-heart-fill':'bi-heart'"
-    (click)="toggleFavorite(selected)"
-     ></span>
-    <img class="beachImage" src="{{selected.defaultImage}}" alt= "{{ selected.name }}">
-    <br> <br>
-    <p class="beachDescription">{{selected.description}}</p>
+    <br>
 
-    <h2 class="locationTextCentered">Location</h2>
-    <table class="locationCentered">
-      <thead>
-        <tr>
-          <th> Street </th>
-          <th> City </th>
-          <th> State </th>
-          <th> Zip </th>
-        </tr>
-      </thead>
-      <tbody>
-        <td>{{selected.location.street}}</td>
-        <td>{{selected.location.city}}</td>
-        <td>{{selected.location.state}}</td>
-        <td>{{selected.location.zip}}</td>
-      </tbody>
-    </table>
-
+    <!-- Weather Section -->
+    <h2 class="weatherTextCentered">Weather</h2>
+    <div name="weatherForThisBeach">
+      <table class="weatherCentered">
+        <thead>
+          <tr>
+            <th>Username</th>
+            <th>WeatherType</th>
+            <th>Description</th>
+            <th>Temperature (Celsius)</th>
+            <th>Created</th>
+            <th>Wave Size</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let post of thisBeachPosts">
+              <td>{{post.user.username}}</td>
+              <td>{{post.weatherType}}</td>
+              <td> {{post.description}} </td>
+              <td> {{post.temperatureCelsius}} </td>
+              <td> {{post.created}} </td>
+              <td>{{post.waveSize}} </td>
+          </tr>
+        </tbody>
+      </table>
       <br>
-      <br>
-
-      <!-- Weather Section -->
-      <h2 class="weatherTextCentered">Weather</h2>
-      <div name="weatherForThisBeach">
-        <table class="weatherCentered">
-          <thead>
-            <tr>
-              <th>Username</th>
-              <th>WeatherType</th>
-              <th>Description</th>
-              <th>Temperature (Celsius)</th>
-              <th>Created</th>
-              <th>Wave Size</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let post of thisBeachPosts">
-                <td>{{post.user.username}}</td>
-                <td>{{post.weatherType}}</td>
-                <td> {{post.description}} </td>
-                <td> {{post.temperatureCelsius}} </td>
-                <td> {{post.created}} </td>
-                <td>{{post.waveSize}} </td>
-            </tr>
-          </tbody>
-        </table>
-        <br>
-      <form *ngIf="isLogin" name="WeatherForm" class="form-group"  >
-        <h4>Add a Weather Update</h4>
-        <div>
-          <textarea cols="31" rows="5" placeholder="Enter A Weather Description" name="description" [(ngModel)]="newWeather.description"></textarea>
-        </div>
-        <div>
-          <input id="temperature" placeholder="Temperature" size="32" type="text" name="temperature" [(ngModel)]="newWeather.temperatureCelsius">
-        </div>
-        <div>
-          <select   id="weatherType" name="weatherType" [(ngModel)]="newWeather.weatherType">
-            <option value="" disabled selected hidden>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Weather &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
-            <option value="Sunny">Sunny</option>
-            <option value="Partially Cloudy">Partially Cloudy</option>
-            <option value="Cloudy">Cloudy</option>
-            <option value="Overcast">Overcast</option>
-            <option value="Raining">Raining</option>
-            <option value="Storming">Storming</option>
-          </select>
-        </div>
-        <div>
-          <select id="waveSize" name="waveSize" [(ngModel)]="newWeather.waveSize">
-            <option value="" disabled selected hidden>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Wave &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Size &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
-            <option value="Flat">Flat</option>
-            <option value="Chest Height">Chest Height</option>
-            <option value="Head Height">Head Height</option>
-            <option value="Over Head">Overhead</option>
-            <option value="Double Over Head">Double Overhead</option>
-          </select>
-        </div>
-
-
-        <button class="button" (click)="addWeather(newWeather)">Submit</button>
-      </form>
-    </div>
-
-    <br>
-    <br>
-
-    <!-- Report Section -->
-    <h2 class="reportTextCentered">Reports</h2>
-    <table class="reportCentered">
-      <thead>
-        <tr>
-          <th> User Name </th>
-          <th> Comment </th>
-          <th> Rating </th>
-          <th> Created </th>
-          <th> Picture </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let report of reports">
-          <td>{{report.user.username}}</td>
-          <td>{{report.comment}}</td>
-          <td>{{report.rating}}</td>
-          <td>{{report.created}}</td>
-          <td><img src="{{report.image}}" style=" border-radius:5%; border:2; " height=150 width=150/></td>
-        </tr>
-      </tbody>
-    </table>
-    <br>
-    <form *ngIf="isLogin" name="ReportForm"   class="form-group">
+    <form *ngIf="isLogin" name="WeatherForm" class="form-group"  >
       <h4>Add a Weather Update</h4>
       <div>
-        <textarea cols="31" rows="5" placeholder="Enter Your Comment Here..." name="comment" [(ngModel)]="newReport.comment"></textarea>
+        <textarea cols="31" rows="5" placeholder="Enter A Weather Description" name="description" [(ngModel)]="newWeather.description"></textarea>
       </div>
       <div>
-        <input id="image" type="text" name="image" size="32" placeholder="Image Url" [(ngModel)]="newReport.image">
+        <input id="temperature" placeholder="Temperature" size="32" type="text" name="temperature" [(ngModel)]="newWeather.temperatureCelsius">
       </div>
       <div>
-        <select id="rating" name="rating" [(ngModel)]="newReport.rating">
-          <option value="0" width="50" disabled selected hidden>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Beach &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Rating &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
+        <select   id="weatherType" name="weatherType" [(ngModel)]="newWeather.weatherType">
+          <option value="" disabled selected hidden>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Weather &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+          <option value="Sunny">Sunny</option>
+          <option value="Partially Cloudy">Partially Cloudy</option>
+          <option value="Cloudy">Cloudy</option>
+          <option value="Overcast">Overcast</option>
+          <option value="Raining">Raining</option>
+          <option value="Storming">Storming</option>
         </select>
       </div>
-      <button class="button"  (click)="addReport(newReport)">Submit</button>
-    </form>
+      <div>
+        <select id="waveSize" name="waveSize" [(ngModel)]="newWeather.waveSize">
+          <option value="" disabled selected hidden>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Wave &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Size &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+          <option value="Flat">Flat</option>
+          <option value="Chest Height">Chest Height</option>
+          <option value="Head Height">Head Height</option>
+          <option value="Over Head">Overhead</option>
+          <option value="Double Over Head">Double Overhead</option>
+        </select>
+      </div>
 
+
+      <button class="button" (click)="addWeather(newWeather)">Submit</button>
+    </form>
   </div>
+
+  <br>
+  <br>
+
+  <!-- Report Section -->
+  <h2 class="reportTextCentered">Reports</h2>
+  <table class="reportCentered">
+    <thead>
+      <tr>
+        <th> User Name </th>
+        <th> Comment </th>
+        <th> Rating </th>
+        <th> Created </th>
+        <th> Picture </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let report of reports">
+        <td>{{report.user.username}}</td>
+        <td>{{report.comment}}</td>
+        <td>{{report.rating}}</td>
+        <td>{{report.created}}</td>
+        <td><img src="{{report.image}}" style=" border-radius:5%; border:2; " height=150 width=150/></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <form *ngIf="isLogin" name="ReportForm"   class="form-group">
+    <h4>Add a Weather Update</h4>
+    <div>
+      <textarea cols="31" rows="5" placeholder="Enter Your Comment Here..." name="comment" [(ngModel)]="newReport.comment"></textarea>
+    </div>
+    <div>
+      <input id="image" type="text" name="image" size="32" placeholder="Image Url" [(ngModel)]="newReport.image">
+    </div>
+    <div>
+      <select id="rating" name="rating" [(ngModel)]="newReport.rating">
+        <option value="0" width="50" disabled selected hidden>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Beach &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Rating &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+    </div>
+    <button class="button"  (click)="addReport(newReport)">Submit</button>
+  </form>
+
+</div>
+
+
+
+
+<p *ngIf="!isLogin">Please login to access this!</p>
