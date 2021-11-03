@@ -1,9 +1,13 @@
 
 <br>
-<div *ngIf="isLogin">
+<div *ngIf="!isLogout && isLogin">
   <button (click)="logout()">Click here to logout</button>
 </div>
 
-<h3 *ngIf="!isLogin">You are exiting, have a great day!</h3>
+<h3 *ngIf="!isLogin">You are not logged in!</h3>
+<br>
+<br>
+
+<h3 *ngIf="isLogout">You are exiting, have a great day!</h3>
 <br>
 <br>

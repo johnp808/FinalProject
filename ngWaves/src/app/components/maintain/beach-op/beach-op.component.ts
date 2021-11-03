@@ -24,6 +24,7 @@ export class BeachOpComponent implements OnInit {
     if(this.isLogin){
       this.role = this.authService.currUser.role;
     }
+    this.reloadBeaches();
   }
 
   reloadBeaches(): void{

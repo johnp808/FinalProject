@@ -8,17 +8,18 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class ExitComponent implements OnInit {
   isLogin: boolean = true;
+  isLogout: boolean = false;
 
   constructor(
     private authService: AuthService
   ) { }
 
   ngOnInit(): void {
-
+    this.isLogin = this.authService.checkLogin();
   }
 
   logout(){
     this.authService.logout();
-    this.isLogin = this.authService.checkLogin();
+    this.isLogout = true;
   }
 }

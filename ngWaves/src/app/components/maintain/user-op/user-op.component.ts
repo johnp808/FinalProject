@@ -21,6 +21,7 @@ export class UserOpComponent implements OnInit {
     if(this.isLogin){
       this.role = this.authService.currUser.role;
     }
+    this.reloadUsers();
   }
 
   reloadUsers(): void{
