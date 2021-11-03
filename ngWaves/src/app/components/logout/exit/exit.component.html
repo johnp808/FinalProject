@@ -1,9 +1,25 @@
-
+<div class="h1Spacing">
+<h1>Logout</h1>
+</div>
 <br>
-<div *ngIf="isLogin">
-  <button (click)="logout()">Click here to logout</button>
+<div *ngIf="!isLogout && isLogin">
+  <button class="myButton" (click)="logout()">Click here to logout</button>
 </div>
 
-<h3 *ngIf="!isLogin">You are exiting, have a great day!</h3>
+<h3 *ngIf="!isLogin">Error: You are not logged in!</h3>
 <br>
 <br>
+
+<h3 *ngIf="isLogout">You are now logged out, have an awesome day!</h3>
+<br>
+<br>
+<ul class="cb-slideshow">
+  <li><span>Image 01</span></li>
+  <li><span>Image 02</span></li>
+  <li><span>Image 03</span></li>
+  <li><span>Image 04</span></li>
+  <li><span>Image 05</span></li>
+  <li><span>Image 06</span></li>
+  <li><span>Image 07</span></li>
+  <h3>Waves</h3>
+</ul>

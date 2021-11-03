@@ -1,6 +1,8 @@
+<div class="bodyCenter">
+<h1 class="title"> Waves Users</h1>
+<br>
 <div *ngIf="isLogin && role=='admin'">
 
-  <button (click)='reloadUsers()' type="button" >User List Information</button>
   <div *ngIf='userList.length > 0'>
   <table>
     <thead>
@@ -10,18 +12,19 @@
         <th>Email</th>
         <th>Role</th>
         <th>ProfileImage</th>
+        <th>Enable/Disable</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor='let user of userList'>
-        <th>{{user.username}}</th>
-        <th>{{user.enabled}}</th>
-        <th>{{user.email}}</th>
-        <th>{{user.role}}</th>
+        <td>{{user.username}}</td>
+        <td>{{user.enabled}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.role}}</td>
         <td *ngIf='user.enabled'><img height="80px" [src]="user.profileImage"></td>
         <td *ngIf='!user.enabled'><img height="80px" [src]="'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4iz-hXWr2pgUAerTjgdzGRfZWBb6BAfDI7A&usqp=CAU'"></td>
-        <button *ngIf='user.enabled' (click)='reverse(user)' type="button">Disable</button>
-        <button *ngIf='!user.enabled' (click)='reverse(user)' type="button">Enable</button>
+        <td><button *ngIf='user.enabled' (click)='reverse(user)' type="button">Disable</button>
+        <button *ngIf='!user.enabled' (click)='reverse(user)' type="button">Enable</button></td>
       </tr>
     </tbody>
   </table>
@@ -31,3 +34,4 @@
 <br>
 
 <p *ngIf="!isLogin || role!='admin'">Please login as admin to access this!</p>
+</div>

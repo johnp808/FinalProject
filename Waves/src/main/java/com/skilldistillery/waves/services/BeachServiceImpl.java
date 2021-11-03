@@ -137,13 +137,13 @@ public class BeachServiceImpl implements BeachService {
 		List<Beach> all = beachRepo.findAll(); 
 
 		all.sort((b1,b2)->{
-			if(b1.getLocation().getZip()==null || b1.getLocation().getZip().equals("")
-					|| b2.getLocation().getZip()==null || b2.getLocation().getZip().equals("")) {
+			if(b1.getLocation().getZip()==null || b1.getLocation().getZip().equals("")) {
 				return 1;
-			}else {
-				return (zip - Integer.parseInt(b2.getLocation().getZip()))-(zip - Integer.parseInt(b1.getLocation().getZip()));
 			}
-			
+			if(b2.getLocation().getZip()==null || b2.getLocation().getZip().equals("")) {
+				return -1;
+			}
+			return Math.abs(zip - Integer.parseInt(b1.getLocation().getZip()))-Math.abs(zip - Integer.parseInt(b2.getLocation().getZip()));
 		});
 		
 		return all;

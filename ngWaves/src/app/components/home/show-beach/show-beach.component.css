@@ -9,8 +9,35 @@ th {
 }
 
 tr:hover {background-color: #01eeff3d;}
-
-
+.button{
+  margin-left: 75px;
+}
+.reportCentered{
+  margin-left: 40px;
+}
+.reportTextCentered{
+  margin-left: 301px;
+}
+.weatherCentered{
+  margin-left: 50px;
+}
+.weatherTextCentered{
+  margin-left: 301px;
+}
+.locationTextCentered{
+  margin-left: 300px;
+}
+.locationCentered{
+  margin-left: 180px;
+}
+h2{
+margin-left: 250px;
+}
+p{
+margin-left: -55px;
+overflow-wrap: break-word;
+inline-size: 950px;
+}
 h1{
   font-family: 'Luminari', fantasy;
   font-size: 75px;
@@ -20,6 +47,8 @@ h1{
 .beachImage {
   height: auto;
   width: 85%;
+  margin-left: -100px;
+  align-self:center;
 }
 .bodyCenter {
  margin-left: 175px;
@@ -28,17 +57,18 @@ h1{
   padding-right: 70px;
 }
 form{
-margin-left: 256px;
+margin-left: 250px;
 }
 .title{
   margin-left: 100px;
   margin-top: -6px;
 }
+
 .bi{
   z-index: 3;
   color:rgb(255, 149, 0);
   float: right;
-  margin-right: 180px;
+  margin-right: 277px;
   position: relative;
   font-size: 45px;
 }
