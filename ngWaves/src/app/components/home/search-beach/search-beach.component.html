@@ -1,14 +1,15 @@
 <div class="centerAll">
 <h1> Waves Beaches</h1>
+<br>
 
-<form *ngIf="! selected">
+<form *ngIf="!selected && !(beaches.length>0)">
   <input type="text" name="keyword" placeholder="keyword" [(ngModel)]="keyword">
   <button (click)="reloadBeachByKeyword()" type="button">Search By keyword</button>
 </form>
 <br>
 <br>
 
-<div id='beachList' *ngIf="! selected">
+<div id='beachList' *ngIf="!selected && beaches.length>0">
   <table>
     <thead>
     <tr>
@@ -41,7 +42,7 @@
     <h2>{{selected.name}}</h2>
     <span
     class="bi"
-    [ngClass]="isFavorite?'bi-star-fill':'bi-star'"
+    [ngClass]="isFavorite?'bi-heart-fill':'bi-heart'"
     (click)="toggleFavorite(selected)"
      *ngIf="checkLogin()"></span>
 
