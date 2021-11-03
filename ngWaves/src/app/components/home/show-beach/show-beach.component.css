@@ -60,18 +60,21 @@ form{
 margin-left: 250px;
 }
 .title{
-  margin-left: 100px;
-  margin-top: -6px;
+  margin-left: 325px;
+  margin-top: 16px;
 }
-
 .bi{
   z-index: 3;
   color:rgb(255, 149, 0);
   float: right;
-  margin-right: 277px;
+  margin-right: 202px;
   position: relative;
   font-size: 45px;
 }
-
-
+.centerPic{
+  margin-left: 200px;
+}
+h4{
+  margin-left: 45px;
+}
 
