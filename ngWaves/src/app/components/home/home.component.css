@@ -5,7 +5,8 @@ a{
 .content{
   margin-top: 25px;
   display: flex;
-  z-index: -3;
+  position: relative;
+  z-index: 9001;
 }
 
 ul{
