@@ -8,9 +8,6 @@ a{
   z-index: -3;
 }
 
-.right{
-  flex: 1px;
-}
 ul{
   list-style-type: none;
 }
