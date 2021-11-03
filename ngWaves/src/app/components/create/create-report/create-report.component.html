@@ -1,4 +1,4 @@
-<h1>User Profile</h1>
+<div class="selections"><h1>User Profile</h1></div>
   <div *ngIf="isLogin">
     <div>Username: {{user.username}}</div>
     <div>Email: {{user.email}}</div>
@@ -8,29 +8,58 @@
     <div><img height="100px" [src]="user.profileImage"></div>
   </div>
 <br>
-<h3>Favorites</h3>
-<div *ngIf="! selected">
-<div *ngFor="let favorite of favorites">
 
-  <p>{{favorite.name}}</p>
-  <img [src]="favorite.defaultImage" height="100px" alt="favorite beach image"  (click)="displayBeach(favorite)">
-  <p>{{favorite.rating}}</p>
-<hr>
+  <br>
+  <br>
+  <br>
+<h1 class="title"> Waves Beaches</h1>
+<br>
+<div class="beachList">
+<div id="beachList" *ngIf="! selected">
+  <table>
+    <thead>
+    <tr>
+      <th>
+        Beach Name
+      </th>
+      <th>
+        Beach Rating
+      </th>
+      <th>
+        Beach Zip
+      </th>
+      <th>
+        Beach Image
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let favorite of favorites">
+      <td (click)="displayBeach(favorite)">{{ favorite.name }}</td>
+      <td (click)="displayBeach(favorite)">{{ favorite.rating }}</td>
+      <td (click)="displayBeach(favorite)">{{ favorite.location.zip }}</td>
+      <td (click)="displayBeach(favorite)"><img height="100px" [src]="favorite.defaultImage"></td>
+    </tr>
+  </tbody>
+  </table>
+  </div>
 </div>
-</div>
+
+
 <div id='beachDetails' *ngIf="selected">
   <br>
   <h2>{{selected.name}}</h2>
   <span
   class="bi"
   [ngClass]="isFavorite?'bi-heart-fill':'bi-heart'"
-  (click)="toggleFavorite(selected)"></span>
+  (click)="toggleFavorite(selected)"
+   ></span>
   <img class="beachImage" src="{{selected.defaultImage}}" alt= "{{ selected.name }}">
   <br> <br>
   <p class="beachDescription">{{selected.description}}</p>
 
-  <h2>Location</h2>
-  <table>
+  <h2 class="locationTextCentered">Location</h2>
+  <table class="locationCentered">
     <thead>
       <tr>
         <th> Street </th>
@@ -51,9 +80,9 @@
     <br>
 
     <!-- Weather Section -->
-    <h3>Weather</h3>
+    <h2 class="weatherTextCentered">Weather</h2>
     <div name="weatherForThisBeach">
-      <table >
+      <table class="weatherCentered">
         <thead>
           <tr>
             <th>Username</th>
@@ -93,7 +122,7 @@
           <option value="Overcast">Overcast</option>
           <option value="Raining">Raining</option>
           <option value="Storming">Storming</option>
-      </select>
+        </select>
       </div>
       <div>
         <select id="waveSize" name="waveSize" [(ngModel)]="newWeather.waveSize">
@@ -103,41 +132,42 @@
           <option value="Head Height">Head Height</option>
           <option value="Over Head">Overhead</option>
           <option value="Double Over Head">Double Overhead</option>
-      </select>
+        </select>
       </div>
 
 
       <button class="button" (click)="addWeather(newWeather)">Submit</button>
     </form>
-    </div>
+  </div>
 
-    <br>
-    <br>
+  <br>
+  <br>
 
-    <!-- Report Section -->
-  <h3>Reports</h3>
-  <table>
+  <!-- Report Section -->
+  <h2 class="reportTextCentered">Reports</h2>
+  <table class="reportCentered">
     <thead>
-    <tr>
-      <th> User Name </th>
-      <th> Comment </th>
-      <th> Rating </th>
-      <th> Created </th>
-      <th> Picture </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let report of reports">
-      <td>{{report.user.username}}</td>
-      <td>{{report.comment}}</td>
-      <td>{{report.rating}}</td>
-      <td>{{report.created}}</td>
-      <td><img src="{{report.image}}" style=" border-radius:5%; border:2; " height=150 width=150/></td>
-    </tr>
-  </tbody>
+      <tr>
+        <th> User Name </th>
+        <th> Comment </th>
+        <th> Rating </th>
+        <th> Created </th>
+        <th> Picture </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let report of reports">
+        <td>{{report.user.username}}</td>
+        <td>{{report.comment}}</td>
+        <td>{{report.rating}}</td>
+        <td>{{report.created}}</td>
+        <td><img src="{{report.image}}" style=" border-radius:5%; border:2; " height=150 width=150/></td>
+      </tr>
+    </tbody>
   </table>
   <br>
   <form *ngIf="isLogin" name="ReportForm"   class="form-group">
+    <h4>Add a Weather Update</h4>
     <div>
       <textarea cols="31" rows="5" placeholder="Enter Your Comment Here..." name="comment" [(ngModel)]="newReport.comment"></textarea>
     </div>
@@ -152,12 +182,13 @@
         <option value="3">3</option>
         <option value="4">4</option>
         <option value="5">5</option>
-    </select>
+      </select>
     </div>
     <button class="button"  (click)="addReport(newReport)">Submit</button>
   </form>
 
-  </div>
+</div>
+
 
 
 
