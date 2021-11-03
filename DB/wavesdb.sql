@@ -90,7 +90,7 @@ DROP TABLE IF EXISTS `report` ;
 
 CREATE TABLE IF NOT EXISTS `report` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `comment` VARCHAR(1000) NULL,
+  `comment` TEXT NULL,
   `image` VARCHAR(3000) NULL,
   `beach_id` INT NOT NULL,
   `user_id` INT NOT NULL,
@@ -144,8 +144,8 @@ DROP TABLE IF EXISTS `weather` ;
 
 CREATE TABLE IF NOT EXISTS `weather` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `weather_type` VARCHAR(45) NULL,
-  `description` VARCHAR(45) NULL,
+  `weather_type` VARCHAR(100) NULL,
+  `description` TEXT NULL,
   `temperature_celsius` INT NULL,
   `created` DATETIME NULL,
   `wave_size` VARCHAR(45) NULL,
@@ -369,10 +369,10 @@ INSERT INTO `beach` (`id`, `name`, `description`, `default_image`, `location_id`
 INSERT INTO `beach` (`id`, `name`, `description`, `default_image`, `location_id`, `operational`, `pet_friendly`, `parking_available`, `price_of_admission`, `hours`, `enabled`, `rating`) VALUES (5, 'Harvey E. Oye Jr. Park', 'Oceanfront park beach is open 365 days a year from sunrise to 9:00 p.m; Lifeguards are on duty every day from 9 am – 5 pm. The staff is certified or licensed as First Responders or EMT’s.  Designated surfing and skim board areas are located at the north and south end of the beach. ', 'https://captainkimo.s3.amazonaws.com/wp-content/uploads/2018/11/02122151/Harvey-E-Oyer-Jr-Park-Public-Boat-Ramp-to-Boynton-Inlet.jpg', 6, 1, 'yes', 'yes', '0', '9 am – 5 pm', 1, 4.5);
 INSERT INTO `beach` (`id`, `name`, `description`, `default_image`, `location_id`, `operational`, `pet_friendly`, `parking_available`, `price_of_admission`, `hours`, `enabled`, `rating`) VALUES (6, 'Mangrove Park', 'This nature area with wildlife features a suspended walkway over water & interpretive signs.', 'https://www.thepalmbeaches.com/sites/default/files/styles/profile_slideshow_xl/public/mmg_lfef_images/mangrove-park-42313-9dd47b5ae978f8301586c029381e4db4.jpg?itok=MfMPafRf', 7, 0, 'yes', 'yes', '0', 'Sunrise-Sunset', 1, 4.1);
 INSERT INTO `beach` (`id`, `name`, `description`, `default_image`, `location_id`, `operational`, `pet_friendly`, `parking_available`, `price_of_admission`, `hours`, `enabled`, `rating`) VALUES (7, 'Boynton Lakes Park', 'This is a neighborhood park that is maintained by the city of Boynton Beach. There is approximately 8 parking spaces and no restrooms. Mainly used by neighborhood families it can be a nice quiet place to play or take bike rides. There is a large open field adjacent to the playground that\'s great for frisbee, football, or soccer games. The playground equipment is mostly for younger kids and the pavilion is very small so not for party use. Swings are both infant and normal so older kids and adults may also swing. ', 'https://www.boynton-beach.org/sites/default/files/styles/hero_image_style/public/images/Landing%20Pages/Parks%20and%20Rec/boynton%20lakes%201567%20x%20498%20.jpg?itok=68eyKJiC', 8, 1, 'yes', 'yes', '0', 'Sunrise-Sunset', 1, 4.3);
-INSERT INTO `beach` (`id`, `name`, `description`, `default_image`, `location_id`, `operational`, `pet_friendly`, `parking_available`, `price_of_admission`, `hours`, `enabled`, `rating`) VALUES (8, 'Jupiter Beach Park', 'Jupiter Beach Park lies on the south side of the Jupiter Inlet. It has 1,700 feet of guarded beach, picnic areas with grills, restrooms, outdoor showers and a sand volleyball court. Park hours are sunrise to sunset but inlet fishing is available 24 hours.\n\nTo rent a pavilion please call (561) 966-6611', 'https://www.jupiter.fl.us/Facilities/Facility/Details/Jupiter-Beach-Park-Jupiter-Inlet-66', 9, 1, 'yes', 'yes', '0', 'Sunrise-Sunset', 1, 4.6);
-INSERT INTO `beach` (`id`, `name`, `description`, `default_image`, `location_id`, `operational`, `pet_friendly`, `parking_available`, `price_of_admission`, `hours`, `enabled`, `rating`) VALUES (9, 'Carlin Park', 'Carlin Park hosts 3,000 feet of guarded beach and has plentiful amenities to suit most anyone\'s needs. From bocce ball, tennis, sand volleyball, playgrounds, exercise running course, restroom facilities, picnic areas, shelters with grills and a cafe, there\'s a lot of recreation activities available at Carlin Park. ', 'https://www.jupiter.fl.us/Facilities/Facility/Details/Carlin-Park-62', 10, 1, 'yes', 'yes', '0', 'Sunrise-Sunset', 1, 4.7);
-INSERT INTO `beach` (`id`, `name`, `description`, `default_image`, `location_id`, `operational`, `pet_friendly`, `parking_available`, `price_of_admission`, `hours`, `enabled`, `rating`) VALUES (10, 'Coral Cove Park', 'While this park is light on acreage, once here, you\'ll experience the beauty of old Florida. Coral Cove park has 600 feet of guarded beach, 600 feet of intracoastal waterway frontage, picnic areas with grills, playground, restroom facilities and outdoor showers.', 'https://www.jupiter.fl.us/Facilities/Facility/Details/Coral-Cove-Park-63', 11, 1, 'yes', 'yes', '0', 'Sunrise-Sunset', 1, 4.7);
-INSERT INTO `beach` (`id`, `name`, `description`, `default_image`, `location_id`, `operational`, `pet_friendly`, `parking_available`, `price_of_admission`, `hours`, `enabled`, `rating`) VALUES (11, 'Dubois Park', 'Operated by: Palm Beach County Parks & Recreation Department \n(561) 966-6600 \n18.69 acres\n\n*Swimming area is guarded from 9:00 am - 5:20 pm, seven days a week from Memorial Day until Palm Beach County public schools begin in August; when school starts, swimming areas will be guarded only on weekends until Memorial Day.', 'https://www.jupiter.fl.us/Facilities/Facility/Details/Dubois-Park-64', 12, 1, 'yes', 'yes', '0', 'Sunrise-Sunset', 1, 4.8);
+INSERT INTO `beach` (`id`, `name`, `description`, `default_image`, `location_id`, `operational`, `pet_friendly`, `parking_available`, `price_of_admission`, `hours`, `enabled`, `rating`) VALUES (8, 'Jupiter Beach Park', 'Jupiter Beach Park lies on the south side of the Jupiter Inlet. It has 1,700 feet of guarded beach, picnic areas with grills, restrooms, outdoor showers and a sand volleyball court. Park hours are sunrise to sunset but inlet fishing is available 24 hours.\n\nTo rent a pavilion please call (561) 966-6611', 'https://youimg1.tripcdn.com/target/0ww3l120008yal5li6094_C_750_420.jpg_.webp?proc=source%2Ftrip', 9, 1, 'yes', 'yes', '0', 'Sunrise-Sunset', 1, 4.6);
+INSERT INTO `beach` (`id`, `name`, `description`, `default_image`, `location_id`, `operational`, `pet_friendly`, `parking_available`, `price_of_admission`, `hours`, `enabled`, `rating`) VALUES (9, 'Carlin Park', 'Carlin Park hosts 3,000 feet of guarded beach and has plentiful amenities to suit most anyone\'s needs. From bocce ball, tennis, sand volleyball, playgrounds, exercise running course, restroom facilities, picnic areas, shelters with grills and a cafe, there\'s a lot of recreation activities available at Carlin Park. ', 'https://media-cdn.tripadvisor.com/media/photo-s/0b/f1/4c/4f/access-to-the-beautiful.jpg', 10, 1, 'yes', 'yes', '0', 'Sunrise-Sunset', 1, 4.7);
+INSERT INTO `beach` (`id`, `name`, `description`, `default_image`, `location_id`, `operational`, `pet_friendly`, `parking_available`, `price_of_admission`, `hours`, `enabled`, `rating`) VALUES (10, 'Coral Cove Park', 'While this park is light on acreage, once here, you\'ll experience the beauty of old Florida. Coral Cove park has 600 feet of guarded beach, 600 feet of intracoastal waterway frontage, picnic areas with grills, playground, restroom facilities and outdoor showers.', 'https://upload.wikimedia.org/wikipedia/commons/6/6e/CCPbeach.jpg', 11, 1, 'yes', 'yes', '0', 'Sunrise-Sunset', 1, 4.7);
+INSERT INTO `beach` (`id`, `name`, `description`, `default_image`, `location_id`, `operational`, `pet_friendly`, `parking_available`, `price_of_admission`, `hours`, `enabled`, `rating`) VALUES (11, 'Dubois Park', 'Operated by: Palm Beach County Parks & Recreation Department \n(561) 966-6600 \n18.69 acres\n\n*Swimming area is guarded from 9:00 am - 5:20 pm, seven days a week from Memorial Day until Palm Beach County public schools begin in August; when school starts, swimming areas will be guarded only on weekends until Memorial Day.', 'http://1.bp.blogspot.com/-M8oGFfrgYdU/ThYbqMElA9I/AAAAAAAAAm4/nEpDp0WHAvg/s1600/IMG_0105.JPG', 12, 1, 'yes', 'yes', '0', 'Sunrise-Sunset', 1, 4.8);
 
 COMMIT;
 
@@ -382,7 +382,9 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `wavesdb`;
-INSERT INTO `report` (`id`, `comment`, `image`, `beach_id`, `user_id`, `rating`, `created`, `enabled`) VALUES (1, 'A good family beach', 'https://www.thepalmbeaches.com/sites/default/files/styles/profile_slideshow_xl/public/mmg_lfef_images/lake-worth-municipal-beach-41312-24c96632d6965d0332d2d615771cac27.jpg?itok=h7RMpqDH', 1, 1, 3, NULL, 1);
+INSERT INTO `report` (`id`, `comment`, `image`, `beach_id`, `user_id`, `rating`, `created`, `enabled`) VALUES (1, 'I grew up going to this beach. Such a great location!', 'https://www.thepalmbeaches.com/sites/default/files/styles/profile_slideshow_xl/public/mmg_lfef_images/lake-worth-municipal-beach-41312-24c96632d6965d0332d2d615771cac27.jpg?itok=h7RMpqDH', 1, 1, 4, '2021-10-26 09:14:30', 1);
+INSERT INTO `report` (`id`, `comment`, `image`, `beach_id`, `user_id`, `rating`, `created`, `enabled`) VALUES (2, 'This my favorite beach for finding sticks!', 'https://i5.walmartimages.com/asr/f27e73f7-2b1b-46b1-8f7d-468608c1079a_1.a494aafcca6d2cf4af5eac74bd837823.jpeg', 2, 7, 5, '2021-10-28 09:15:30', 1);
+INSERT INTO `report` (`id`, `comment`, `image`, `beach_id`, `user_id`, `rating`, `created`, `enabled`) VALUES (3, 'We saw dolphins today! So exciting!', 'https://i.pinimg.com/736x/a1/7f/84/a17f84f2ad01a9df3971e3f2f24ef8a9--jupiter-florida-dolphins.jpg', 8, 5, 5, '2021-10-25 13:47:02', 1);
 
 COMMIT;
 
@@ -393,6 +395,15 @@ COMMIT;
 START TRANSACTION;
 USE `wavesdb`;
 INSERT INTO `favorites` (`user_id`, `beach_id`) VALUES (1, 1);
+INSERT INTO `favorites` (`user_id`, `beach_id`) VALUES (1, 4);
+INSERT INTO `favorites` (`user_id`, `beach_id`) VALUES (1, 5);
+INSERT INTO `favorites` (`user_id`, `beach_id`) VALUES (1, 8);
+INSERT INTO `favorites` (`user_id`, `beach_id`) VALUES (5, 2);
+INSERT INTO `favorites` (`user_id`, `beach_id`) VALUES (6, 3);
+INSERT INTO `favorites` (`user_id`, `beach_id`) VALUES (7, 7);
+INSERT INTO `favorites` (`user_id`, `beach_id`) VALUES (5, 9);
+INSERT INTO `favorites` (`user_id`, `beach_id`) VALUES (6, 10);
+INSERT INTO `favorites` (`user_id`, `beach_id`) VALUES (7, 11);
 
 COMMIT;
 
@@ -402,7 +413,15 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `wavesdb`;
-INSERT INTO `weather` (`id`, `weather_type`, `description`, `temperature_celsius`, `created`, `wave_size`, `user_id`, `beach_id`, `enabled`) VALUES (1, 'sunny', 'no clouds', 40, NULL, NULL, 1, 1, 1);
+INSERT INTO `weather` (`id`, `weather_type`, `description`, `temperature_celsius`, `created`, `wave_size`, `user_id`, `beach_id`, `enabled`) VALUES (1, 'Sunny and 80! The best kind of day for the beach!', 'no clouds', 80, '2021-10-26 09:14:45', 'Chest Height', 1, 1, 1);
+INSERT INTO `weather` (`id`, `weather_type`, `description`, `temperature_celsius`, `created`, `wave_size`, `user_id`, `beach_id`, `enabled`) VALUES (2, 'Sunny with a few clouds', 'Bluse skies, a couple of puffy white clouds and temps somewhere in the 70s. Its a dream out here', 75, '2021-10-30 11:26:07', 'Chest Height', 5, 2, 1);
+INSERT INTO `weather` (`id`, `weather_type`, `description`, `temperature_celsius`, `created`, `wave_size`, `user_id`, `beach_id`, `enabled`) VALUES (3, 'Rainy', 'Stormy and muggy, not a good day for this beach.', 89, '2021-10-28 09:14:30', 'Overhead', 6, 8, 1);
+INSERT INTO `weather` (`id`, `weather_type`, `description`, `temperature_celsius`, `created`, `wave_size`, `user_id`, `beach_id`, `enabled`) VALUES (4, 'cloudy', ' cdkbchdnk', 90, '2021-10-26 9:14:45', 'Chest Height', 2, 2, 1);
+INSERT INTO `weather` (`id`, `weather_type`, `description`, `temperature_celsius`, `created`, `wave_size`, `user_id`, `beach_id`, `enabled`) VALUES (5, 'windy', ' dclsklk', 80, '2021-10-26 9:14:45', 'Chest Height', 3, 3, 1);
+INSERT INTO `weather` (`id`, `weather_type`, `description`, `temperature_celsius`, `created`, `wave_size`, `user_id`, `beach_id`, `enabled`) VALUES (6, 'sunny but windy', 'dkjvcnkd', 70, '2021-10-26 9:14:45', 'Chest Height', 4, 4, 1);
+INSERT INTO `weather` (`id`, `weather_type`, `description`, `temperature_celsius`, `created`, `wave_size`, `user_id`, `beach_id`, `enabled`) VALUES (7, 'cloudy', ' cdkbchdnk', 90, '2021-10-26 9:14:45', 'Chest Height', 1, 3, 1);
+INSERT INTO `weather` (`id`, `weather_type`, `description`, `temperature_celsius`, `created`, `wave_size`, `user_id`, `beach_id`, `enabled`) VALUES (8, 'windy', ' dclsklk', 80, '2021-10-26 9:14:45', 'Chest Height', 5, 4, 1);
+INSERT INTO `weather` (`id`, `weather_type`, `description`, `temperature_celsius`, `created`, `wave_size`, `user_id`, `beach_id`, `enabled`) VALUES (9, 'sunny but windy', 'dkjvcnkd', 70, '2021-10-26 9:14:45', 'Chest Height', 6, 7, 1);
 
 COMMIT;
 
