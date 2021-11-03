@@ -1,18 +1,16 @@
+
 <div class="content">
   <div class="left">
     <br>
     <br>
-    <a [routerLink]="['/maintain/userop']" routerLinkActive="active">User Operation</a>
-    <br>
-    <br>
-    <br>
-    <a [routerLink]="['/maintain/beachop']" routerLinkActive="active">Beach Operation</a>
+    <ul>
+    <li><a [routerLink]="['/maintain/userop']" routerLinkActive="active">User Operation</a></li>
+    <li><a [routerLink]="['/maintain/beachop']" routerLinkActive="active">Beach Operation</a></li>
+  </ul>
   </div>
 
   <div class="right">
     <router-outlet></router-outlet>
   </div>
 </div>
-
-
 
