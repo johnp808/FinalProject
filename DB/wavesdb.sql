@@ -416,6 +416,9 @@ USE `wavesdb`;
 INSERT INTO `weather` (`id`, `weather_type`, `description`, `temperature_celsius`, `created`, `wave_size`, `user_id`, `beach_id`, `enabled`) VALUES (1, 'Sunny and 80! The best kind of day for the beach!', 'no clouds', 80, '2021-10-26 09:14:45', 'Chest Height', 1, 1, 1);
 INSERT INTO `weather` (`id`, `weather_type`, `description`, `temperature_celsius`, `created`, `wave_size`, `user_id`, `beach_id`, `enabled`) VALUES (2, 'Sunny with a few clouds', 'Bluse skies, a couple of puffy white clouds and temps somewhere in the 70s. Its a dream out here', 75, '2021-10-30 11:26:07', 'Chest Height', 5, 2, 1);
 INSERT INTO `weather` (`id`, `weather_type`, `description`, `temperature_celsius`, `created`, `wave_size`, `user_id`, `beach_id`, `enabled`) VALUES (3, 'Rainy', 'Stormy and muggy, not a good day for this beach.', 89, '2021-10-28 09:14:30', 'Overhead', 6, 8, 1);
+INSERT INTO `weather` (`id`, `weather_type`, `description`, `temperature_celsius`, `created`, `wave_size`, `user_id`, `beach_id`, `enabled`) VALUES (4, 'cloudy', ' cdkbchdnk', 90, '2021-10-26 9:14:45', 'Chest Height', 2, 2, 1);
+INSERT INTO `weather` (`id`, `weather_type`, `description`, `temperature_celsius`, `created`, `wave_size`, `user_id`, `beach_id`, `enabled`) VALUES (5, 'windy', ' dclsklk', 80, '2021-10-26 9:14:45', 'Chest Height', 3, 3, 1);
+INSERT INTO `weather` (`id`, `weather_type`, `description`, `temperature_celsius`, `created`, `wave_size`, `user_id`, `beach_id`, `enabled`) VALUES (6, 'sunny but windy', 'dkjvcnkd', 70, '2021-10-26 9:14:45', 'Chest Height', 4, 4, 1);
 
 COMMIT;
 
