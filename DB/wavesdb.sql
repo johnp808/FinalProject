@@ -90,7 +90,7 @@ DROP TABLE IF EXISTS `report` ;
 
 CREATE TABLE IF NOT EXISTS `report` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `comment` VARCHAR(1000) NULL,
+  `comment` TEXT NULL,
   `image` VARCHAR(3000) NULL,
   `beach_id` INT NOT NULL,
   `user_id` INT NOT NULL,
@@ -144,8 +144,8 @@ DROP TABLE IF EXISTS `weather` ;
 
 CREATE TABLE IF NOT EXISTS `weather` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `weather_type` VARCHAR(45) NULL,
-  `description` VARCHAR(45) NULL,
+  `weather_type` VARCHAR(100) NULL,
+  `description` TEXT NULL,
   `temperature_celsius` INT NULL,
   `created` DATETIME NULL,
   `wave_size` VARCHAR(45) NULL,
@@ -384,6 +384,7 @@ START TRANSACTION;
 USE `wavesdb`;
 INSERT INTO `report` (`id`, `comment`, `image`, `beach_id`, `user_id`, `rating`, `created`, `enabled`) VALUES (1, 'I grew up going to this beach. Such a great location!', 'https://www.thepalmbeaches.com/sites/default/files/styles/profile_slideshow_xl/public/mmg_lfef_images/lake-worth-municipal-beach-41312-24c96632d6965d0332d2d615771cac27.jpg?itok=h7RMpqDH', 1, 1, 4, '2021-10-26 09:14:30', 1);
 INSERT INTO `report` (`id`, `comment`, `image`, `beach_id`, `user_id`, `rating`, `created`, `enabled`) VALUES (2, 'This my favorite beach for finding sticks!', 'https://i5.walmartimages.com/asr/f27e73f7-2b1b-46b1-8f7d-468608c1079a_1.a494aafcca6d2cf4af5eac74bd837823.jpeg', 2, 7, 5, '2021-10-28 09:15:30', 1);
+INSERT INTO `report` (`id`, `comment`, `image`, `beach_id`, `user_id`, `rating`, `created`, `enabled`) VALUES (3, 'We saw dolphins today! So exciting!', 'https://i.pinimg.com/736x/a1/7f/84/a17f84f2ad01a9df3971e3f2f24ef8a9--jupiter-florida-dolphins.jpg', 8, 5, 5, '2021-10-25 13:47:02', 1);
 
 COMMIT;
 
@@ -412,7 +413,9 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `wavesdb`;
-INSERT INTO `weather` (`id`, `weather_type`, `description`, `temperature_celsius`, `created`, `wave_size`, `user_id`, `beach_id`, `enabled`) VALUES (1, 'sunny', 'no clouds', 40, NULL, NULL, 1, 1, 1);
+INSERT INTO `weather` (`id`, `weather_type`, `description`, `temperature_celsius`, `created`, `wave_size`, `user_id`, `beach_id`, `enabled`) VALUES (1, 'Sunny and 80! The best kind of day for the beach!', 'no clouds', 80, '2021-10-26 09:14:45', 'Chest Height', 1, 1, 1);
+INSERT INTO `weather` (`id`, `weather_type`, `description`, `temperature_celsius`, `created`, `wave_size`, `user_id`, `beach_id`, `enabled`) VALUES (2, 'Sunny with a few clouds', 'Bluse skies, a couple of puffy white clouds and temps somewhere in the 70s. Its a dream out here', 75, '2021-10-30 11:26:07', 'Chest Height', 5, 2, 1);
+INSERT INTO `weather` (`id`, `weather_type`, `description`, `temperature_celsius`, `created`, `wave_size`, `user_id`, `beach_id`, `enabled`) VALUES (3, 'Rainy', 'Stormy and muggy, not a good day for this beach.', 89, '2021-10-28 09:14:30', 'Overhead', 6, 8, 1);
 
 COMMIT;
 
