@@ -1,6 +1,5 @@
 <div *ngIf="isLogin && role=='admin'">
 
-  <button (click)='reloadBeaches()' type="button" >Show Beach List</button>
   <div *ngIf='beachList.length > 0'>
   <table>
     <thead>
@@ -35,7 +34,10 @@
     <input type="text" name="operational" placeholder="operational" [(ngModel)]="beach.operational"><br>
     <input type="text" name="rating" placeholder="rating" [(ngModel)]="beach.rating"><br>
     <input type="text" name="hours" placeholder="hours" [(ngModel)]="beach.hours"><br>
-    <input type="text" name="locationId" placeholder="locationId" [(ngModel)]="beach.location.id"><br>
+    <input type="text" name="street" placeholder="street" [(ngModel)]="beach.location.street"><br>
+    <input type="text" name="city" placeholder="city" [(ngModel)]="beach.location.city"><br>
+    <input type="text" name="state" placeholder="state" [(ngModel)]="beach.location.state"><br>
+    <input type="text" name="zip" placeholder="zip" [(ngModel)]="beach.location.zip"><br>
     <button type="button" (click)="create()">Create</button>
   </form>
 
