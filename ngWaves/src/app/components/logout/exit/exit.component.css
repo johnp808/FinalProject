@@ -22,3 +22,12 @@
 	position:relative;
 	top:1px;
 }
+h1{
+  font-family: 'Luminari', fantasy;
+  font-size: 75px;
+  text-shadow: 2px 8px 6px rgba(0,0,0,0.2),
+                 0px -5px 35px rgba(0, 0, 0, 0.683);
+}
+.h1Spacing{
+
+}

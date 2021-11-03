@@ -1,10 +1,12 @@
-
+<div class="h1Spacing">
+<h1>Logout</h1>
+</div>
 <br>
 <div *ngIf="!isLogout && isLogin">
   <button class="myButton" (click)="logout()">Click here to logout</button>
 </div>
 
-<h3 *ngIf="!isLogin">You are not logged in!</h3>
+<h3 *ngIf="!isLogin">Error: You are not logged in!</h3>
 <br>
 <br>
 
