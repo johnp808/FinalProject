@@ -1,6 +1,7 @@
 ul{
   list-style-type: none;
 }
+
 .cb-slideshow,
 .cb-slideshow:after {
     position: fixed;
@@ -35,14 +36,27 @@ ul{
   color: #fff;
   animation: titleAnimation 36s linear infinite 0s;
 }
-.cb-slideshow li div h3 {
+h3{
+  z-index: -1;
   font-family: 'Luminari', fantasy;
   font-size: 230px;
   padding: 0;
   line-height: 200px;
   margin-bottom: 150px;
-  margin-left: -200px;
+  margin-left: 200px;
+  margin-top: 350px;
+  color: rgb(255, 255, 255);
+  text-shadow: 2px 8px 6px rgba(0,0,0,0.2),
+                   0px -5px 35px rgba(0, 0, 0, 0.683);
 }
+/* .cb-slideshow li div h3 {
+  font-family: 'Luminari', fantasy;
+  font-size: 230px;
+  padding: 0;
+  line-height: 200px;
+  margin-bottom: 165px;
+  margin-left: -875px;
+} */
 .cb-slideshow li:nth-child(1) span {
   background-image: url("https://images.pexels.com/photos/8849970/pexels-photo-8849970.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500")
 }
@@ -105,8 +119,8 @@ ul{
 @media screen and (max-width: 600px) {
   .cb-slideshow li div h3 { font-size: 80px }
 }
-.backgroundText{
+/* .backgroundText{
   color: rgb(255, 255, 255);
 text-shadow: 2px 8px 6px rgba(0,0,0,0.2),
                  0px -5px 35px rgba(0, 0, 0, 0.683);
-}
+} */
