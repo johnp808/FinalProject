@@ -33,3 +33,11 @@ margin-left: 256px;
   margin-left: 100px;
   margin-top: -6px;
 }
+.bi{
+  z-index: 3;
+  color:rgb(255, 149, 0);
+  float: right;
+  margin-right: 180px;
+  position: relative;
+  font-size: 45px;
+}

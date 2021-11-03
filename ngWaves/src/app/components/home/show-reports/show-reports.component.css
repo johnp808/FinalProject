@@ -58,6 +58,7 @@ h3{
 .cb-slideshow li:nth-child(1) span {
   background-image: url("https://images.pexels.com/photos/8849970/pexels-photo-8849970.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500")
 }
+
 .cb-slideshow li:nth-child(2) span {
   background-image: url("https://images.pexels.com/photos/1835712/pexels-photo-1835712.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
   animation-delay: 6s;
@@ -71,12 +72,16 @@ h3{
   animation-delay: 18s;
 }
 .cb-slideshow li:nth-child(5) span {
-  background-image: url("https://images.pexels.com/photos/3155661/pexels-photo-3155661.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  background-image: url("https://images.pexels.com/photos/4321111/pexels-photo-4321111.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
   animation-delay: 24s;
 }
 .cb-slideshow li:nth-child(6) span {
-  background-image: url("https://images.pexels.com/photos/3293150/pexels-photo-3293150.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  background-image: url("https://images.pexels.com/photos/3155661/pexels-photo-3155661.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
   animation-delay: 30s;
+}
+.cb-slideshow li:nth-child(7) span {
+  background-image: url("https://images.pexels.com/photos/3293150/pexels-photo-3293150.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  animation-delay: 36s;
 }
 
 .cb-slideshow li:nth-child(2) div {
@@ -93,6 +98,9 @@ h3{
 }
 .cb-slideshow li:nth-child(6) div {
   animation-delay: 30s;
+}
+.cb-slideshow li:nth-child(7) div {
+  animation-delay: 36s;
 }
 @keyframes imageAnimation {
   0% { opacity: 0; animation-timing-function: ease-in; }
