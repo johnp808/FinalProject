@@ -1,13 +1,13 @@
 <h1> Waves Beaches</h1>
 
-<form *ngIf="! selected">
+<form *ngIf="!selected && !(beaches.length>0)">
   <input type="number" name="zip" placeholder="zip" [(ngModel)]="zip">
   <button (click)="reloadBeachByDistance()" type="button">Search Nearest Beaches</button>
 </form>
 <br>
 <br>
 
-<div id='beachList' *ngIf="! selected">
+<div id='beachList' *ngIf="!selected && beaches.length>0">
 <table>
   <thead>
   <tr>
