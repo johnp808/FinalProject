@@ -1,5 +1,4 @@
 .myButton {
-	box-shadow: 1px 1px 3px 3px #f0f7fa;
 	background:linear-gradient(to bottom, #33bdef 5%, #019ad2 100%);
 	background-color:#33bdef;
 	border-radius:42px;
@@ -36,8 +35,8 @@ h1{
 .centerLogin{
   max-width: 500px;
   margin: auto;
-  margin-top: 210px;
-  margin-left: 500px;
+  margin-top: 190px;
+  margin-left: 420px;
 }
 table{
 table-layout: fixed;
@@ -45,5 +44,13 @@ width: 50%;
 text-align: center;
 }
 .centerInfo{
-  margin-left: 325px;
+  margin-left: 430px;
+}
+th{
+  font-family: 'Luminari', fantasy;
+  font-size: 18px;
+}
+td{
+  font-family: 'Luminari', fantasy;
+  font-size: 14px;
 }
