@@ -51,7 +51,9 @@ export class SearchDistanceComponent implements OnInit {
     {
 
     }
-
+    checkLogin(): boolean{
+      return this.authService.checkLogin();
+    }
   // reloadBeaches(): void {
   //   this.beachService.index().subscribe(
   //     beachList => {
@@ -78,11 +80,13 @@ export class SearchDistanceComponent implements OnInit {
   }
 
   displayBeach(beach: Beach): void {
+    if(this.authService.checkLogin()){
     this.authService.getFavorites().subscribe(
       beachList => {
         this.selected = beach;
         this.reloadWeatherPosts();
         this.reloadReports();
+        // this.reloadBeachByDistance();
         console.log("this beach's id:" + this.selected.id);
         this.isFavorite = false;
         beachList.forEach(b => {
@@ -96,9 +100,42 @@ export class SearchDistanceComponent implements OnInit {
         console.log(fail);
       }
     );
-  }
-  toggleFavorite(): void {
+  } else{
+    this.selected = beach;
+        this.reloadWeatherPosts();
+        this.reloadReports();
+        // this.reloadBeachByDistance();
 
+  }
+}
+
+  toggleFavorite(beach: Beach): void {
+    this.isFavorite = !this.isFavorite;
+    if(!this.isFavorite){
+      this.authService.destroyFavorites(beach.id).subscribe(
+        deleteFav => {
+          this.isFavorite= false;
+          // this.reloadWeatherPosts();
+        },
+        fail => {
+          console.error('Error deleting Favorite');
+          console.log(fail);
+        }
+
+      );
+    } else{
+      this.authService.addFavorites(beach).subscribe(
+        addFav => {
+          this.isFavorite= true;
+          // this.reloadWeatherPosts();
+        },
+        fail => {
+          console.error('Error adding Favorite');
+          console.log(fail);
+        }
+
+      );
+    }
   }
 
   displayBeaches(){
