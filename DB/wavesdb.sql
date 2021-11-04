@@ -363,9 +363,9 @@ INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip`) VALUES (34, '185
 INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip`) VALUES (35, '200 Santa Monica Pier', 'Santa Monica', 'CA', '90401');
 INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip`) VALUES (36, 'Ocean Front Walk', 'Santa Monica', 'CA', '90401');
 INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip`) VALUES (13, '2188 Marcinski Rd', 'Jupiter', 'FL', '33477');
-INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip`) VALUES (39, '2345 Kahekili Hwy', 'Wailuku', 'HI', '96732');
-INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip`) VALUES (40, '3143 W. Trinity Pl.', 'Spokane', 'WA', '99224');
-INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip`) VALUES (41, '16022 E Loyola Dr', 'Aurora', 'CO', '80013');
+INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip`) VALUES (39, NULL, NULL, NULL, NULL);
+INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip`) VALUES (40, NULL, NULL, NULL, NULL);
+INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip`) VALUES (41, NULL, NULL, NULL, NULL);
 
 COMMIT;
 
@@ -376,9 +376,9 @@ COMMIT;
 START TRANSACTION;
 USE `wavesdb`;
 INSERT INTO `user` (`id`, `username`, `password`, `profile_image`, `role`, `enabled`, `location_id`, `email`) VALUES (1, 'cindy', '$2a$12$nlMOo29ODu6FIQbR.87Gze635XyMCMvMJAh54a0Y24yhGohCCqrG.', 'https://www.serebii.net/pokemon/art/248.png', 'admin', 1, 1, 'cindy@waves.com');
-INSERT INTO `user` (`id`, `username`, `password`, `profile_image`, `role`, `enabled`, `location_id`, `email`) VALUES (2, 'john', '$2a$12$6H17xNDdJ7M7WbUEWePG/exhG600bkpgFaMiSW2AcWVTKawDCb89m', 'https://i.pinimg.com/550x/55/53/3a/55533ab148194fed637737e48d24c731.jpg', 'admin', 1, 39, 'john@waves.com');
-INSERT INTO `user` (`id`, `username`, `password`, `profile_image`, `role`, `enabled`, `location_id`, `email`) VALUES (3, 'yanyan', '$2a$12$43MiQKGc0qLTfh46cA1ca.4d0X0lHVSb/bXyI.HABQGe21Vo/PRh.', 'https://cdn1.vectorstock.com/i/1000x1000/03/45/cute-fish-cartoon-vector-1430345.jpg', 'admin', 1, 40, 'yanyan@waves.com');
-INSERT INTO `user` (`id`, `username`, `password`, `profile_image`, `role`, `enabled`, `location_id`, `email`) VALUES (4, 'kristin', '$2a$12$SCAJxyMAFAkVom80go/pSuUTWhBtlEo2ykt59Dgg5T0Oqhqo7NtGy', 'https://3.bp.blogspot.com/-8FOB8-elTOE/WyOg7Y5hjVI/AAAAAAAAJyE/mYUG9TgTLZEbUC2yVsBOMtBRu_27-PT0wCLcBGAs/s1600/Photo%2B1_Parrotfiswh%2Bbeak.jpg', 'admin', 1, 41, 'kristin@waves.com');
+INSERT INTO `user` (`id`, `username`, `password`, `profile_image`, `role`, `enabled`, `location_id`, `email`) VALUES (2, 'john', '$2a$12$6H17xNDdJ7M7WbUEWePG/exhG600bkpgFaMiSW2AcWVTKawDCb89m', 'https://i.pinimg.com/550x/55/53/3a/55533ab148194fed637737e48d24c731.jpg', 'admin', 1, 1, 'john@waves.com');
+INSERT INTO `user` (`id`, `username`, `password`, `profile_image`, `role`, `enabled`, `location_id`, `email`) VALUES (3, 'yanyan', '$2a$12$43MiQKGc0qLTfh46cA1ca.4d0X0lHVSb/bXyI.HABQGe21Vo/PRh.', 'https://cdn1.vectorstock.com/i/1000x1000/03/45/cute-fish-cartoon-vector-1430345.jpg', 'admin', 1, 1, 'yanyan@waves.com');
+INSERT INTO `user` (`id`, `username`, `password`, `profile_image`, `role`, `enabled`, `location_id`, `email`) VALUES (4, 'kristin', '$2a$12$SCAJxyMAFAkVom80go/pSuUTWhBtlEo2ykt59Dgg5T0Oqhqo7NtGy', 'https://3.bp.blogspot.com/-8FOB8-elTOE/WyOg7Y5hjVI/AAAAAAAAJyE/mYUG9TgTLZEbUC2yVsBOMtBRu_27-PT0wCLcBGAs/s1600/Photo%2B1_Parrotfiswh%2Bbeak.jpg', 'admin', 1, 1, 'kristin@waves.com');
 INSERT INTO `user` (`id`, `username`, `password`, `profile_image`, `role`, `enabled`, `location_id`, `email`) VALUES (5, 'fred', '$2a$12$tBlS0fAF30M6iiEEVaP5Tu0..mxekmfbZQU7h/bqhWNmlNpzbyi9m', 'https://bloximages.newyork1.vip.townnews.com/dothaneagle.com/content/tncms/assets/v3/editorial/8/d4/8d4ed5ee-9429-11eb-9009-6f890de4cad2/6067dbb505f6a.image.jpg?resize=1200%2C800', 'user', 1, 1, 'fred@waves.com');
 INSERT INTO `user` (`id`, `username`, `password`, `profile_image`, `role`, `enabled`, `location_id`, `email`) VALUES (6, 'alicia', '$2a$12$IsiHptK89xfJ5BIMx.VHo.TGgMTYrs7pyCFvWVNKkt6NKKB2Cyaqa', 'https://www.edenbrothers.com/store/media/Bulbs-Flowers/resized/Calla-Captain-Ventura-2_medium.jpg', 'user', 1, 1, 'alicia@waves.com');
 INSERT INTO `user` (`id`, `username`, `password`, `profile_image`, `role`, `enabled`, `location_id`, `email`) VALUES (7, 'stormy', '$2a$12$LfcFE7d37Zf2Zjs1eCQryOEh5n1Z8eOsQVLTmlM/LC9aUiDV1Gp/q', 'https://www.thelabradorsite.com/wp-content/uploads/2021/09/Black-Lab-Chow-Mix-LS-tall.jpg', 'user', 1, 1, 'stormy@waves.com');
@@ -440,6 +440,8 @@ USE `wavesdb`;
 INSERT INTO `report` (`id`, `comment`, `image`, `beach_id`, `user_id`, `rating`, `created`, `enabled`) VALUES (1, 'I grew up going to this beach. Such a great location!', 'https://www.thepalmbeaches.com/sites/default/files/styles/profile_slideshow_xl/public/mmg_lfef_images/lake-worth-municipal-beach-41312-24c96632d6965d0332d2d615771cac27.jpg?itok=h7RMpqDH', 1, 1, 4, '2021-10-26 09:14:30', 1);
 INSERT INTO `report` (`id`, `comment`, `image`, `beach_id`, `user_id`, `rating`, `created`, `enabled`) VALUES (2, 'This my favorite beach for finding sticks!', 'https://i5.walmartimages.com/asr/f27e73f7-2b1b-46b1-8f7d-468608c1079a_1.a494aafcca6d2cf4af5eac74bd837823.jpeg', 2, 7, 5, '2021-10-28 09:15:30', 1);
 INSERT INTO `report` (`id`, `comment`, `image`, `beach_id`, `user_id`, `rating`, `created`, `enabled`) VALUES (3, 'We saw dolphins today! So exciting!', 'https://i.pinimg.com/736x/a1/7f/84/a17f84f2ad01a9df3971e3f2f24ef8a9--jupiter-florida-dolphins.jpg', 8, 5, 5, '2021-10-25 13:47:02', 1);
+INSERT INTO `report` (`id`, `comment`, `image`, `beach_id`, `user_id`, `rating`, `created`, `enabled`) VALUES (4, 'Flat day, a few rocks but mostly sandy', 'https://lh3.googleusercontent.com/proxy/Dgh1GKQzC81SnrGStbkYpq1OVwAfjOSjSETA25RB3uN8vRp2RHQyle7FoS4LeqO_-NblutUlyL2czf_dxp6mecqTzpdT8W1bN3JArvoUsfb6d-5YMEVgjDADRHhpAtNrSa75ECswkQGm9jy0tz6MrDw', 25, 2, 5, '2021-11-03 16:48:14', 1);
+INSERT INTO `report` (`id`, `comment`, `image`, `beach_id`, `user_id`, `rating`, `created`, `enabled`) VALUES (5, 'Gorgeous beach! One of my favorites!', 'https://i1.wp.com/mauisnorkelstore.com/wp-content/uploads/2013/12/ulua-beach.jpg?ssl=1', 26, 2, 5, '2021-11-03 16:48:14', 1);
 
 COMMIT;
 
@@ -471,12 +473,7 @@ USE `wavesdb`;
 INSERT INTO `weather` (`id`, `weather_type`, `description`, `temperature_celsius`, `created`, `wave_size`, `user_id`, `beach_id`, `enabled`) VALUES (1, 'Sunny and 80! The best kind of day for the beach!', 'no clouds', 80, '2021-10-26 09:14:45', 'Chest Height', 1, 1, 1);
 INSERT INTO `weather` (`id`, `weather_type`, `description`, `temperature_celsius`, `created`, `wave_size`, `user_id`, `beach_id`, `enabled`) VALUES (2, 'Sunny with a few clouds', 'Bluse skies, a couple of puffy white clouds and temps somewhere in the 70s. Its a dream out here', 75, '2021-10-30 11:26:07', 'Chest Height', 5, 2, 1);
 INSERT INTO `weather` (`id`, `weather_type`, `description`, `temperature_celsius`, `created`, `wave_size`, `user_id`, `beach_id`, `enabled`) VALUES (3, 'Rainy', 'Stormy and muggy, not a good day for this beach.', 89, '2021-10-28 09:14:30', 'Overhead', 6, 8, 1);
-INSERT INTO `weather` (`id`, `weather_type`, `description`, `temperature_celsius`, `created`, `wave_size`, `user_id`, `beach_id`, `enabled`) VALUES (4, 'cloudy', ' cdkbchdnk', 90, '2021-10-26 9:14:45', 'Chest Height', 2, 2, 1);
-INSERT INTO `weather` (`id`, `weather_type`, `description`, `temperature_celsius`, `created`, `wave_size`, `user_id`, `beach_id`, `enabled`) VALUES (5, 'windy', ' dclsklk', 80, '2021-10-26 9:14:45', 'Chest Height', 3, 3, 1);
-INSERT INTO `weather` (`id`, `weather_type`, `description`, `temperature_celsius`, `created`, `wave_size`, `user_id`, `beach_id`, `enabled`) VALUES (6, 'sunny but windy', 'dkjvcnkd', 70, '2021-10-26 9:14:45', 'Chest Height', 4, 4, 1);
-INSERT INTO `weather` (`id`, `weather_type`, `description`, `temperature_celsius`, `created`, `wave_size`, `user_id`, `beach_id`, `enabled`) VALUES (7, 'cloudy', ' cdkbchdnk', 90, '2021-10-26 9:14:45', 'Chest Height', 1, 3, 1);
-INSERT INTO `weather` (`id`, `weather_type`, `description`, `temperature_celsius`, `created`, `wave_size`, `user_id`, `beach_id`, `enabled`) VALUES (8, 'windy', ' dclsklk', 80, '2021-10-26 9:14:45', 'Chest Height', 5, 4, 1);
-INSERT INTO `weather` (`id`, `weather_type`, `description`, `temperature_celsius`, `created`, `wave_size`, `user_id`, `beach_id`, `enabled`) VALUES (9, 'sunny but windy', 'dkjvcnkd', 70, '2021-10-26 9:14:45', 'Chest Height', 6, 7, 1);
+INSERT INTO `weather` (`id`, `weather_type`, `description`, `temperature_celsius`, `created`, `wave_size`, `user_id`, `beach_id`, `enabled`) VALUES (4, 'Partially Cloudy', 'Sunny day with a few clouds and the family!', 89, '2021-11-03 16:44:13', 'Head Height', 2, 25, 1);
 
 COMMIT;
 
