@@ -363,9 +363,7 @@ INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip`) VALUES (34, '185
 INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip`) VALUES (35, '200 Santa Monica Pier', 'Santa Monica', 'CA', '90401');
 INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip`) VALUES (36, 'Ocean Front Walk', 'Santa Monica', 'CA', '90401');
 INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip`) VALUES (13, '2188 Marcinski Rd', 'Jupiter', 'FL', '33477');
-INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip`) VALUES (39, NULL, NULL, NULL, NULL);
-INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip`) VALUES (40, NULL, NULL, NULL, NULL);
-INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip`) VALUES (41, NULL, NULL, NULL, NULL);
+INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip`) VALUES (39, 'Ruby Beach', 'Forks', 'WA', '98331');
 
 COMMIT;
 
@@ -428,6 +426,7 @@ INSERT INTO `beach` (`id`, `name`, `description`, `default_image`, `location_id`
 INSERT INTO `beach` (`id`, `name`, `description`, `default_image`, `location_id`, `operational`, `pet_friendly`, `parking_available`, `price_of_admission`, `hours`, `enabled`, `rating`) VALUES (35, 'Ocean Beach', '3.5-mile white sand beach with fire pits & restrooms, a popular spot for flying kites & windsurfing.', 'https://www.nps.gov/goga/getinvolved/images/A_OCBE_150215_ATB_4E.jpg', 34, 1, 'yes', 'yes', '0', '24/7', 1, 4.6);
 INSERT INTO `beach` (`id`, `name`, `description`, `default_image`, `location_id`, `operational`, `pet_friendly`, `parking_available`, `price_of_admission`, `hours`, `enabled`, `rating`) VALUES (36, 'Santa Monica State Beach', 'Maintained by the city, this beach is fringed by a range of businesses & offers many activities.', 'https://www.planetware.com/wpimages/2019/06/california-santa-monica-top-attractions-santa-monica-state-beach.jpg', 35, 1, 'yes', 'yes', '0', '24/7', 1, 4.6);
 INSERT INTO `beach` (`id`, `name`, `description`, `default_image`, `location_id`, `operational`, `pet_friendly`, `parking_available`, `price_of_admission`, `hours`, `enabled`, `rating`) VALUES (37, 'Original Muscle Beach Santa Monica', 'Beach workout area, dating to the 1930s, with popular public bars, rings & ropes over the sand.', 'https://www.stack3d.com/wp-content/uploads/2019/05/muscle-beach.jpg', 36, 1, 'yes', 'yes', '0', '24/7', 1, 4.6);
+INSERT INTO `beach` (`id`, `name`, `description`, `default_image`, `location_id`, `operational`, `pet_friendly`, `parking_available`, `price_of_admission`, `hours`, `enabled`, `rating`) VALUES (38, 'Ruby Beach', 'ust south of where the Hoh River meets the Pacific Ocean, Ruby Beach offers several miles of beach exploration, with unique rock formations and swirling sun-bleached driftwood.', 'https://2traveldads.com/wp-content/uploads/2017/08/Taylor-Family-and-Sea-Stacks-at-Ruby-Beach-Olympic-National-Park-3-1024x769.jpg', 39, 1, 'yes', 'yes', '0', '24/7', 1, 4.8);
 
 COMMIT;
 
@@ -442,6 +441,8 @@ INSERT INTO `report` (`id`, `comment`, `image`, `beach_id`, `user_id`, `rating`,
 INSERT INTO `report` (`id`, `comment`, `image`, `beach_id`, `user_id`, `rating`, `created`, `enabled`) VALUES (3, 'We saw dolphins today! So exciting!', 'https://i.pinimg.com/736x/a1/7f/84/a17f84f2ad01a9df3971e3f2f24ef8a9--jupiter-florida-dolphins.jpg', 8, 5, 5, '2021-10-25 13:47:02', 1);
 INSERT INTO `report` (`id`, `comment`, `image`, `beach_id`, `user_id`, `rating`, `created`, `enabled`) VALUES (4, 'Flat day, a few rocks but mostly sandy', 'https://lh3.googleusercontent.com/proxy/Dgh1GKQzC81SnrGStbkYpq1OVwAfjOSjSETA25RB3uN8vRp2RHQyle7FoS4LeqO_-NblutUlyL2czf_dxp6mecqTzpdT8W1bN3JArvoUsfb6d-5YMEVgjDADRHhpAtNrSa75ECswkQGm9jy0tz6MrDw', 25, 2, 5, '2021-11-03 16:48:14', 1);
 INSERT INTO `report` (`id`, `comment`, `image`, `beach_id`, `user_id`, `rating`, `created`, `enabled`) VALUES (5, 'Gorgeous beach! One of my favorites!', 'https://i1.wp.com/mauisnorkelstore.com/wp-content/uploads/2013/12/ulua-beach.jpg?ssl=1', 26, 2, 5, '2021-11-03 16:48:14', 1);
+INSERT INTO `report` (`id`, `comment`, `image`, `beach_id`, `user_id`, `rating`, `created`, `enabled`) VALUES (6, 'I used to come to Coney Island as a kid in the 60s. Good times', 'https://image.newyork.com.au/wp-content/uploads/2009/10/Coney-Island-in-New-York-300x226.jpeg', 34, 5, 5, '2021-11-03 16:48:14', 1);
+INSERT INTO `report` (`id`, `comment`, `image`, `beach_id`, `user_id`, `rating`, `created`, `enabled`) VALUES (7, 'Great place for hiking, tide pools and whale watching', 'https://images.app.goo.gl/z3MRi1uE5CkamKK36', 38, 4, 5, '2021-11-03 16:48:14', 1);
 
 COMMIT;
 
@@ -474,6 +475,9 @@ INSERT INTO `weather` (`id`, `weather_type`, `description`, `temperature_celsius
 INSERT INTO `weather` (`id`, `weather_type`, `description`, `temperature_celsius`, `created`, `wave_size`, `user_id`, `beach_id`, `enabled`) VALUES (2, 'Sunny with a few clouds', 'Bluse skies, a couple of puffy white clouds and temps somewhere in the 70s. Its a dream out here', 75, '2021-10-30 11:26:07', 'Chest Height', 5, 2, 1);
 INSERT INTO `weather` (`id`, `weather_type`, `description`, `temperature_celsius`, `created`, `wave_size`, `user_id`, `beach_id`, `enabled`) VALUES (3, 'Rainy', 'Stormy and muggy, not a good day for this beach.', 89, '2021-10-28 09:14:30', 'Overhead', 6, 8, 1);
 INSERT INTO `weather` (`id`, `weather_type`, `description`, `temperature_celsius`, `created`, `wave_size`, `user_id`, `beach_id`, `enabled`) VALUES (4, 'Partially Cloudy', 'Sunny day with a few clouds and the family!', 89, '2021-11-03 16:44:13', 'Head Height', 2, 25, 1);
+INSERT INTO `weather` (`id`, `weather_type`, `description`, `temperature_celsius`, `created`, `wave_size`, `user_id`, `beach_id`, `enabled`) VALUES (5, 'Stormy', 'It\'s thunderstorming out here.', 85, '2021-10-24 16:44:13', 'Double Overhead Height', 2, 26, 1);
+INSERT INTO `weather` (`id`, `weather_type`, `description`, `temperature_celsius`, `created`, `wave_size`, `user_id`, `beach_id`, `enabled`) VALUES (6, 'Partly Cloudy and Breezy', 'Now that it\'s fall, it\'s cooling off up here.', 65, '2021-11-03 16:48:14', 'Chest Height', 5, 34, 1);
+INSERT INTO `weather` (`id`, `weather_type`, `description`, `temperature_celsius`, `created`, `wave_size`, `user_id`, `beach_id`, `enabled`) VALUES (7, 'Clear Skies', 'A bit chilly but perfect day for a hike.', 55, '2021-11-03 16:48:14', 'Chest Height', 4, 38, 1);
 
 COMMIT;
 
