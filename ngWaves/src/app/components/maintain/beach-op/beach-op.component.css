@@ -23,7 +23,7 @@ tr:hover {background-color: #01eeff3d;}
   margin-left: 75px;
 }
 table{
-  margin-left: 35px;
+  margin-left: -65px;
 }
 
 .title{
@@ -37,4 +37,6 @@ h3{
 form{
   margin-left: 300px;
 }
-
+p{
+  margin-left: 250px;
+}

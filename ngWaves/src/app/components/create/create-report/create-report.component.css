@@ -7,30 +7,32 @@ th {
   background-color: #202020b6;
   color: white;
 }
-
+table{
+  margin-left: 150px;
+}
 tr:hover {background-color: #01eeff3d;}
 .button{
   margin-left: auto;
   margin-right: auto;
 }
 .reportCentered{
-  margin-left: auto;
-  margin-right: auto;}
+  margin-left: 450px;
+}
 .reportTextCentered{
-  margin-left: auto;
-  margin-right: auto;}
+  margin-left: 50px;
+}
 .weatherCentered{
-  margin-left: auto;
-  margin-right: auto;}
+  margin-left: 350px;
+}
 .weatherTextCentered{
-  margin-left: auto;
-  margin-right: auto;}
+  margin-left: 50px;
+}
 .locationTextCentered{
-  margin-left: auto;
-  margin-right: auto;}
+  margin-left: 50px;
+}
 .locationCentered{
-  margin-left: auto;
-  margin-right: auto;}
+  margin-left: 650px;
+}
 h2{
 margin-left: 60px;
 }
@@ -46,20 +48,17 @@ h1{
                  0px -5px 35px rgba(0, 0, 0, 0.683);
 }
 .beachImage {
-  height: auto;
-  width: 85%;
-
-  align-self:center;
+  width:900px;
+  height:500px;
+  margin-left: 50px;
 }
 
 .beachDescription{
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 350px;
 }
 form{
 /* margin-left: 250px; */
-margin-left: auto;
-  margin-right: auto;
+margin-left: 50px;
 }
 
 .title{
@@ -71,9 +70,11 @@ margin-left: auto;
   z-index: 3;
   color:rgb(255, 149, 0);
   float: right;
-  margin-right: 185px;
+  margin-right: 322px;
+  margin-top: -60px;
   position: relative;
   font-size: 45px;
+  float: right;
 }
 .beachList {
   margin-left: 380px;

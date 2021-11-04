@@ -93,7 +93,7 @@
     <form *ngIf="isLogin" name="WeatherForm" class="form-group"  >
       <h4>Add a Weather Update</h4>
       <div>
-        <textarea cols="31" rows="5" placeholder="Enter A Weather Description" name="description" [(ngModel)]="newWeather.description"></textarea>
+        <textarea cols="31" rows="5" placeholder="Enter A Weather Description..." name="description" [(ngModel)]="newWeather.description"></textarea>
       </div>
       <div>
         <input id="temperature" placeholder="Temperature" size="32" type="text" name="temperature" [(ngModel)]="newWeather.temperatureCelsius">
@@ -151,7 +151,7 @@
   </table>
   <br>
   <form *ngIf="isLogin" name="ReportForm"   class="form-group">
-    <h4>Add a comment</h4>
+    <h4 style="margin-left: 60px;">Add a comment</h4>
     <div>
       <textarea cols="31" rows="5" placeholder="Enter Your Comment Here..." name="comment" [(ngModel)]="newReport.comment"></textarea>
     </div>
