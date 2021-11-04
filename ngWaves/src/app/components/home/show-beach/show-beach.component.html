@@ -35,12 +35,14 @@
 <div id='beachDetails' *ngIf="selected">
   <br>
   <h2>{{selected.name}}</h2>
+  <div class="centerPic">
   <span
   class="bi"
   [ngClass]="isFavorite?'bi-heart-fill':'bi-heart'"
   (click)="toggleFavorite(selected)"
    *ngIf="checkLogin()"></span>
   <img class="beachImage" src="{{selected.defaultImage}}" alt= "{{ selected.name }}">
+</div>
   <br> <br>
   <p class="beachDescription">{{selected.description}}</p>
 
@@ -91,7 +93,7 @@
         </tbody>
       </table>
       <br>
-    <form *ngIf="isLogin" name="WeatherForm" class="form-group"  >
+    <form style="margin-left: 250px;" *ngIf="isLogin" name="WeatherForm" class="form-group"  >
       <h4>Add a Weather Update</h4>
       <div>
         <textarea cols="31" rows="5" placeholder="Enter A Weather Description" name="description" [(ngModel)]="newWeather.description"></textarea>
@@ -153,7 +155,7 @@
   </table>
   <br>
   <form *ngIf="isLogin" name="ReportForm"   class="form-group">
-    <h4>Add a Weather Update</h4>
+    <h4 style="margin-left: 60px;">Add a comment</h4>
     <div>
       <textarea cols="31" rows="5" placeholder="Enter Your Comment Here..." name="comment" [(ngModel)]="newReport.comment"></textarea>
     </div>
