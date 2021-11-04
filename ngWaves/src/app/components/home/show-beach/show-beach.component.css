@@ -13,13 +13,13 @@ tr:hover {background-color: #01eeff3d;}
   margin-left: 75px;
 }
 .reportCentered{
-  margin-left: 40px;
+  margin-left: -60px;
 }
 .reportTextCentered{
   margin-left: 301px;
 }
 .weatherCentered{
-  margin-left: 50px;
+  margin-left: -100px;
 }
 .weatherTextCentered{
   margin-left: 301px;
@@ -45,9 +45,9 @@ h1{
                  0px -5px 35px rgba(0, 0, 0, 0.683);
 }
 .beachImage {
-  height: auto;
-  width: 85%;
-  margin-left: -100px;
+  height: 95%;
+  width: 95%;
+  margin-left: -125px;
   align-self:center;
 }
 .bodyCenter {
@@ -67,7 +67,8 @@ margin-left: 250px;
   z-index: 3;
   color:rgb(255, 149, 0);
   float: right;
-  margin-right: 202px;
+  margin-right: 160px;
+  margin-top: -60px;
   position: relative;
   font-size: 45px;
 }

@@ -1,10 +1,8 @@
 <h1>Top Rated</h1>
-<div class="centerAll">
 <br>
 
 <br>
-<div class="beachList">
-<div id="beachList" *ngIf="! selected">
+<div class="beachLists" id="beachList" *ngIf="! selected">
   <table>
     <thead>
     <tr>
@@ -32,7 +30,6 @@
   </tbody>
   </table>
   </div>
-</div>
 
 
 <div class='selectedBeach' id='beachDetails' *ngIf="selected">
@@ -47,7 +44,7 @@
   <br> <br>
   <p class="beachDescription">{{selected.description}}</p>
 
-  <h2 class="">Location</h2>
+  <h2 class="locationTextCentered">Location</h2>
   <table class="locationCentered">
     <thead>
       <tr>
@@ -64,14 +61,13 @@
       <td>{{selected.location.zip}}</td>
     </tbody>
   </table>
-
+</div>
     <br>
     <br>
 
     <!-- Weather Section -->
     <h2 class="weatherTextCentered">Weather</h2>
-    <div name="weatherForThisBeach">
-      <table class="weatherCentered">
+      <table class="weatherCenter">
         <thead>
           <tr>
             <th>Username</th>
@@ -127,7 +123,6 @@
 
       <button class="button" (click)="addWeather(newWeather)">Submit</button>
     </form>
-  </div>
 
   <br>
   <br>
@@ -156,7 +151,7 @@
   </table>
   <br>
   <form *ngIf="isLogin" name="ReportForm"   class="form-group">
-    <h4>Add a Weather Update</h4>
+    <h4>Add a comment</h4>
     <div>
       <textarea cols="31" rows="5" placeholder="Enter Your Comment Here..." name="comment" [(ngModel)]="newReport.comment"></textarea>
     </div>
@@ -176,7 +171,6 @@
     <button class="button"  (click)="addReport(newReport)">Submit</button>
   </form>
 
-</div>
 
 
 
