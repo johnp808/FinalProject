@@ -1,4 +1,4 @@
-.topHeader{
+h1{
   font-family: 'Luminari', fantasy;
   font-size: 75px;
   text-shadow: 2px 8px 6px rgba(0,0,0,0.2),
@@ -20,11 +20,10 @@ th {
 
 tr:hover {background-color: #01eeff3d;}
 .button{
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 90px;
 }
 .reportCentered{
-  margin-left: 250px;
+  margin-left: 200px;
 }
 .reportTextCentered{
   margin-left: 500px;

@@ -99,7 +99,7 @@
     <form *ngIf="isLogin" name="WeatherForm" class="form-group"  >
       <h4>Add a Weather Update</h4>
       <div>
-        <textarea cols="31" rows="5" placeholder="Enter A Weather Description" name="description" [(ngModel)]="newWeather.description"></textarea>
+        <textarea cols="31" rows="5" placeholder="Enter A Weather Description..." name="description" [(ngModel)]="newWeather.description"></textarea>
       </div>
       <div>
         <input id="temperature" placeholder="Temperature" size="32" type="text" name="temperature" [(ngModel)]="newWeather.temperatureCelsius">

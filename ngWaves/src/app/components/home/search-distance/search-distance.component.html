@@ -1,16 +1,15 @@
-<div class="centerAll">
-  <h1> Waves Beaches</h1>
+  <h1>Search By Zipcode</h1>
 
+<div class="searchBar">
 <form *ngIf="!selected && !(beaches.length>0)">
-  <input type="number" name="zip" placeholder="zip" [(ngModel)]="zip">
-  <button (click)="reloadBeachByDistance()" type="button">Search Nearest Beaches</button>
+  <input type="number" name="zip" [(ngModel)]="zip">
+  <button (click)="reloadBeachByDistance()" type="submit">Search By Zipcode</button>
 </form>
+</div>
 <br>
 <br>
 <br>
 <div id='beachList' *ngIf="!selected && beaches.length>0">
-  <h1 class="title"> Waves Beaches</h1>
-<br>
 <div class="beachList">
 
   <table>
@@ -105,7 +104,7 @@
     <form *ngIf="isLogin" name="WeatherForm" class="form-group"  >
       <h4>Add a Weather Update</h4>
       <div>
-        <textarea cols="31" rows="5" placeholder="Enter A Weather Description" name="description" [(ngModel)]="newWeather.description"></textarea>
+        <textarea cols="31" rows="5" placeholder="Enter A Weather Description..." name="description" [(ngModel)]="newWeather.description"></textarea>
       </div>
       <div>
         <input id="temperature" placeholder="Temperature" size="32" type="text" name="temperature" [(ngModel)]="newWeather.temperatureCelsius">
