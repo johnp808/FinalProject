@@ -1,18 +1,16 @@
+<h1> Waves Beaches</h1>
 <div class="centerAll">
-  <h1> Waves Beaches</h1>
 
-<form *ngIf="!selected && !(beaches.length>0)">
+
+<form id="distance" *ngIf="!selected && !(beaches.length>0)">
   <input type="number" name="zip" placeholder="zip" [(ngModel)]="zip">
   <button (click)="reloadBeachByDistance()" type="button">Search Nearest Beaches</button>
 </form>
 <br>
 <br>
 <br>
+<div class="beachList"></div>
 <div id='beachList' *ngIf="!selected && beaches.length>0">
-  <h1 class="title"> Waves Beaches</h1>
-<br>
-<div class="beachList">
-
   <table>
     <thead>
     <tr>
@@ -40,7 +38,7 @@
   </tbody>
   </table>
   </div>
-</div>
+
 
 
 <div id='beachDetails' *ngIf="selected">
@@ -190,3 +188,4 @@
 
 
 <p *ngIf="!isLogin">Please login to access this!</p>
+</div>

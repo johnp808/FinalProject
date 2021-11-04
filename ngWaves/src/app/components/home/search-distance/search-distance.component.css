@@ -1,3 +1,8 @@
+
+.centerAll{
+  position: relative;
+  margin-left: 300px;
+}
 th, td {
   border-bottom: 1px solid #ddd;
   padding: 15px;
@@ -13,26 +18,28 @@ tr:hover {background-color: #01eeff3d;}
   margin-left: auto;
   margin-right: auto;
 }
+
 .reportCentered{
-  margin-left: auto;
-  margin-right: auto;}
+  margin-left: 40px;
+}
 .reportTextCentered{
-  margin-left: auto;
-  margin-right: auto;}
+  margin-left: 301px;
+}
 .weatherCentered{
-  margin-left: auto;
-  margin-right: auto;}
+  margin-left: 50px;
+}
 .weatherTextCentered{
-  margin-left: auto;
-  margin-right: auto;}
+  margin-left: 301px;
+}
 .locationTextCentered{
-  margin-left: auto;
-  margin-right: auto;}
+  margin-left: 300px;
+}
 .locationCentered{
-  margin-left: auto;
-  margin-right: auto;}
+  margin-left: 180px;
+}
+
 h2{
-margin-left: 60px;
+margin-left: 250px;
 }
 
 p{
@@ -44,6 +51,8 @@ h1{
   font-size: 75px;
   text-shadow: 2px 8px 6px rgba(0,0,0,0.2),
                  0px -5px 35px rgba(0, 0, 0, 0.683);
+  margin-left: 380px;
+  margin-top: 50px;
 }
 .beachImage {
   height: auto;
@@ -57,9 +66,13 @@ h1{
   margin-right: auto;
 }
 form{
-/* margin-left: 250px; */
-margin-left: auto;
+ margin-left: 250px;
   margin-right: auto;
+}
+
+#distance{
+  margin-left: 200px;
+  margin-top: 50px;
 }
 
 .title{
@@ -71,17 +84,21 @@ margin-left: auto;
   z-index: 3;
   color:rgb(255, 149, 0);
   float: right;
-  margin-right: 185px;
+  margin-right: 142px;
   position: relative;
   font-size: 45px;
+margin-top: -45px;
 }
 .beachList {
-  margin-left: 380px;
-  /* margin-right: auto; */
+  margin-left: 180px;
+  margin-right: auto;
 }
 .selections {
 margin-top: -35px;
 padding-bottom: 15px;
+}
+.selectedBeach{
+  margin-left: 170px;
 }
 
 

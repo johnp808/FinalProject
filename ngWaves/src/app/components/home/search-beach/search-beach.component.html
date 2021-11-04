@@ -1,7 +1,7 @@
+<br>
 <h1>Search By Keyword</h1>
 <div class="centerAll">
 <br>
-
 <form *ngIf="!selected && !(beaches.length>0)">
   <input type="text" name="keyword" placeholder="keyword" [(ngModel)]="keyword">
   <button (click)="reloadBeachByKeyword()" type="button">Search By keyword</button>
