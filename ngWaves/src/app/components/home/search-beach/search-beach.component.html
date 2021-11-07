@@ -1,15 +1,15 @@
 <br>
 <h1>Search By Keyword</h1>
-<div class="centerAll">
 <br>
-<form *ngIf="!selected && !(beaches.length>0)">
+
+<form class="searchKeyword" *ngIf="!selected && !(beaches.length>0)">
   <input type="text" name="keyword" placeholder="keyword" [(ngModel)]="keyword">
   <button (click)="reloadBeachByKeyword()" type="button">Search By keyword</button>
 </form>
 <br>
 <br>
 
-<div id='beachList' *ngIf="!selected && beaches.length>0">
+<div class="beachesTable" id='beachList' *ngIf="!selected && beaches.length>0">
   <table>
     <thead>
     <tr>
@@ -37,8 +37,6 @@
   </tbody>
   </table>
   </div>
-</div>
-
 
 <div id='beachDetails' *ngIf="selected">
   <br>
@@ -102,7 +100,7 @@
     <form *ngIf="isLogin" name="WeatherForm" class="form-group"  >
       <h4>Add a Weather Update</h4>
       <div>
-        <textarea cols="31" rows="5" placeholder="Enter A Weather Description" name="description" [(ngModel)]="newWeather.description"></textarea>
+        <textarea cols="31" rows="5" placeholder="Enter A Weather Description..." name="description" [(ngModel)]="newWeather.description"></textarea>
       </div>
       <div>
         <input id="temperature" placeholder="Temperature" size="32" type="text" name="temperature" [(ngModel)]="newWeather.temperatureCelsius">
@@ -161,7 +159,7 @@
   </table>
   <br>
   <form *ngIf="isLogin" name="ReportForm"   class="form-group">
-    <h4>Add a Weather Update</h4>
+    <h4>Add a comment</h4>
     <div>
       <textarea cols="31" rows="5" placeholder="Enter Your Comment Here..." name="comment" [(ngModel)]="newReport.comment"></textarea>
     </div>

@@ -135,7 +135,6 @@ public class BeachServiceImpl implements BeachService {
 	@Override
 	public List<Beach> getBeachesByDistanceAsc(int zip) {
 		List<Beach> all = beachRepo.findAll(); 
-
 		all.sort((b1,b2)->{
 			if(b1.getLocation().getZip()==null || b1.getLocation().getZip().equals("")) {
 				return 1;
@@ -143,9 +142,9 @@ public class BeachServiceImpl implements BeachService {
 			if(b2.getLocation().getZip()==null || b2.getLocation().getZip().equals("")) {
 				return -1;
 			}
-			return Math.abs(zip - Integer.parseInt(b1.getLocation().getZip()))-Math.abs(zip - Integer.parseInt(b2.getLocation().getZip()));
+			return Math.abs(zip - Integer.parseInt(b1.getLocation().getZip()))-
+					Math.abs(zip - Integer.parseInt(b2.getLocation().getZip()));
 		});
-		
 		return all;
 	}
 	

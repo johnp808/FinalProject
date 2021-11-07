@@ -6,7 +6,6 @@ a{
   margin-top: 25px;
   display: flex;
   position: relative;
-  z-index: 9001;
 }
 
 ul{

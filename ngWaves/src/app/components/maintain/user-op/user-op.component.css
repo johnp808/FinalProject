@@ -23,11 +23,13 @@ tr:hover {background-color: #01eeff3d;}
   margin-left: 75px;
 }
 table{
-  margin-left: 72px;
+  margin-left: 10px;
 }
 
 .title{
   margin-left: 150px;
   margin-top: 80px;
 }
-
+p{
+  margin-left: 250px;
+}
